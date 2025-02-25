@@ -1,4 +1,5 @@
 import unittest
+from dotenv import load_dotenv
 import ccxt
 import pandas as pd
 import numpy as np
@@ -6,10 +7,11 @@ import ta
 import time
 from datetime import datetime
 import openai
+import os
 
+load_dotenv()
 # Set your OpenAI API key
-openai.api_key = "YOUR_API_KEY"  # Replace with your actual API key
-
+openai.api_key = os.getenv("CHAT_API")  # Replace with your actual API key
 # -------------------------------
 # Main Trading Bot Code
 # -------------------------------
