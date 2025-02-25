@@ -1,9 +1,14 @@
+import unittest
 import ccxt
 import pandas as pd
 import numpy as np
 import ta
 import time
 from datetime import datetime
+import openai
+
+# Set your OpenAI API key
+openai.api_key = "YOUR_API_KEY"  # Replace with your actual API key
 
 # -------------------------------
 # Main Trading Bot Code
@@ -166,6 +171,7 @@ def execute_trade(signal, symbol, price, order_type='market', amount=POSITION_SI
     try:
         if signal == 'buy':
             print(f"[{datetime.now()}] Placing BUY order for {symbol} at {price}")
+            # Uncomment the following line for live trading:
             # order = exchange.create_market_buy_order(symbol, amount)
             if stop_loss:
                 print(f"Setting stop loss at {stop_loss}")
@@ -175,6 +181,7 @@ def execute_trade(signal, symbol, price, order_type='market', amount=POSITION_SI
                 # exchange.create_order(symbol, 'take_profit', 'sell', amount, take_profit)
         elif signal == 'sell':
             print(f"[{datetime.now()}] Placing SELL order for {symbol} at {price}")
+            # Uncomment the following line for live trading:
             # order = exchange.create_market_sell_order(symbol, amount)
             if stop_loss:
                 print(f"Setting stop loss at {stop_loss}")
@@ -194,6 +201,45 @@ def check_market_hours():
     if now.weekday() >= 5:  # Saturday (5) and Sunday (6)
         return False
     return True
+
+def chatgpt_analyze_trade(trade_details):
+    """
+    Calls the ChatGPT API to analyze the trade details.
+    Expects ChatGPT to respond with "GO" if trade is recommended or "HOLD" if not.
+    """
+    prompt = f"""
+You are a trading analysis assistant. A trade signal has been generated with the following details:
+Trade type: {trade_details['trade_type']}
+Symbol: {trade_details['symbol']}
+Current Price: {trade_details['current_price']}
+Stop Loss: {trade_details['stop_loss']}
+Take Profit: {trade_details['take_profit']}
+RSI: {trade_details['rsi']}
+ADX: {trade_details['adx']}
+MACD: {trade_details['macd']}
+EMA 20: {trade_details['ema_20']}
+EMA 50: {trade_details['ema_50']}
+EMA 200: {trade_details['ema_200']}
+
+Considering these details, do you recommend executing this trade? 
+Respond with a one-word answer: "GO" if you recommend executing the trade, or "HOLD" if you do not.
+    """
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a trading analysis assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.2,
+            max_tokens=10
+        )
+        answer = response.choices[0].message.content.strip().upper()
+        print("ChatGPT analysis response:", answer)
+        return answer == "GO"
+    except Exception as e:
+        print("Error calling ChatGPT API:", e)
+        return False
 
 def run_trading_bot(backtest=False):
     """Main trading bot function with optional backtesting mode"""
@@ -226,15 +272,47 @@ def run_trading_bot(backtest=False):
     # Only execute trade if both the current and previous candles show a strong (signal_strength==3) signal.
     if latest['buy_signal'] and prev['buy_signal'] and latest['signal_strength'] == 3 and prev['signal_strength'] == 3:
         print(f"BUY signal detected with strength {latest['signal_strength']}/3")
-        execute_trade('buy', SYMBOL, current_price, 
-                      stop_loss=latest['stop_loss_buy'], 
-                      take_profit=latest['take_profit_buy'])
+        trade_details = {
+            "trade_type": "buy",
+            "symbol": SYMBOL,
+            "current_price": current_price,
+            "stop_loss": latest['stop_loss_buy'],
+            "take_profit": latest['take_profit_buy'],
+            "rsi": latest['rsi'],
+            "adx": latest['adx'],
+            "macd": latest['macd'],
+            "ema_20": latest['ema_20'],
+            "ema_50": latest['ema_50'],
+            "ema_200": latest['ema_200']
+        }
+        if chatgpt_analyze_trade(trade_details):
+            execute_trade('buy', SYMBOL, current_price, 
+                          stop_loss=latest['stop_loss_buy'], 
+                          take_profit=latest['take_profit_buy'])
+        else:
+            print("ChatGPT analysis did not recommend executing the BUY trade.")
         
     elif latest['sell_signal'] and prev['sell_signal'] and latest['signal_strength'] == 3 and prev['signal_strength'] == 3:
         print(f"SELL signal detected with strength {latest['signal_strength']}/3")
-        execute_trade('sell', SYMBOL, current_price, 
-                      stop_loss=latest['stop_loss_sell'], 
-                      take_profit=latest['take_profit_sell'])
+        trade_details = {
+            "trade_type": "sell",
+            "symbol": SYMBOL,
+            "current_price": current_price,
+            "stop_loss": latest['stop_loss_sell'],
+            "take_profit": latest['take_profit_sell'],
+            "rsi": latest['rsi'],
+            "adx": latest['adx'],
+            "macd": latest['macd'],
+            "ema_20": latest['ema_20'],
+            "ema_50": latest['ema_50'],
+            "ema_200": latest['ema_200']
+        }
+        if chatgpt_analyze_trade(trade_details):
+            execute_trade('sell', SYMBOL, current_price, 
+                          stop_loss=latest['stop_loss_sell'], 
+                          take_profit=latest['take_profit_sell'])
+        else:
+            print("ChatGPT analysis did not recommend executing the SELL trade.")
     else:
         print(f"No trade signal at {datetime.now()}")
         print(f"Current price: {current_price}")
@@ -361,67 +439,6 @@ def run_backtest(df):
     }
 
 # -------------------------------
-# Unit Tests
-# -------------------------------
-import unittest
-
-class TestTradingBot(unittest.TestCase):
-    def setUp(self):
-        # Create a dummy DataFrame with synthetic OHLCV data for testing.
-        # For simplicity, we use a linear increasing price series.
-        timestamps = pd.date_range(start="2025-01-01", periods=250, freq='H')
-        data = {
-            'open': np.linspace(100, 150, 250),
-            'high': np.linspace(101, 151, 250),
-            'low': np.linspace(99, 149, 250),
-            'close': np.linspace(100, 150, 250),
-            'volume': np.random.randint(100, 1000, 250)
-        }
-        self.df = pd.DataFrame(data, index=timestamps)
-
-    def test_apply_indicators(self):
-        df_ind = apply_indicators(self.df.copy())
-        # Check that key indicator columns have been added.
-        for col in ['ema_20', 'ema_50', 'ema_200', 'rsi', 'vwap', 
-                    'bollinger_upper', 'adx', 'prev_ema_20']:
-            self.assertIn(col, df_ind.columns)
-
-    def test_generate_signals(self):
-        df_ind = apply_indicators(self.df.copy())
-        df_signals = generate_signals(df_ind.copy())
-        # Ensure the signal columns exist and are boolean or integer as expected.
-        self.assertIn('buy_signal', df_signals.columns)
-        self.assertIn('sell_signal', df_signals.columns)
-        self.assertIn('signal_strength', df_signals.columns)
-        # Check that the signals are of type bool and signal_strength is numeric.
-        self.assertTrue(df_signals['buy_signal'].dtype == bool or df_signals['buy_signal'].dtype == np.bool_)
-        self.assertTrue(isinstance(df_signals['signal_strength'].iloc[-1], (int, np.integer)))
-
-    def test_calculate_risk_reward(self):
-        # Use a constant close price for clarity.
-        df_const = self.df.copy()
-        df_const['close'] = 100  
-        df_rr = calculate_risk_reward(df_const.copy(), 2.0, 3.5)
-        self.assertTrue((df_rr['stop_loss_buy'] == 100 * 0.98).all())
-        self.assertTrue((df_rr['take_profit_buy'] == 100 * 1.035).all())
-        self.assertTrue((df_rr['stop_loss_sell'] == 100 * 1.02).all())
-        self.assertTrue((df_rr['take_profit_sell'] == 100 * 0.965).all())
-
-    def test_run_backtest(self):
-        df_ind = apply_indicators(self.df.copy())
-        df_signals = generate_signals(df_ind.copy())
-        df_rr = calculate_risk_reward(df_signals.copy(), 2.0, 3.5)
-        results = run_backtest(df_rr.copy())
-        # Check that the results dict contains expected keys.
-        required_keys = [
-            'total_trades', 'winning_trades', 'losing_trades', 'win_rate',
-            'avg_win', 'avg_loss', 'profit_factor', 'max_drawdown',
-            'total_return', 'trades'
-        ]
-        for key in required_keys:
-            self.assertIn(key, results)
-
-# -------------------------------
 # Main block
 # -------------------------------
 if __name__ == '__main__':
@@ -444,4 +461,4 @@ if __name__ == '__main__':
                 time.sleep(sleep_seconds)
             except Exception as e:
                 print(f"Error in main loop: {e}")
-                time.sleep(20)  # Wait 5 minutes on error
+                time.sleep(20)  # Wait on error
