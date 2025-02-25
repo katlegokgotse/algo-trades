@@ -1,0 +1,21 @@
+2025-02-25 21:23:32,890 - trading_bot - INFO - Running backtest to validate strategy...
+2025-02-25 21:23:32,891 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:23:32,891 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:23:38,007 - trading_bot - INFO - Backtest results:
+2025-02-25 21:23:38,010 - trading_bot - INFO - {'total_trades': 0, 'winning_trades': 0, 'losing_trades': 0, 'win_rate': 0, 'avg_win': 0, 'avg_loss': 0, 'profit_factor': inf, 'max_drawdown': 0, 'total_return': np.float64(0.0), 'trades': []}
+2025-02-25 21:23:38,013 - trading_bot - INFO - Backtest completed. Starting continuous live trading...
+2025-02-25 21:23:38,015 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:23:38,016 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:23:38,655 - trading_bot - ERROR - Error in main loop: name 'check_market_hours' is not defined
+2025-02-25 21:23:58,661 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:23:58,661 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:23:59,206 - trading_bot - ERROR - Error in main loop: name 'check_market_hours' is not defined
+2025-02-25 21:24:19,209 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:24:19,210 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:24:19,735 - trading_bot - ERROR - Error in main loop: name 'check_market_hours' is not defined
+2025-02-25 21:24:39,740 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:24:39,740 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:24:40,291 - trading_bot - ERROR - Error in main loop: name 'check_market_hours' is not defined
+2025-02-25 21:25:00,293 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:25:00,293 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:25:00,916 - trading_bot - ERROR - Error in main loop: name 'check_market_hours' is not defined
