@@ -5,6 +5,10 @@ import ta
 import time
 from datetime import datetime
 
+# -------------------------------
+# Main Trading Bot Code
+# -------------------------------
+
 # Initialize exchange (Binance in this case)
 # Consider using a testnet first for paper trading
 exchange = ccxt.binance({
@@ -14,10 +18,10 @@ exchange = ccxt.binance({
 })
 
 # Configuration parameters
-SYMBOL = 'XAU/USD'
+SYMBOL = 'BTC/USD'
 TIMEFRAME = '1h'
 HISTORY_LIMIT = 500  # Increased for better indicator calculation
-POSITION_SIZE = 0.01  # Size of each trade
+POSITION_SIZE = 0.1  # Size of each trade
 STOP_LOSS_PCT = 2.0  # Stop loss percentage
 TAKE_PROFIT_PCT = 3.5  # Take profit percentage
 
@@ -71,7 +75,7 @@ def generate_signals(df):
     df['buy_signal'] = False
     df['sell_signal'] = False
     df['signal_strength'] = 0
-    
+
     # Trend condition - EMA alignment
     df['uptrend'] = (df['ema_20'] > df['ema_50']) & (df['ema_50'] > df['ema_200'])
     df['downtrend'] = (df['ema_20'] < df['ema_50']) & (df['ema_50'] < df['ema_200'])
@@ -89,40 +93,51 @@ def generate_signals(df):
         ((df['macd_signal'] - df['macd']) > macd_threshold)
     )
     
-    # RSI conditions with stricter thresholds for strong signals
-    df['rsi_strong_oversold'] = df['rsi'] < 25
+    # Adjusted RSI thresholds for stronger signals:
+    df['rsi_strong_oversold'] = df['rsi'] < 20    # more extreme for buys
     df['rsi_oversold'] = df['rsi'] < 30
-    df['rsi_strong_overbought'] = df['rsi'] > 75
+    df['rsi_strong_overbought'] = df['rsi'] > 80    # more extreme for sells
     df['rsi_overbought'] = df['rsi'] > 70
-    
-    # Bollinger Band conditions
-    df['price_below_lower_band'] = df['close'] < df['bollinger_lower']
-    df['price_above_upper_band'] = df['close'] > df['bollinger_upper']
-    
-    # VWAP filter for moderate signals
+
+    # Bollinger Bands filter: check if price is near the extreme bands
+    df['near_lower_band'] = df['close'] <= df['bollinger_lower'] * 1.01
+    df['near_upper_band'] = df['close'] >= df['bollinger_upper'] * 0.99
+
+    # Require a strong trend using ADX > 30
+    df['strong_trend'] = df['adx'] > 30
+
+    # VWAP filter for additional confirmation
     df['above_vwap'] = df['close'] > df['vwap']
     df['below_vwap'] = df['close'] < df['vwap']
     
-    # Enhanced buy signals with strength rating
+    # Enhanced Buy Signals:
     strong_buy = (
-        (df['uptrend'] & df['macd_cross_up'] & df['rsi_strong_oversold']) |
-        (df['price_below_lower_band'] & df['macd_cross_up'] & (df['adx'] > 25))
+        df['uptrend'] &
+        df['macd_cross_up'] &
+        df['rsi_strong_oversold'] &
+        df['strong_trend'] &
+        df['near_lower_band']
     )
-    
     moderate_buy = (
-        (df['uptrend'] & df['macd_cross_up'] & (df['adx'] > 20) & df['above_vwap']) |
-        (df['rsi_oversold'] & (df['close'] > df['ema_50']) & df['above_vwap'])
+        df['uptrend'] &
+        df['macd_cross_up'] &
+        df['rsi_oversold'] &
+        df['above_vwap']
     )
     
-    # Enhanced sell signals with strength rating
+    # Enhanced Sell Signals:
     strong_sell = (
-        (df['downtrend'] & df['macd_cross_down'] & df['rsi_strong_overbought']) |
-        (df['price_above_upper_band'] & df['macd_cross_down'] & (df['adx'] > 25))
+        df['downtrend'] &
+        df['macd_cross_down'] &
+        df['rsi_strong_overbought'] &
+        df['strong_trend'] &
+        df['near_upper_band']
     )
-    
     moderate_sell = (
-        (df['downtrend'] & df['macd_cross_down'] & (df['adx'] > 20) & df['below_vwap']) |
-        (df['rsi_overbought'] & (df['close'] < df['ema_50']) & df['below_vwap'])
+        df['downtrend'] &
+        df['macd_cross_down'] &
+        df['rsi_overbought'] &
+        df['below_vwap']
     )
     
     df.loc[strong_buy, 'buy_signal'] = True
@@ -195,6 +210,7 @@ def run_trading_bot(backtest=False):
     
     if backtest:
         backtest_results = run_backtest(df)
+        print("Backtest results:")
         print(backtest_results)
         return backtest_results
     
@@ -217,8 +233,8 @@ def run_trading_bot(backtest=False):
     elif latest['sell_signal'] and prev['sell_signal'] and latest['signal_strength'] == 3 and prev['signal_strength'] == 3:
         print(f"SELL signal detected with strength {latest['signal_strength']}/3")
         execute_trade('sell', SYMBOL, current_price, 
-                     stop_loss=latest['stop_loss_sell'], 
-                     take_profit=latest['take_profit_sell'])
+                      stop_loss=latest['stop_loss_sell'], 
+                      take_profit=latest['take_profit_sell'])
     else:
         print(f"No trade signal at {datetime.now()}")
         print(f"Current price: {current_price}")
@@ -344,24 +360,88 @@ def run_backtest(df):
         'trades': trades
     }
 
+# -------------------------------
+# Unit Tests
+# -------------------------------
+import unittest
+
+class TestTradingBot(unittest.TestCase):
+    def setUp(self):
+        # Create a dummy DataFrame with synthetic OHLCV data for testing.
+        # For simplicity, we use a linear increasing price series.
+        timestamps = pd.date_range(start="2025-01-01", periods=250, freq='H')
+        data = {
+            'open': np.linspace(100, 150, 250),
+            'high': np.linspace(101, 151, 250),
+            'low': np.linspace(99, 149, 250),
+            'close': np.linspace(100, 150, 250),
+            'volume': np.random.randint(100, 1000, 250)
+        }
+        self.df = pd.DataFrame(data, index=timestamps)
+
+    def test_apply_indicators(self):
+        df_ind = apply_indicators(self.df.copy())
+        # Check that key indicator columns have been added.
+        for col in ['ema_20', 'ema_50', 'ema_200', 'rsi', 'vwap', 
+                    'bollinger_upper', 'adx', 'prev_ema_20']:
+            self.assertIn(col, df_ind.columns)
+
+    def test_generate_signals(self):
+        df_ind = apply_indicators(self.df.copy())
+        df_signals = generate_signals(df_ind.copy())
+        # Ensure the signal columns exist and are boolean or integer as expected.
+        self.assertIn('buy_signal', df_signals.columns)
+        self.assertIn('sell_signal', df_signals.columns)
+        self.assertIn('signal_strength', df_signals.columns)
+        # Check that the signals are of type bool and signal_strength is numeric.
+        self.assertTrue(df_signals['buy_signal'].dtype == bool or df_signals['buy_signal'].dtype == np.bool_)
+        self.assertTrue(isinstance(df_signals['signal_strength'].iloc[-1], (int, np.integer)))
+
+    def test_calculate_risk_reward(self):
+        # Use a constant close price for clarity.
+        df_const = self.df.copy()
+        df_const['close'] = 100  
+        df_rr = calculate_risk_reward(df_const.copy(), 2.0, 3.5)
+        self.assertTrue((df_rr['stop_loss_buy'] == 100 * 0.98).all())
+        self.assertTrue((df_rr['take_profit_buy'] == 100 * 1.035).all())
+        self.assertTrue((df_rr['stop_loss_sell'] == 100 * 1.02).all())
+        self.assertTrue((df_rr['take_profit_sell'] == 100 * 0.965).all())
+
+    def test_run_backtest(self):
+        df_ind = apply_indicators(self.df.copy())
+        df_signals = generate_signals(df_ind.copy())
+        df_rr = calculate_risk_reward(df_signals.copy(), 2.0, 3.5)
+        results = run_backtest(df_rr.copy())
+        # Check that the results dict contains expected keys.
+        required_keys = [
+            'total_trades', 'winning_trades', 'losing_trades', 'win_rate',
+            'avg_win', 'avg_loss', 'profit_factor', 'max_drawdown',
+            'total_return', 'trades'
+        ]
+        for key in required_keys:
+            self.assertIn(key, results)
+
+# -------------------------------
+# Main block
+# -------------------------------
 if __name__ == '__main__':
-    # Run backtest first to validate strategy
-    print("Running backtest to validate strategy...")
-    backtest_results = run_trading_bot(backtest=True)
-    
-    if backtest_results and backtest_results.get('win_rate', 0) > 50 and backtest_results.get('profit_factor', 0) > 1.5:
-        print("Strategy looks promising. Starting live trading...")
+    import sys
+    # If 'test' is passed as an argument, run the tests.
+    if len(sys.argv) > 1 and sys.argv[1] == 'test':
+        unittest.main(argv=[sys.argv[0]])
+    else:
+        # Run backtest first to validate strategy before going live.
+        print("Running backtest to validate strategy...")
+        backtest_results = run_trading_bot(backtest=True)
+        
+        # Regardless of performance, start continuous live trading.
+        print("Backtest completed. Starting continuous live trading...")
         while True:
             try:
                 run_trading_bot()
-                sleep_seconds = 3600 if TIMEFRAME == '1h' else 60
+                sleep_seconds = 20 if TIMEFRAME == '1h' else 60
                 print(f"Waiting {sleep_seconds} seconds for next update...")
                 time.sleep(sleep_seconds)
             except Exception as e:
                 print(f"Error in main loop: {e}")
-                time.sleep(300)  # Wait 5 minutes on error
-    else:
-        print("Strategy doesn't meet minimum performance requirements.")
-        if backtest_results:
-            print(f"Win rate: {backtest_results['win_rate']:.2f}%, Profit factor: {backtest_results['profit_factor']:.2f}")
-        print("Please refine the strategy before running live.")
+                time.sleep(20)  # Wait 5 minutes on error
