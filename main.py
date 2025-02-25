@@ -1,4 +1,5 @@
 import unittest
+from trade import Trade
 from dotenv import load_dotenv
 import ccxt
 import pandas as pd
@@ -31,7 +32,7 @@ load_dotenv()
 openai.api_key = os.getenv("CHAT_API")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-
+FIB_LEVELS = [0, 0.236, 0.382, 0.5, 0.618, 0.786, 1]
 # -------------------------------
 # Main Trading Bot Code
 # -------------------------------
@@ -64,61 +65,6 @@ trade_history = []
 # Create directories for saving data and charts
 os.makedirs('data', exist_ok=True)
 os.makedirs('charts', exist_ok=True)
-
-class Trade:
-    """Class to track individual trades"""
-    def __init__(self, trade_id, symbol, side, entry_price, quantity, 
-                 stop_loss, take_profit, timestamp, indicators=None):
-        self.trade_id = trade_id
-        self.symbol = symbol
-        self.side = side
-        self.entry_price = entry_price
-        self.quantity = quantity
-        self.stop_loss = stop_loss
-        self.take_profit = take_profit
-        self.entry_time = timestamp
-        self.exit_time = None
-        self.exit_price = None
-        self.pnl = None
-        self.pnl_percent = None
-        self.status = "OPEN"
-        self.exit_reason = None
-        self.indicators = indicators or {}
-    
-    def close_trade(self, exit_price, exit_time, exit_reason):
-        self.exit_price = exit_price
-        self.exit_time = exit_time
-        self.exit_reason = exit_reason
-        self.status = "CLOSED"
-        
-        # Calculate PnL
-        if self.side == 'buy':
-            self.pnl = (exit_price - self.entry_price) * self.quantity
-            self.pnl_percent = ((exit_price / self.entry_price) - 1) * 100
-        else:  # sell
-            self.pnl = (self.entry_price - exit_price) * self.quantity
-            self.pnl_percent = ((self.entry_price / exit_price) - 1) * 100
-        
-        return self.pnl
-    
-    def to_dict(self):
-        return {
-            'trade_id': self.trade_id,
-            'symbol': self.symbol,
-            'side': self.side,
-            'entry_price': self.entry_price,
-            'quantity': self.quantity,
-            'stop_loss': self.stop_loss,
-            'take_profit': self.take_profit,
-            'entry_time': self.entry_time.isoformat() if isinstance(self.entry_time, datetime) else self.entry_time,
-            'exit_time': self.exit_time.isoformat() if isinstance(self.exit_time, datetime) and self.exit_time else None,
-            'exit_price': self.exit_price,
-            'pnl': self.pnl,
-            'pnl_percent': self.pnl_percent,
-            'status': self.status,
-            'exit_reason': self.exit_reason,
-            'indicators': self.indicators
-        }
 
 def send_telegram_message(message):
     """Send message via Telegram"""
@@ -221,7 +167,7 @@ def apply_indicators(df):
         df['prev_macd_signal'] = df['macd_signal'].shift(1)
         df['prev_stoch_k'] = df['stoch_k'].shift(1)
         df['prev_stoch_d'] = df['stoch_d'].shift(1)
-        
+        calc_fibonacci_levels(df)
         # Market regime and volatility state
         df['high_volatility'] = df['atr'] > df['atr'].rolling(30).mean() * 1.5
         
@@ -229,6 +175,40 @@ def apply_indicators(df):
     except Exception as e:
         logger.error(f"Error applying indicators: {e}")
         raise
+def calc_fibonacci_levels(df, lookback=60):
+    """
+    Calculate Fibonacci retracement levels for both uptrend and downtrend
+    Looking back 'lookback' periods to find swing high and swing low
+    """
+    df['fib_trend'] = 'neutral'  # Initialize with neutral
+    
+    # For each row, look back 'lookback' periods to detect trends and calculate Fibonacci levels
+    for i in range(lookback, len(df)):
+        # Extract the section we're analyzing
+        section = df.iloc[i-lookback:i]
+        
+        # Find the highest high and lowest low in this section
+        highest_high = section['high'].max()
+        lowest_low = section['low'].min()
+        highest_idx = section['high'].idxmax()
+        lowest_idx = section['low'].idxmin()
+        
+        # Determine if we're in an uptrend or downtrend
+        if highest_idx > lowest_idx:  # If highest price came after lowest, we're in an uptrend
+            # Calculate Fibonacci retracement levels for uptrend
+            diff = highest_high - lowest_low
+            df.loc[df.index[i], 'fib_trend'] = 'uptrend'
+            for level in FIB_LEVELS:
+                df.loc[df.index[i], f'fib_{str(level).replace(".", "_")}'] = highest_high - (diff * level)
+        else:  # Downtrend
+            # Calculate Fibonacci retracement levels for downtrend
+            diff = highest_high - lowest_low
+            df.loc[df.index[i], 'fib_trend'] = 'downtrend'
+            for level in FIB_LEVELS:
+                df.loc[df.index[i], f'fib_{str(level).replace(".", "_")}'] = lowest_low + (diff * level)
+    
+    return df
+
 def check_market_hours():
     """Check if the gold market is likely to be open and active.
     Gold typically follows Forex hours with reduced weekend activity."""
@@ -243,7 +223,7 @@ def generate_signals(df):
     df['buy_signal'] = False
     df['sell_signal'] = False
     df['signal_strength'] = 0
-
+    buffer = 0.005
     # Trend condition - EMA alignment
     df['uptrend'] = (df['ema_20'] > df['ema_50']) & (df['ema_50'] > df['ema_200'])
     df['downtrend'] = (df['ema_20'] < df['ema_50']) & (df['ema_50'] < df['ema_200'])
@@ -284,7 +264,32 @@ def generate_signals(df):
     
     # Volume spike detection
     df['volume_spike'] = df['volume'] > df['volume'].rolling(20).mean() * 1.5
-    
+
+    # Fibonacci
+    df['at_fib_support'] = False
+    df['at_fib_resistance'] = False
+    for i in range(len(df)):
+        row = df.iloc[i]
+        
+        # Skip rows without Fibonacci data
+        if 'fib_0' not in row or pd.isna(row['fib_0']):
+            continue
+            
+        current_price = row['close']
+        
+        # Check each Fibonacci level
+        for level in FIB_LEVELS:
+            level_str = f'fib_{str(level).replace(".", "_")}'
+            if level_str in row and not pd.isna(row[level_str]):
+                fib_level = row[level_str]
+                
+                # In uptrend, Fibonacci levels act as support
+                if row['fib_trend'] == 'uptrend' and current_price >= fib_level * (1-buffer) and current_price <= fib_level * (1+buffer):
+                    df.loc[df.index[i], 'at_fib_support'] = True
+                
+                # In downtrend, Fibonacci levels act as resistance
+                elif row['fib_trend'] == 'downtrend' and current_price >= fib_level * (1-buffer) and current_price <= fib_level * (1+buffer):
+                    df.loc[df.index[i], 'at_fib_resistance'] = True
     # Enhanced Buy Signals:
     strong_buy = (
         df['uptrend'] &
@@ -292,7 +297,8 @@ def generate_signals(df):
         (df['rsi_strong_oversold'] | (df['rsi_oversold'] & df['stoch_cross_up'])) &
         df['strong_trend'] &
         df['near_lower_band'] &
-        df['volume_spike']
+        df['volume_spike'] & 
+        df['at_fib_support'] 
     )
     moderate_buy = (
         df['uptrend'] &
@@ -309,7 +315,8 @@ def generate_signals(df):
         (df['rsi_strong_overbought'] | (df['rsi_overbought'] & df['stoch_cross_down'])) &
         df['strong_trend'] &
         df['near_upper_band'] &
-        df['volume_spike']
+        df['volume_spike'] & 
+        df['at_fib_support'] 
     )
     moderate_sell = (
         df['downtrend'] &
@@ -357,6 +364,36 @@ def calculate_risk_reward(df, stop_loss_pct, take_profit_pct):
     df['take_profit_buy'] = df[['take_profit_buy_pct', 'take_profit_buy_atr']].min(axis=1)
     df['stop_loss_sell'] = df[['stop_loss_sell_pct', 'stop_loss_sell_atr']].min(axis=1)
     df['take_profit_sell'] = df[['take_profit_sell_pct', 'take_profit_sell_atr']].max(axis=1)
+
+     # Adjust stop loss and take profit based on Fibonacci levels when possible
+    for i in range(len(df)):
+        row = df.iloc[i]
+        if 'fib_0' not in row or pd.isna(row['fib_0']):
+            continue
+        
+        # For buy signals in uptrend, use appropriate Fibonacci levels for stops and targets
+        if row['buy_signal'] and row['fib_trend'] == 'uptrend':
+            # Use 0.236 Fib level as stop loss if it's reasonable
+            if not pd.isna(row['fib_0_236']) and row['fib_0_236'] < row['close'] and row['fib_0_236'] > row['close'] * (1 - (stop_loss_pct * 1.5)/100):
+                df.loc[df.index[i], 'stop_loss_buy'] = row['fib_0_236']
+            
+            # Use 0.618 or 0.786 Fib level as take profit if it's reasonable
+            if not pd.isna(row['fib_0_618']) and row['fib_0_618'] > row['close'] and row['fib_0_618'] < row['close'] * (1 + (take_profit_pct * 1.5)/100):
+                df.loc[df.index[i], 'take_profit_buy'] = row['fib_0_618']
+            elif not pd.isna(row['fib_0_786']) and row['fib_0_786'] > row['close'] and row['fib_0_786'] < row['close'] * (1 + (take_profit_pct * 2)/100):
+                df.loc[df.index[i], 'take_profit_buy'] = row['fib_0_786']
+                
+        # For sell signals in downtrend, use appropriate Fibonacci levels for stops and targets
+        elif row['sell_signal'] and row['fib_trend'] == 'downtrend':
+            # Use 0.236 Fib level as stop loss if it's reasonable
+            if not pd.isna(row['fib_0_236']) and row['fib_0_236'] > row['close'] and row['fib_0_236'] < row['close'] * (1 + (stop_loss_pct * 1.5)/100):
+                df.loc[df.index[i], 'stop_loss_sell'] = row['fib_0_236']
+            
+            # Use 0.618 or 0.786 Fib level as take profit if it's reasonable
+            if not pd.isna(row['fib_0_618']) and row['fib_0_618'] < row['close'] and row['fib_0_618'] > row['close'] * (1 - (take_profit_pct * 1.5)/100):
+                df.loc[df.index[i], 'take_profit_sell'] = row['fib_0_618']
+            elif not pd.isna(row['fib_0_786']) and row['fib_0_786'] < row['close'] and row['fib_0_786'] > row['close'] * (1 - (take_profit_pct * 2)/100):
+                df.loc[df.index[i], 'take_profit_sell'] = row['fib_0_786']
     
     return df
 
@@ -504,6 +541,9 @@ MACD: {trade_details['macd']}
 EMA 20: {trade_details['ema_20']}
 EMA 50: {trade_details['ema_50']}
 EMA 200: {trade_details['ema_200']}
+Fibonacci Support: {trade_details.get('fib_support', 'N/A')}
+Fibonacci Resistance: {trade_details.get('fib_resistance', 'N/A')}
+Fibonacci Trend: {trade_details.get('fib_trend', 'N/A')}
 
 Based on these details, do you recommend executing this trade? 
 Respond with a one-word answer: "GO" to execute, or "HOLD" to skip.
@@ -664,7 +704,9 @@ def run_trading_bot(backtest=False):
             "macd": latest['macd'],
             "ema_20": latest['ema_20'],
             "ema_50": latest['ema_50'],
-            "ema_200": latest['ema_200']
+            "ema_200": latest['ema_200'],
+            "fib_support": fib_support,
+            "fib_trend": latest.get('fib_trend', 'N/A')
         }
         if chatgpt_analyze_trade(trade_details):
             execute_trade_order('buy', SYMBOL, current_price, stop_loss=latest['stop_loss_buy'], take_profit=latest['take_profit_buy'], indicators=trade_details)
@@ -683,7 +725,9 @@ def run_trading_bot(backtest=False):
             "macd": latest['macd'],
             "ema_20": latest['ema_20'],
             "ema_50": latest['ema_50'],
-            "ema_200": latest['ema_200']
+            "ema_200": latest['ema_200'],
+            "fib_resistance": fib_resistance,
+            "fib_trend": latest.get('fib_trend', 'N/A')
         }
         if chatgpt_analyze_trade(trade_details):
             execute_trade_order('sell', SYMBOL, current_price, stop_loss=latest['stop_loss_sell'], take_profit=latest['take_profit_sell'], indicators=trade_details)
@@ -693,6 +737,12 @@ def run_trading_bot(backtest=False):
         logger.info(f"No trade signal at {datetime.now()}")
         logger.info(f"Current price: {current_price}")
         logger.info(f"RSI: {latest['rsi']:.2f}, ADX: {latest['adx']:.2f}, MACD: {latest['macd']:.6f}")
+        if 'fib_trend' in latest and not pd.isna(latest['fib_trend']):
+            print(f"Fibonacci trend: {latest['fib_trend']}")
+            for level in FIB_LEVELS:
+                level_str = f'fib_{str(level).replace(".", "_")}'
+                if level_str in latest and not pd.isna(latest[level_str]):
+                    print(f"Fib {level}: {latest[level_str]:.2f}")
 
 def run_backtest(df):
     """Simple backtest functionality to evaluate strategy performance"""
