@@ -48,14 +48,14 @@ exchange = ccxt.binance({
 
 # Configuration parameters
 SYMBOL = 'BTC/USDT'  # Use the proper symbol format for Binance futures
-TIMEFRAME = '15m'
+TIMEFRAME = '4h'
 HISTORY_LIMIT = 500  # Number of candles to fetch
 POSITION_SIZE = 0.01  # Size of each trade in BTC (smaller for safety)
 STOP_LOSS_PCT = 2.0  # Stop loss percentage
 TAKE_PROFIT_PCT = 3.5  # Take profit percentage
 MAX_TRADES = 3  # Maximum concurrent trades
 DRY_RUN = True  # Set to False to enable real trading
-ENABLE_TELEGRAM = False  # Set to True to enable Telegram notifications
+ENABLE_TELEGRAM = True  # Set to True to enable Telegram notifications
 
 # Trade tracking
 active_trades = {}
@@ -825,7 +825,7 @@ if __name__ == '__main__':
         while True:
             try:
                 run_trading_bot()
-                sleep_seconds = 20 if TIMEFRAME == '15m' else 60
+                sleep_seconds = 3600 if TIMEFRAME == '4h' else 60
                 logger.info(f"Waiting {sleep_seconds} seconds for next update...")
                 time.sleep(sleep_seconds)
             except Exception as e:

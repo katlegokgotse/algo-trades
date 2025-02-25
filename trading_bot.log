@@ -19,3 +19,170 @@
 2025-02-25 21:25:00,293 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
 2025-02-25 21:25:00,293 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
 2025-02-25 21:25:00,916 - trading_bot - ERROR - Error in main loop: name 'check_market_hours' is not defined
+2025-02-25 21:25:29,720 - trading_bot - INFO - Running backtest to validate strategy...
+2025-02-25 21:25:29,720 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:25:29,720 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:25:35,110 - trading_bot - INFO - Backtest results:
+2025-02-25 21:25:35,110 - trading_bot - INFO - {'total_trades': 0, 'winning_trades': 0, 'losing_trades': 0, 'win_rate': 0, 'avg_win': 0, 'avg_loss': 0, 'profit_factor': inf, 'max_drawdown': 0, 'total_return': np.float64(0.0), 'trades': []}
+2025-02-25 21:25:35,110 - trading_bot - INFO - Backtest completed. Starting continuous live trading...
+2025-02-25 21:25:35,110 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:25:35,110 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:25:35,620 - trading_bot - INFO - No trade signal at 2025-02-25 21:25:35.620719
+2025-02-25 21:25:35,620 - trading_bot - INFO - Current price: 86641.2
+2025-02-25 21:25:35,620 - trading_bot - INFO - RSI: 38.94, ADX: 33.85, MACD: -437.628695
+2025-02-25 21:25:35,620 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:25:55,625 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:25:55,625 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:25:56,386 - trading_bot - INFO - No trade signal at 2025-02-25 21:25:56.386051
+2025-02-25 21:25:56,386 - trading_bot - INFO - Current price: 86766.6
+2025-02-25 21:25:56,386 - trading_bot - INFO - RSI: 40.47, ADX: 33.85, MACD: -427.625276
+2025-02-25 21:25:56,386 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:26:16,389 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:26:16,389 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:26:17,130 - trading_bot - INFO - No trade signal at 2025-02-25 21:26:17.130800
+2025-02-25 21:26:17,130 - trading_bot - INFO - Current price: 86661.7
+2025-02-25 21:26:17,130 - trading_bot - INFO - RSI: 39.12, ADX: 33.85, MACD: -435.993367
+2025-02-25 21:26:17,130 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:26:37,141 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:26:37,142 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:26:37,767 - trading_bot - INFO - No trade signal at 2025-02-25 21:26:37.767047
+2025-02-25 21:26:37,767 - trading_bot - INFO - Current price: 86696.4
+2025-02-25 21:26:37,767 - trading_bot - INFO - RSI: 39.54, ADX: 33.85, MACD: -433.225276
+2025-02-25 21:26:37,767 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:26:57,771 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:26:57,771 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:26:58,306 - trading_bot - INFO - No trade signal at 2025-02-25 21:26:58.306971
+2025-02-25 21:26:58,306 - trading_bot - INFO - Current price: 86641.8
+2025-02-25 21:26:58,306 - trading_bot - INFO - RSI: 38.95, ADX: 33.85, MACD: -437.580831
+2025-02-25 21:26:58,306 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:27:18,310 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:27:18,310 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:27:18,998 - trading_bot - INFO - No trade signal at 2025-02-25 21:27:18.998879
+2025-02-25 21:27:18,998 - trading_bot - INFO - Current price: 86665.7
+2025-02-25 21:27:18,998 - trading_bot - INFO - RSI: 39.16, ADX: 33.85, MACD: -435.674279
+2025-02-25 21:27:18,998 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:27:39,005 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:27:39,005 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:27:39,612 - trading_bot - INFO - No trade signal at 2025-02-25 21:27:39.612448
+2025-02-25 21:27:39,612 - trading_bot - INFO - Current price: 86634.9
+2025-02-25 21:27:39,612 - trading_bot - INFO - RSI: 38.89, ADX: 33.85, MACD: -438.131259
+2025-02-25 21:27:39,612 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:27:59,622 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:27:59,622 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:28:00,437 - trading_bot - INFO - No trade signal at 2025-02-25 21:28:00.437290
+2025-02-25 21:28:00,437 - trading_bot - INFO - Current price: 86762.7
+2025-02-25 21:28:00,437 - trading_bot - INFO - RSI: 40.42, ADX: 33.85, MACD: -427.936387
+2025-02-25 21:28:00,437 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:28:20,445 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:28:20,445 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:28:21,074 - trading_bot - INFO - No trade signal at 2025-02-25 21:28:21.074416
+2025-02-25 21:28:21,074 - trading_bot - INFO - Current price: 86709.6
+2025-02-25 21:28:21,074 - trading_bot - INFO - RSI: 39.72, ADX: 33.85, MACD: -432.172284
+2025-02-25 21:28:21,074 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:28:41,085 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:28:41,085 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:28:41,594 - trading_bot - INFO - No trade signal at 2025-02-25 21:28:41.594262
+2025-02-25 21:28:41,594 - trading_bot - INFO - Current price: 86756.3
+2025-02-25 21:28:41,594 - trading_bot - INFO - RSI: 40.33, ADX: 33.85, MACD: -428.446928
+2025-02-25 21:28:41,594 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:29:01,599 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:29:01,599 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:29:02,168 - trading_bot - INFO - No trade signal at 2025-02-25 21:29:02.168301
+2025-02-25 21:29:02,168 - trading_bot - INFO - Current price: 86815.0
+2025-02-25 21:29:02,173 - trading_bot - INFO - RSI: 41.09, ADX: 33.85, MACD: -423.764307
+2025-02-25 21:29:02,173 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:29:22,182 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:29:22,184 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:29:22,826 - trading_bot - INFO - No trade signal at 2025-02-25 21:29:22.826452
+2025-02-25 21:29:22,826 - trading_bot - INFO - Current price: 86793.7
+2025-02-25 21:29:22,826 - trading_bot - INFO - RSI: 40.82, ADX: 33.85, MACD: -425.463453
+2025-02-25 21:29:22,826 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:29:42,831 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:29:42,831 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:29:43,433 - trading_bot - INFO - No trade signal at 2025-02-25 21:29:43.433804
+2025-02-25 21:29:43,433 - trading_bot - INFO - Current price: 86857.5
+2025-02-25 21:29:43,441 - trading_bot - INFO - RSI: 41.62, ADX: 33.85, MACD: -420.373994
+2025-02-25 21:29:43,442 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:30:03,445 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:30:03,445 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:30:04,226 - trading_bot - INFO - No trade signal at 2025-02-25 21:30:04.226933
+2025-02-25 21:30:04,226 - trading_bot - INFO - Current price: 86900.0
+2025-02-25 21:30:04,235 - trading_bot - INFO - RSI: 42.15, ADX: 33.85, MACD: -416.983680
+2025-02-25 21:30:04,235 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:30:24,237 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:30:24,237 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:30:24,784 - trading_bot - INFO - No trade signal at 2025-02-25 21:30:24.784610
+2025-02-25 21:30:24,784 - trading_bot - INFO - Current price: 86869.9
+2025-02-25 21:30:24,794 - trading_bot - INFO - RSI: 41.78, ADX: 33.85, MACD: -419.384820
+2025-02-25 21:30:24,794 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:30:44,804 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:30:44,804 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:30:45,302 - trading_bot - INFO - No trade signal at 2025-02-25 21:30:45.302494
+2025-02-25 21:30:45,302 - trading_bot - INFO - Current price: 86900.1
+2025-02-25 21:30:45,302 - trading_bot - INFO - RSI: 42.15, ADX: 33.85, MACD: -416.975703
+2025-02-25 21:30:45,302 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:31:05,312 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:31:05,312 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:31:06,426 - trading_bot - INFO - No trade signal at 2025-02-25 21:31:06.426963
+2025-02-25 21:31:06,442 - trading_bot - INFO - Current price: 86887.0
+2025-02-25 21:31:06,442 - trading_bot - INFO - RSI: 41.99, ADX: 33.85, MACD: -418.020718
+2025-02-25 21:31:06,442 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:31:26,462 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:31:26,462 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:31:27,156 - trading_bot - INFO - No trade signal at 2025-02-25 21:31:27.156075
+2025-02-25 21:31:27,156 - trading_bot - INFO - Current price: 86853.0
+2025-02-25 21:31:27,156 - trading_bot - INFO - RSI: 41.57, ADX: 33.85, MACD: -420.732968
+2025-02-25 21:31:27,156 - trading_bot - INFO - Waiting 20 seconds for next update...
+2025-02-25 21:32:24,319 - trading_bot - INFO - Running backtest to validate strategy...
+2025-02-25 21:32:24,319 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:32:24,321 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:32:32,419 - trading_bot - INFO - Backtest results:
+2025-02-25 21:32:32,419 - trading_bot - INFO - {'total_trades': 0, 'winning_trades': 0, 'losing_trades': 0, 'win_rate': 0, 'avg_win': 0, 'avg_loss': 0, 'profit_factor': inf, 'max_drawdown': 0, 'total_return': np.float64(0.0), 'trades': []}
+2025-02-25 21:32:32,419 - trading_bot - INFO - Backtest completed. Starting continuous live trading...
+2025-02-25 21:32:32,419 - trading_bot - INFO - Starting trading bot for BTC/USDT on 15m timeframe
+2025-02-25 21:32:32,434 - trading_bot - INFO - Fetching 500 15m candles for BTC/USDT
+2025-02-25 21:32:33,095 - trading_bot - INFO - No trade signal at 2025-02-25 21:32:33.095307
+2025-02-25 21:32:33,095 - trading_bot - INFO - Current price: 86988.8
+2025-02-25 21:32:33,103 - trading_bot - INFO - RSI: 43.33, ADX: 33.28, MACD: -400.404456
+2025-02-25 21:32:33,103 - trading_bot - INFO - Waiting 3600 seconds for next update...
+2025-02-25 21:42:07,636 - trading_bot - INFO - Running backtest to validate strategy...
+2025-02-25 21:42:07,636 - trading_bot - INFO - Starting trading bot for BTC/USDT on 4hr timeframe
+2025-02-25 21:42:07,636 - trading_bot - INFO - Fetching 500 4hr candles for BTC/USDT
+2025-02-25 21:42:13,413 - trading_bot - ERROR - Error fetching data: binance {"code":-1120,"msg":"Invalid interval."}
+2025-02-25 21:42:13,413 - trading_bot - WARNING - Insufficient data to generate reliable signals
+2025-02-25 21:42:13,413 - trading_bot - INFO - Backtest completed. Starting continuous live trading...
+2025-02-25 21:42:13,413 - trading_bot - INFO - Starting trading bot for BTC/USDT on 4hr timeframe
+2025-02-25 21:42:13,413 - trading_bot - INFO - Fetching 500 4hr candles for BTC/USDT
+2025-02-25 21:42:14,121 - trading_bot - ERROR - Error fetching data: binance {"code":-1120,"msg":"Invalid interval."}
+2025-02-25 21:42:14,121 - trading_bot - WARNING - Insufficient data to generate reliable signals
+2025-02-25 21:42:14,121 - trading_bot - INFO - Waiting 60 seconds for next update...
+2025-02-25 21:43:13,192 - trading_bot - INFO - Running backtest to validate strategy...
+2025-02-25 21:43:13,192 - trading_bot - INFO - Starting trading bot for BTC/USDT on 4h timeframe
+2025-02-25 21:43:13,192 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-25 21:43:17,834 - trading_bot - INFO - Backtest results:
+2025-02-25 21:43:17,834 - trading_bot - INFO - {'total_trades': 0, 'winning_trades': 0, 'losing_trades': 0, 'win_rate': 0, 'avg_win': 0, 'avg_loss': 0, 'profit_factor': inf, 'max_drawdown': 0, 'total_return': np.float64(0.0), 'trades': []}
+2025-02-25 21:43:17,834 - trading_bot - INFO - Backtest completed. Starting continuous live trading...
+2025-02-25 21:43:17,834 - trading_bot - INFO - Starting trading bot for BTC/USDT on 4h timeframe
+2025-02-25 21:43:17,834 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-25 21:43:18,344 - trading_bot - INFO - No trade signal at 2025-02-25 21:43:18.344662
+2025-02-25 21:43:18,344 - trading_bot - INFO - Current price: 87302.8
+2025-02-25 21:43:18,344 - trading_bot - INFO - RSI: 18.45, ADX: 41.88, MACD: -2131.197699
+2025-02-25 21:43:18,344 - trading_bot - INFO - Waiting 60 seconds for next update...
+2025-02-25 21:44:18,349 - trading_bot - INFO - Starting trading bot for BTC/USDT on 4h timeframe
+2025-02-25 21:44:18,349 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-25 21:44:19,093 - trading_bot - INFO - No trade signal at 2025-02-25 21:44:19.093626
+2025-02-25 21:44:19,093 - trading_bot - INFO - Current price: 87258.8
+2025-02-25 21:44:19,093 - trading_bot - INFO - RSI: 18.11, ADX: 41.88, MACD: -2134.707670
+2025-02-25 21:44:19,093 - trading_bot - INFO - Waiting 60 seconds for next update...
+2025-02-25 21:44:51,359 - trading_bot - INFO - Running backtest to validate strategy...
+2025-02-25 21:44:51,359 - trading_bot - INFO - Starting trading bot for BTC/USDT on 4h timeframe
+2025-02-25 21:44:51,359 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-25 21:44:56,889 - trading_bot - INFO - Backtest results:
+2025-02-25 21:44:56,889 - trading_bot - INFO - {'total_trades': 0, 'winning_trades': 0, 'losing_trades': 0, 'win_rate': 0, 'avg_win': 0, 'avg_loss': 0, 'profit_factor': inf, 'max_drawdown': 0, 'total_return': np.float64(0.0), 'trades': []}
+2025-02-25 21:44:56,904 - trading_bot - INFO - Backtest completed. Starting continuous live trading...
+2025-02-25 21:44:56,904 - trading_bot - INFO - Starting trading bot for BTC/USDT on 4h timeframe
+2025-02-25 21:44:56,904 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-25 21:44:57,625 - trading_bot - INFO - No trade signal at 2025-02-25 21:44:57.625854
+2025-02-25 21:44:57,672 - trading_bot - INFO - Current price: 87370.3
+2025-02-25 21:44:57,702 - trading_bot - INFO - RSI: 18.96, ADX: 41.88, MACD: -2125.813083
+2025-02-25 21:44:57,733 - trading_bot - INFO - Waiting 3600 seconds for next update...
