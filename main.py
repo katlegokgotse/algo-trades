@@ -48,7 +48,7 @@ exchange = ccxt.binance({
 })
 
 # Configuration parameters
-SYMBOL = 'BTC/USDT'  # Use the proper symbol format for Binance futures
+SYMBOL = 'BTCUSD_PERP'  # Use the proper symbol format for Binance futures
 TIMEFRAME = '4h'
 HISTORY_LIMIT = 500  # Number of candles to fetch
 POSITION_SIZE = 0.01  # Size of each trade in BTC (smaller for safety)
