@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import ta
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import openai
 import os
 import json
@@ -14,6 +14,8 @@ import logging
 import matplotlib.pyplot as plt
 import requests
 import threading
+
+from trade_bot import TradingBot
 
 # Setup logging
 logging.basicConfig(
@@ -118,10 +120,8 @@ def fetch_data(symbol, timeframe, limit=HISTORY_LIMIT):
         df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
         df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
         df.set_index('timestamp', inplace=True)
-        
         # Save raw data for debugging
         df.to_csv(f'data/{symbol.replace("/", "_")}_{timeframe}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv')
-        
         return df
     except Exception as e:
         logger.error(f"Error fetching data: {e}")
@@ -665,85 +665,6 @@ def close_trade(trade_id, exit_price, exit_reason):
     save_trade_data()
     return True
 
-def run_trading_bot(backtest=False):
-    """Main trading bot function with optional backtesting mode"""
-    logger.info(f"Starting trading bot for {SYMBOL} on {TIMEFRAME} timeframe")
-    df = fetch_data(SYMBOL, TIMEFRAME)
-    if df is None or len(df) < 200:
-        logger.warning("Insufficient data to generate reliable signals")
-        return
-    df = apply_indicators(df)
-    df = generate_signals(df)
-    df = calculate_risk_reward(df, STOP_LOSS_PCT, TAKE_PROFIT_PCT)
-    
-    if backtest:
-        results = run_backtest(df)
-        logger.info("Backtest results:")
-        logger.info(results)
-        return results
-    
-    latest = df.iloc[-1]
-    prev = df.iloc[-2]
-    current_price = latest['close']
-    
-    if not check_market_hours():
-        logger.info("Market is likely closed. Skipping this iteration.")
-        return
-    
-    # Check for a strong signal (signal_strength==3) in both the current and previous candles
-    if latest['buy_signal'] and prev['buy_signal'] and latest['signal_strength'] == 3 and prev['signal_strength'] == 3:
-        logger.info(f"BUY signal detected with strength {latest['signal_strength']}/3")
-        trade_details = {
-            "trade_type": "buy",
-            "symbol": SYMBOL,
-            "current_price": current_price,
-            "stop_loss": latest['stop_loss_buy'],
-            "take_profit": latest['take_profit_buy'],
-            "rsi": latest['rsi'],
-            "adx": latest['adx'],
-            "macd": latest['macd'],
-            "ema_20": latest['ema_20'],
-            "ema_50": latest['ema_50'],
-            "ema_200": latest['ema_200'],
-            "fib_support": fib_support,
-            "fib_trend": latest.get('fib_trend', 'N/A')
-        }
-        if chatgpt_analyze_trade(trade_details):
-            execute_trade_order('buy', SYMBOL, current_price, stop_loss=latest['stop_loss_buy'], take_profit=latest['take_profit_buy'], indicators=trade_details)
-        else:
-            logger.info("ChatGPT analysis did not recommend executing the BUY trade.")
-    elif latest['sell_signal'] and prev['sell_signal'] and latest['signal_strength'] == 3 and prev['signal_strength'] == 3:
-        logger.info(f"SELL signal detected with strength {latest['signal_strength']}/3")
-        trade_details = {
-            "trade_type": "sell",
-            "symbol": SYMBOL,
-            "current_price": current_price,
-            "stop_loss": latest['stop_loss_sell'],
-            "take_profit": latest['take_profit_sell'],
-            "rsi": latest['rsi'],
-            "adx": latest['adx'],
-            "macd": latest['macd'],
-            "ema_20": latest['ema_20'],
-            "ema_50": latest['ema_50'],
-            "ema_200": latest['ema_200'],
-            "fib_resistance": fib_resistance,
-            "fib_trend": latest.get('fib_trend', 'N/A')
-        }
-        if chatgpt_analyze_trade(trade_details):
-            execute_trade_order('sell', SYMBOL, current_price, stop_loss=latest['stop_loss_sell'], take_profit=latest['take_profit_sell'], indicators=trade_details)
-        else:
-            logger.info("ChatGPT analysis did not recommend executing the SELL trade.")
-    else:
-        logger.info(f"No trade signal at {datetime.now()}")
-        logger.info(f"Current price: {current_price}")
-        logger.info(f"RSI: {latest['rsi']:.2f}, ADX: {latest['adx']:.2f}, MACD: {latest['macd']:.6f}")
-        if 'fib_trend' in latest and not pd.isna(latest['fib_trend']):
-            print(f"Fibonacci trend: {latest['fib_trend']}")
-            for level in FIB_LEVELS:
-                level_str = f'fib_{str(level).replace(".", "_")}'
-                if level_str in latest and not pd.isna(latest[level_str]):
-                    print(f"Fib {level}: {latest[level_str]:.2f}")
-
 def run_backtest(df):
     """Simple backtest functionality to evaluate strategy performance"""
     test_df = df.copy()
@@ -861,23 +782,115 @@ def run_backtest(df):
         'total_return': test_df['cumulative_pnl'].iloc[-1] if len(test_df) > 0 else 0,
         'trades': trades
     }
+
+def run_trading_bot(backtest=False):
+    """Main trading bot function with optional backtesting mode"""
+    logger.info(f"Starting trading bot for {SYMBOL} on {TIMEFRAME} timeframe")
+    df = fetch_data(SYMBOL, TIMEFRAME)
+    if df is None or len(df) < 200:
+        logger.warning("Insufficient data to generate reliable signals")
+        return
+    df = apply_indicators(df)
+    df = generate_signals(df)
+    df = calculate_risk_reward(df, STOP_LOSS_PCT, TAKE_PROFIT_PCT)
+    
+    if backtest:
+        results = run_backtest(df)
+        logger.info("Backtest results:")
+        logger.info(results)
+        return results
+    
+    latest = df.iloc[-1]
+    prev = df.iloc[-2]
+    current_price = latest['close']
+    
+    if not check_market_hours():
+        logger.info("Market is likely closed. Skipping this iteration.")
+        return
+    
+    # Check for a strong signal (signal_strength==3) in both the current and previous candles
+    if latest['buy_signal'] and prev['buy_signal'] and latest['signal_strength'] == 3 and prev['signal_strength'] == 3:
+        logger.info(f"BUY signal detected with strength {latest['signal_strength']}/3")
+        trade_details = {
+            "trade_type": "buy",
+            "symbol": SYMBOL,
+            "current_price": current_price,
+            "stop_loss": latest['stop_loss_buy'],
+            "take_profit": latest['take_profit_buy'],
+            "rsi": latest['rsi'],
+            "adx": latest['adx'],
+            "macd": latest['macd'],
+            "ema_20": latest['ema_20'],
+            "ema_50": latest['ema_50'],
+            "ema_200": latest['ema_200'],
+            "fib_support": latest.get('at_fib_support', False),
+            "fib_trend": latest.get('fib_trend', 'N/A')
+        }
+        if chatgpt_analyze_trade(trade_details):
+            execute_trade_order('buy', SYMBOL, current_price, stop_loss=latest['stop_loss_buy'], take_profit=latest['take_profit_buy'], indicators=trade_details)
+        else:
+            logger.info("ChatGPT analysis did not recommend executing the BUY trade.")
+    elif latest['sell_signal'] and prev['sell_signal'] and latest['signal_strength'] == 3 and prev['signal_strength'] == 3:
+        logger.info(f"SELL signal detected with strength {latest['signal_strength']}/3")
+        trade_details = {
+            "trade_type": "sell",
+            "symbol": SYMBOL,
+            "current_price": current_price,
+            "stop_loss": latest['stop_loss_sell'],
+            "take_profit": latest['take_profit_sell'],
+            "rsi": latest['rsi'],
+            "adx": latest['adx'],
+            "macd": latest['macd'],
+            "ema_20": latest['ema_20'],
+            "ema_50": latest['ema_50'],
+            "ema_200": latest['ema_200'],
+            "fib_resistance": latest.get('at_fib_resistance', False),
+            "fib_trend": latest.get('fib_trend', 'N/A')
+        }
+        if chatgpt_analyze_trade(trade_details):
+            execute_trade_order('sell', SYMBOL, current_price, stop_loss=latest['stop_loss_sell'], take_profit=latest['take_profit_sell'], indicators=trade_details)
+        else:
+            logger.info("ChatGPT analysis did not recommend executing the SELL trade.")
+    else:
+        logger.info(f"No trade signal at {datetime.now()}")
+        logger.info(f"Current price: {current_price}")
+        logger.info(f"RSI: {latest['rsi']:.2f}, ADX: {latest['adx']:.2f}, MACD: {latest['macd']:.6f}")
+        if 'fib_trend' in latest and not pd.isna(latest['fib_trend']):
+            print(f"Fibonacci trend: {latest['fib_trend']}")
+            for level in FIB_LEVELS:
+                level_str = f'fib_{str(level).replace(".", "_")}'
+                if level_str in latest and not pd.isna(latest[level_str]):
+                    print(f"Fib {level}: {latest[level_str]:.2f}")
 # -------------------------------
 # Main block
-# -------------------------------
-if __name__ == '__main__':
+# -------------------------------if __name__ == '__main__':
     import sys
+
+    exchange = ccxt.binance({
+        'enableRateLimit': True,
+        'apiKey': os.getenv("BINANCE_API_KEY"),
+        'secret': os.getenv("BINANCE_SECRET_KEY"),
+        'options': {'defaultType': 'future'}
+    })
+
+    bot = TradingBot(
+        exchange=exchange,
+        symbol='BTCUSD_PERP',
+        timeframe='4h',
+        position_size=0.01,
+        stop_loss_pct=2.0,
+        take_profit_pct=3.5,
+        max_trades=3,
+        dry_run=True,
+        enable_telegram=True,
+        telegram_bot_token=TELEGRAM_BOT_TOKEN,
+        telegram_chat_id=TELEGRAM_CHAT_ID
+    )
+
     if len(sys.argv) > 1 and sys.argv[1] == 'test':
         unittest.main(argv=[sys.argv[0]])
     else:
-        logger.info("Running backtest to validate strategy...")
-        backtest_results = run_trading_bot(backtest=True)
-        logger.info("Backtest completed. Starting continuous live trading...")
-        while True:
-            try:
-                run_trading_bot()
-                sleep_seconds = 3600 if TIMEFRAME == '4h' else 60
-                logger.info(f"Waiting {sleep_seconds} seconds for next update...")
-                time.sleep(sleep_seconds)
-            except Exception as e:
-                logger.error(f"Error in main loop: {e}")
-                time.sleep(20)
+        logger.info("Running backtest...")
+        backtest_results = bot.backtest()
+        logger.info("Backtest completed. Starting live trading...")
+        bot.start()
