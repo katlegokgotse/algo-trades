@@ -12,7 +12,6 @@ load_dotenv()
 openai.api_key = os.getenv("CHAT_API")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-FIB_LEVELS = [0, 0.236, 0.382, 0.5, 0.618, 0.786, 1]
 
 # -------------------------------
 # Main block

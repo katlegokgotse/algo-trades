@@ -45,7 +45,7 @@ class TradingBot:
         self.signal_generator = SignalGenerator()
         self.risk_manager = RiskManager()
         self.trade_executor = TradeExecutor(exchange, dry_run, max_trades)
-        self.trade_manager = TradeManager()
+        self.trade_manager = TradeManager(exchange = exchange)
         self.notifier = Notifier(enable_telegram, telegram_bot_token, telegram_chat_id)
         self.persistence_manager = PersistenceManager()
         self.persistence_manager.load_trade_data(self.active_trades, self.trade_history)
@@ -57,20 +57,20 @@ class TradingBot:
         """
         Execute one iteration of the trading loop.
         """
-        df = self.data_fetcher.fetch_data(self.symbol, self.timeframe)
-        if df is None or len(df) < 200:
+        data_frame = self.data_fetcher.fetch_data(self.symbol, self.timeframe)
+        if data_frame is None or len(data_frame) < 200:
             logger.warning("Insufficient data")
             return
         
         # Apply indicators and generate signals
-        df = self.indicator_calculator.apply_indicators(df)
-        df = self.signal_generator.generate_signals(df)
-        df = self.risk_manager.calculate_risk_reward(df, self.stop_loss_pct, self.take_profit_pct)
+        data_frame = self.indicator_calculator.apply_indicators(data_frame)
+        data_frame = self.signal_generator.generate_signals(data_frame)
+        data_frame = self.risk_manager.calculate_risk_reward(data_frame, self.stop_loss_pct, self.take_profit_pct)
         
-        latest = df.iloc[-1]
-        prev = df.iloc[-2]
+        latest = data_frame.iloc[-1]
+        prev = data_frame.iloc[-2]
         current_price = latest['close']
-        logger.info(f"Latest candle close: {current_price} at {df.index[-1]}")
+        logger.info(f"Latest candle close: {current_price} at {data_frame.index[-1]}")
         
         if not self.check_market_hours():
             logger.info("Market is likely closed")
@@ -81,7 +81,7 @@ class TradingBot:
         
         # Check for BUY signals
         if (latest['buy_signal'] and prev['buy_signal'] and 
-            latest['signal_strength'] == 3 and prev['signal_strength'] == 3):
+            latest['signal_strength'] >= 2 and prev['signal_strength'] >= 2):
             logger.info("BUY signal detected with strength 3/3")
             trade_details = {
                 "trade_type": "buy", 
@@ -110,7 +110,7 @@ class TradingBot:
         
         # Check for SELL signals
         elif (latest['sell_signal'] and prev['sell_signal'] and 
-              latest['signal_strength'] == 3 and prev['signal_strength'] == 3):
+              latest['signal_strength'] >= 2 and prev['signal_strength'] >= 2):
             logger.info("SELL signal detected with strength 3/3")
             trade_details = {
                 "trade_type": "sell", 
@@ -136,22 +136,25 @@ class TradingBot:
             else:
                 logger.info("ChatGPT analysis did not recommend executing the SELL trade.")
         else:
-            logger.info(f"No trade signal at {datetime.now()}")
+            logger.info(f"Update: ${current_price}")
+            logger.info(f"Uncertain Market Conditions: No trade signal at {datetime.now()}")
+            logger.info(f"{latest.get('fib_trend', 'N/A')}")
+            logger.info(f"{self.symbol}")
 
     def backtest(self):
         """
         Run a backtest using historical data and return results.
         """
-        df = self.data_fetcher.fetch_data(self.symbol, self.timeframe, limit=500)
-        if df is None or len(df) < 200:
+        data_frame = self.data_fetcher.fetch_data(self.symbol, self.timeframe, limit=500)
+        if data_frame is None or len(data_frame) < 200:
             logger.warning("Insufficient data for backtest")
             return None
-        df = self.indicator_calculator.apply_indicators(df)
-        df = self.signal_generator.generate_signals(df)
-        df = self.risk_manager.calculate_risk_reward(df, self.stop_loss_pct, self.take_profit_pct)
-        return self.run_backtest(df)
+        data_frame = self.indicator_calculator.apply_indicators(data_frame)
+        data_frame = self.signal_generator.generate_signals(data_frame)
+        data_frame = self.risk_manager.calculate_risk_reward(data_frame, self.stop_loss_pct, self.take_profit_pct)
+        return self.run_backtest(data_frame)
 
-    def run_backtest(self, df: pd.DataFrame):
+    def run_backtest(self, data_frame: pd.DataFrame):
         """
         Backtest logic (to be implemented). Returns a dictionary with backtest results.
         """

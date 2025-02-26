@@ -33,125 +33,124 @@ class SignalGenerator:
         }
         self.adx_threshold = adx_threshold
         
-    def _identify_trends(self, df: pd.DataFrame) -> pd.DataFrame:
+    def _identify_trends(self, data_frame: pd.DataFrame) -> pd.DataFrame:
         """
         Identify market trends based on EMA relationships.
         """
         # Check required columns
         required_columns = ['ema_20', 'ema_50', 'ema_200']
-        self._validate_columns(df, required_columns)
+        self._validate_columns(data_frame, required_columns)
         
         # Trend conditions
-        df['uptrend'] = (df['ema_20'] > df['ema_50']) & (df['ema_50'] > df['ema_200'])
-        df['downtrend'] = (df['ema_20'] < df['ema_50']) & (df['ema_50'] < df['ema_200'])
-        
+        data_frame['uptrend'] = (data_frame['ema_20'] > data_frame['ema_50']) & (data_frame['ema_50'] > data_frame['ema_200'])
+        data_frame['downtrend'] = (data_frame['ema_20'] < data_frame['ema_50']) & (data_frame['ema_50'] < data_frame['ema_200'])
         # Add trend strength based on distance between EMAs
-        df['trend_strength'] = np.abs((df['ema_20'] - df['ema_50']) / df['ema_50'] * 100)
+        data_frame['trend_strength'] = np.abs((data_frame['ema_20'] - data_frame['ema_50']) / data_frame['ema_50'] * 100)
         
-        return df
+        return data_frame
     
-    def _identify_macd_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+    def _identify_macd_signals(self, data_frame: pd.DataFrame) -> pd.DataFrame:
         """
         Identify MACD crossover signals.
         """
         required_columns = ['macd', 'macd_signal', 'prev_macd', 'prev_macd_signal', 'close']
-        self._validate_columns(df, required_columns)
+        self._validate_columns(data_frame, required_columns)
         
         # Calculate dynamic threshold based on price
-        macd_threshold = self.macd_threshold_factor * df['close'].mean() / 10000
+        macd_threshold = self.macd_threshold_factor * data_frame['close'].mean() / 10000
         
         # MACD crosses
-        df['macd_cross_up'] = ((df['macd'] > df['macd_signal']) & 
-                               (df['prev_macd'] <= df['prev_macd_signal']) & 
-                               ((df['macd'] - df['macd_signal']).abs() > macd_threshold))
+        data_frame['macd_cross_up'] = ((data_frame['macd'] > data_frame['macd_signal']) & 
+                               (data_frame['prev_macd'] <= data_frame['prev_macd_signal']) & 
+                               ((data_frame['macd'] - data_frame['macd_signal']).abs() > macd_threshold))
         
-        df['macd_cross_down'] = ((df['macd'] < df['macd_signal']) & 
-                                 (df['prev_macd'] >= df['prev_macd_signal']) & 
-                                 ((df['macd'] - df['macd_signal']).abs() > macd_threshold))
+        data_frame['macd_cross_down'] = ((data_frame['macd'] < data_frame['macd_signal']) & 
+                                 (data_frame['prev_macd'] >= data_frame['prev_macd_signal']) & 
+                                 ((data_frame['macd'] - data_frame['macd_signal']).abs() > macd_threshold))
         
         # Add MACD histogram direction
-        df['macd_histogram'] = df['macd'] - df['macd_signal']
-        df['macd_histogram_increasing'] = df['macd_histogram'] > df['macd_histogram'].shift(1)
+        data_frame['macd_histogram'] = data_frame['macd'] - data_frame['macd_signal']
+        data_frame['macd_histogram_increasing'] = data_frame['macd_histogram'] > data_frame['macd_histogram'].shift(1)
         
-        return df
+        return data_frame
     
-    def _identify_oscillator_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+    def _identify_oscillator_signals(self, data_frame: pd.DataFrame) -> pd.DataFrame:
         """
         Identify oscillator-based signals (RSI, Stochastic).
         """
         # Check for stochastic columns
         stoch_columns = ['stoch_k', 'stoch_d', 'prev_stoch_k', 'prev_stoch_d']
-        has_stoch = all(col in df.columns for col in stoch_columns)
+        has_stoch = all(col in data_frame.columns for col in stoch_columns)
         
         # Check for RSI column
-        has_rsi = 'rsi' in df.columns
+        has_rsi = 'rsi' in data_frame.columns
         
         if has_stoch:
             # Stochastic crosses
-            df['stoch_cross_up'] = (df['stoch_k'] > df['stoch_d']) & (df['prev_stoch_k'] <= df['prev_stoch_d'])
-            df['stoch_cross_down'] = (df['stoch_k'] < df['stoch_d']) & (df['prev_stoch_k'] >= df['prev_stoch_d'])
+            data_frame['stoch_cross_up'] = (data_frame['stoch_k'] > data_frame['stoch_d']) & (data_frame['prev_stoch_k'] <= data_frame['prev_stoch_d'])
+            data_frame['stoch_cross_down'] = (data_frame['stoch_k'] < data_frame['stoch_d']) & (data_frame['prev_stoch_k'] >= data_frame['prev_stoch_d'])
             
             # Stochastic levels
-            df['stoch_oversold'] = df['stoch_k'] < 20
-            df['stoch_overbought'] = df['stoch_k'] > 80
+            data_frame['stoch_oversold'] = data_frame['stoch_k'] < 20
+            data_frame['stoch_overbought'] = data_frame['stoch_k'] > 80
         
         if has_rsi:
             # RSI thresholds
-            df['rsi_strong_oversold'] = df['rsi'] < self.rsi_thresholds['strong_oversold']
-            df['rsi_oversold'] = df['rsi'] < self.rsi_thresholds['oversold']
-            df['rsi_overbought'] = df['rsi'] > self.rsi_thresholds['overbought']
-            df['rsi_strong_overbought'] = df['rsi'] > self.rsi_thresholds['strong_overbought']
+            data_frame['rsi_strong_oversold'] = data_frame['rsi'] < self.rsi_thresholds['strong_oversold']
+            data_frame['rsi_oversold'] = data_frame['rsi'] < self.rsi_thresholds['oversold']
+            data_frame['rsi_overbought'] = data_frame['rsi'] > self.rsi_thresholds['overbought']
+            data_frame['rsi_strong_overbought'] = data_frame['rsi'] > self.rsi_thresholds['strong_overbought']
             
             # RSI direction
-            df['rsi_rising'] = df['rsi'] > df['rsi'].shift(1)
-            df['rsi_falling'] = df['rsi'] < df['rsi'].shift(1)
+            data_frame['rsi_rising'] = data_frame['rsi'] > data_frame['rsi'].shift(1)
+            data_frame['rsi_falling'] = data_frame['rsi'] < data_frame['rsi'].shift(1)
         
-        return df
+        return data_frame
     
-    def _identify_price_patterns(self, df: pd.DataFrame) -> pd.DataFrame:
+    def _identify_price_patterns(self, data_frame: pd.DataFrame) -> pd.DataFrame:
         """
         Identify price patterns and relationships to indicators.
         """
         # Bollinger Bands check
-        if all(col in df.columns for col in ['close', 'bollinger_lower', 'bollinger_upper']):
-            df['near_lower_band'] = df['close'] <= df['bollinger_lower'] * 1.01
-            df['near_upper_band'] = df['close'] >= df['bollinger_upper'] * 0.99
-            df['bollinger_squeeze'] = (df['bollinger_upper'] - df['bollinger_lower']) / df['close'] < 0.03
+        if all(col in data_frame.columns for col in ['close', 'bollinger_lower', 'bollinger_upper']):
+            data_frame['near_lower_band'] = data_frame['close'] <= data_frame['bollinger_lower'] * 1.01
+            data_frame['near_upper_band'] = data_frame['close'] >= data_frame['bollinger_upper'] * 0.99
+            data_frame['bollinger_squeeze'] = (data_frame['bollinger_upper'] - data_frame['bollinger_lower']) / data_frame['close'] < 0.03
         
         # VWAP check
-        if 'vwap' in df.columns and 'close' in df.columns:
-            df['above_vwap'] = df['close'] > df['vwap']
-            df['below_vwap'] = df['close'] < df['vwap']
+        if 'vwap' in data_frame.columns and 'close' in data_frame.columns:
+            data_frame['above_vwap'] = data_frame['close'] > data_frame['vwap']
+            data_frame['below_vwap'] = data_frame['close'] < data_frame['vwap']
         
         # Volume analysis
-        if 'volume' in df.columns:
-            df['volume_spike'] = df['volume'] > df['volume'].rolling(20).mean() * self.volume_spike_factor
-            df['volume_increasing'] = df['volume'] > df['volume'].shift(1)
+        if 'volume' in data_frame.columns:
+            data_frame['volume_spike'] = data_frame['volume'] > data_frame['volume'].rolling(20).mean() * self.volume_spike_factor
+            data_frame['volume_increasing'] = data_frame['volume'] > data_frame['volume'].shift(1)
         
         # ADX for trend strength
-        if 'adx' in df.columns:
-            df['strong_trend'] = df['adx'] > self.adx_threshold
+        if 'adx' in data_frame.columns:
+            data_frame['strong_trend'] = data_frame['adx'] > self.adx_threshold
         
-        return df
+        return data_frame
     
-    def _process_fibonacci_levels(self, df: pd.DataFrame) -> pd.DataFrame:
+    def _process_fibonacci_levels(self, data_frame: pd.DataFrame) -> pd.DataFrame:
         """
         Process Fibonacci retracement/extension levels.
         """
-        df['at_fib_support'] = False
-        df['at_fib_resistance'] = False
+        data_frame['at_fib_support'] = False
+        data_frame['at_fib_resistance'] = False
         
         # Check if we have fibonacci columns
         fib_columns = [f'fib_{str(level).replace(".", "_")}' for level in self.fib_levels]
-        has_fib = all(col in df.columns for col in fib_columns[:1])
+        has_fib = all(col in data_frame.columns for col in fib_columns[:1])
         
-        if not has_fib or 'fib_trend' not in df.columns:
-            return df
+        if not has_fib or 'fib_trend' not in data_frame.columns:
+            return data_frame
         
         buffer = self.fib_buffer
         
-        for i in range(len(df)):
-            row = df.iloc[i]
+        for i in range(len(data_frame)):
+            row = data_frame.iloc[i]
             if pd.isna(row.get('fib_0')):
                 continue
                 
@@ -168,11 +167,11 @@ class SignalGenerator:
                     
                     if is_near_level:
                         if row['fib_trend'] == 'uptrend':
-                            df.loc[df.index[i], 'at_fib_support'] = True
+                            data_frame.loc[data_frame.index[i], 'at_fib_support'] = True
                         elif row['fib_trend'] == 'downtrend':
-                            df.loc[df.index[i], 'at_fib_resistance'] = True
+                            data_frame.loc[data_frame.index[i], 'at_fib_resistance'] = True
         
-        return df
+        return data_frame
     
     def _calculate_signal_strength(self, 
                                   row: pd.Series, 
@@ -244,75 +243,75 @@ class SignalGenerator:
         strength = min(round(strength * 2) / 2, 5)
         return strength
     
-    def _validate_columns(self, df: pd.DataFrame, required_columns: List[str]) -> None:
+    def _validate_columns(self, data_frame: pd.DataFrame, required_columns: List[str]) -> None:
         """
         Validate that required columns exist in the dataframe.
         """
-        missing_columns = [col for col in required_columns if col not in df.columns]
+        missing_columns = [col for col in required_columns if col not in data_frame.columns]
         if missing_columns:
             raise ValueError(f"Missing required columns: {', '.join(missing_columns)}")
     
-    def generate_signals(self, df: pd.DataFrame) -> pd.DataFrame:
+    def generate_signals(self, data_frame: pd.DataFrame) -> pd.DataFrame:
         """
         Generate trading signals based on technical indicators.
         
         Args:
-            df: DataFrame with technical indicators
+            data_frame: DataFrame with technical indicators
             
         Returns:
             DataFrame with added signal columns
         """
         # Make a copy to avoid modifying the original
-        df = df.copy()
+        data_frame = data_frame.copy()
         
         # Initialize signal columns
-        df['buy_signal'] = False
-        df['sell_signal'] = False
-        df['signal_strength'] = 0
-        df['signal_type'] = None
+        data_frame['buy_signal'] = False
+        data_frame['sell_signal'] = False
+        data_frame['signal_strength'] = 0
+        data_frame['signal_type'] = None
         
         # Process indicators
-        df = self._identify_trends(df)
-        df = self._identify_macd_signals(df)
-        df = self._identify_oscillator_signals(df)
-        df = self._identify_price_patterns(df)
-        df = self._process_fibonacci_levels(df)
+        data_frame = self._identify_trends(data_frame)
+        data_frame = self._identify_macd_signals(data_frame)
+        data_frame = self._identify_oscillator_signals(data_frame)
+        data_frame = self._identify_price_patterns(data_frame)
+        data_frame = self._process_fibonacci_levels(data_frame)
         
         # Calculate signal conditions row by row for better flexibility
-        for i in range(len(df)):
-            row = df.iloc[i]
+        for i in range(len(data_frame)):
+            row = data_frame.iloc[i]
             
             # Determine buy signal
             buy_strength = self._calculate_signal_strength(row, 'buy')
             if buy_strength >= 2:
-                df.loc[df.index[i], 'buy_signal'] = True
-                df.loc[df.index[i], 'signal_strength'] = int(buy_strength)
-                df.loc[df.index[i], 'signal_type'] = 'buy'
+                data_frame.loc[data_frame.index[i], 'buy_signal'] = True
+                data_frame.loc[data_frame.index[i], 'signal_strength'] = int(buy_strength)
+                data_frame.loc[data_frame.index[i], 'signal_type'] = 'buy'
             
             # Determine sell signal - only if no buy signal
-            if not df.loc[df.index[i], 'buy_signal']:
+            if not data_frame.loc[data_frame.index[i], 'buy_signal']:
                 sell_strength = self._calculate_signal_strength(row, 'sell')
                 if sell_strength >= 2:
-                    df.loc[df.index[i], 'sell_signal'] = True
-                    df.loc[df.index[i], 'signal_strength'] =  int(sell_strength)
-                    df.loc[df.index[i], 'signal_type'] = 'sell'
+                    data_frame.loc[data_frame.index[i], 'sell_signal'] = True
+                    data_frame.loc[data_frame.index[i], 'signal_strength'] =  int(sell_strength)
+                    data_frame.loc[data_frame.index[i], 'signal_type'] = 'sell'
         
         # Volatility filter
-        if 'high_volatility' in df.columns:
+        if 'high_volatility' in data_frame.columns:
             volatility_threshold = 2.5  # Threshold for ignoring weaker signals in high volatility
-            df.loc[df['high_volatility'] & (df['signal_strength'] < volatility_threshold), 'buy_signal'] = False
-            df.loc[df['high_volatility'] & (df['signal_strength'] < volatility_threshold), 'sell_signal'] = False
-            df.loc[df['high_volatility'] & (df['signal_strength'] < volatility_threshold), 'signal_type'] = None
+            data_frame.loc[data_frame['high_volatility'] & (data_frame['signal_strength'] < volatility_threshold), 'buy_signal'] = False
+            data_frame.loc[data_frame['high_volatility'] & (data_frame['signal_strength'] < volatility_threshold), 'sell_signal'] = False
+            data_frame.loc[data_frame['high_volatility'] & (data_frame['signal_strength'] < volatility_threshold), 'signal_type'] = None
         
-        return df
+        return data_frame
     
-    def analyze_performance(self, df: pd.DataFrame, 
+    def analyze_performance(self, data_frame: pd.DataFrame, 
                            lookback_periods: int = 50) -> pd.DataFrame:
         """
         Analyze the performance of generated signals.
         
         Args:
-            df: DataFrame with signals already generated
+            data_frame: DataFrame with signals already generated
             lookback_periods: Number of periods to look back for analysis
             
         Returns:
@@ -320,107 +319,107 @@ class SignalGenerator:
         """
         # Validate signals exist
         required_columns = ['buy_signal', 'sell_signal', 'close']
-        self._validate_columns(df, required_columns)
+        self._validate_columns(data_frame, required_columns)
         
         results = {}
         
         # Get buy and sell signal indices
-        buy_indices = df.index[df['buy_signal']].tolist()
-        sell_indices = df.index[df['sell_signal']].tolist()
+        buy_indices = data_frame.index[data_frame['buy_signal']].tolist()
+        sell_indices = data_frame.index[data_frame['sell_signal']].tolist()
         
         # Calculate forward returns for buy signals
         buy_returns = []
         for idx in buy_indices:
-            pos = df.index.get_loc(idx)
+            pos = data_frame.index.get_loc(idx)
             
             # Skip if near the end of the dataframe
-            if pos + lookback_periods >= len(df):
+            if pos + lookback_periods >= len(data_frame):
                 continue
                 
-            entry_price = df.iloc[pos]['close']
+            entry_price = data_frame.iloc[pos]['close']
             
             # Find next exit (either sell signal or end of lookback)
             exit_pos = None
-            for i in range(pos + 1, min(pos + lookback_periods, len(df))):
-                if df.index[i] in sell_indices:
+            for i in range(pos + 1, min(pos + lookback_periods, len(data_frame))):
+                if data_frame.index[i] in sell_indices:
                     exit_pos = i
                     break
             
             if exit_pos is None:
-                exit_pos = min(pos + lookback_periods, len(df) - 1)
+                exit_pos = min(pos + lookback_periods, len(data_frame) - 1)
                 
-            exit_price = df.iloc[exit_pos]['close']
+            exit_price = data_frame.iloc[exit_pos]['close']
             pct_return = (exit_price - entry_price) / entry_price * 100
             
             buy_returns.append({
-                'entry_date': df.index[pos],
-                'exit_date': df.index[exit_pos],
+                'entry_date': data_frame.index[pos],
+                'exit_date': data_frame.index[exit_pos],
                 'holding_periods': exit_pos - pos,
                 'entry_price': entry_price,
                 'exit_price': exit_price,
                 'pct_return': pct_return,
-                'signal_strength': df.iloc[pos]['signal_strength']
+                'signal_strength': data_frame.iloc[pos]['signal_strength']
             })
         
         # Similar analysis for sell signals (assuming short selling)
         sell_returns = []
         for idx in sell_indices:
-            pos = df.index.get_loc(idx)
+            pos = data_frame.index.get_loc(idx)
             
             # Skip if near the end of the dataframe
-            if pos + lookback_periods >= len(df):
+            if pos + lookback_periods >= len(data_frame):
                 continue
                 
-            entry_price = df.iloc[pos]['close']
+            entry_price = data_frame.iloc[pos]['close']
             
             # Find next exit (either buy signal or end of lookback)
             exit_pos = None
-            for i in range(pos + 1, min(pos + lookback_periods, len(df))):
-                if df.index[i] in buy_indices:
+            for i in range(pos + 1, min(pos + lookback_periods, len(data_frame))):
+                if data_frame.index[i] in buy_indices:
                     exit_pos = i
                     break
             
             if exit_pos is None:
-                exit_pos = min(pos + lookback_periods, len(df) - 1)
+                exit_pos = min(pos + lookback_periods, len(data_frame) - 1)
                 
-            exit_price = df.iloc[exit_pos]['close']
+            exit_price = data_frame.iloc[exit_pos]['close']
             pct_return = (entry_price - exit_price) / entry_price * 100  # Reversed for short selling
             
             sell_returns.append({
-                'entry_date': df.index[pos],
-                'exit_date': df.index[exit_pos],
+                'entry_date': data_frame.index[pos],
+                'exit_date': data_frame.index[exit_pos],
                 'holding_periods': exit_pos - pos,
                 'entry_price': entry_price,
                 'exit_price': exit_price,
                 'pct_return': pct_return,
-                'signal_strength': df.iloc[pos]['signal_strength']
+                'signal_strength': data_frame.iloc[pos]['signal_strength']
             })
         
         # Create DataFrames from results
-        buy_df = pd.DataFrame(buy_returns) if buy_returns else pd.DataFrame()
-        sell_df = pd.DataFrame(sell_returns) if sell_returns else pd.DataFrame()
+        buy_data_frame = pd.DataFrame(buy_returns) if buy_returns else pd.DataFrame()
+        sell_data_frame = pd.DataFrame(sell_returns) if sell_returns else pd.DataFrame()
         
         # Calculate summary statistics
         results = {
             'buy_signals': {
                 'count': len(buy_returns),
-                'avg_return': buy_df['pct_return'].mean() if not buy_df.empty else 0,
-                'win_rate': (buy_df['pct_return'] > 0).mean() if not buy_df.empty else 0,
-                'avg_holding': buy_df['holding_periods'].mean() if not buy_df.empty else 0
+                'avg_return': buy_data_frame['pct_return'].mean() if not buy_data_frame.empty else 0,
+                'win_rate': (buy_data_frame['pct_return'] > 0).mean() if not buy_data_frame.empty else 0,
+                'avg_holding': buy_data_frame['holding_periods'].mean() if not buy_data_frame.empty else 0
             },
             'sell_signals': {
                 'count': len(sell_returns),
-                'avg_return': sell_df['pct_return'].mean() if not sell_df.empty else 0,
-                'win_rate': (sell_df['pct_return'] > 0).mean() if not sell_df.empty else 0,
-                'avg_holding': sell_df['holding_periods'].mean() if not sell_df.empty else 0
+                'avg_return': sell_data_frame['pct_return'].mean() if not sell_data_frame.empty else 0,
+                'win_rate': (sell_data_frame['pct_return'] > 0).mean() if not sell_data_frame.empty else 0,
+                'avg_holding': sell_data_frame['holding_periods'].mean() if not sell_data_frame.empty else 0
             }
         }
         
         # Correlation between signal strength and returns
-        if not buy_df.empty:
-            results['buy_signals']['strength_correlation'] = buy_df[['signal_strength', 'pct_return']].corr().iloc[0, 1]
+        if not buy_data_frame.empty:
+            results['buy_signals']['strength_correlation'] = buy_data_frame[['signal_strength', 'pct_return']].corr().iloc[0, 1]
         
-        if not sell_df.empty:
-            results['sell_signals']['strength_correlation'] = sell_df[['signal_strength', 'pct_return']].corr().iloc[0, 1]
+        if not sell_data_frame.empty:
+            results['sell_signals']['strength_correlation'] = sell_data_frame[['signal_strength', 'pct_return']].corr().iloc[0, 1]
         
-        return results, buy_df, sell_df
+        return results, buy_data_frame, sell_data_frame

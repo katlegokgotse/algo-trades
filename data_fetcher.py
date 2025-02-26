@@ -30,15 +30,15 @@ class DataFetcher:
         try:
             logger.info(f"Fetching {limit} {timeframe} candles for {symbol}")
             ohlcv = self.exchange.fetch_ohlcv(symbol, timeframe, limit=limit)
-            df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
-            df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
-            df.set_index('timestamp', inplace=True)
+            data_frame = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
+            data_frame['timestamp'] = pd.to_datetime(data_frame['timestamp'], unit='ms')
+            data_frame.set_index('timestamp', inplace=True)
 
             # Create a filename using symbol, timeframe, and current timestamp
             filename = os.path.join('data', f"{symbol.replace('/', '_')}_{timeframe}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
-            df.to_csv(filename)
+            data_frame.to_csv(filename)
             logger.info(f"Data saved to {filename}")
-            return df
+            return data_frame
         except Exception as e:
             logger.error(f"Error fetching data for {symbol} on timeframe {timeframe}: {e}")
             return None
