@@ -3,8 +3,6 @@ from dotenv import load_dotenv
 import ccxt
 import openai
 import os
-import json
-import logging
 import matplotlib.pyplot as plt
 from trade_bot import TradingBot
 from config import logger
@@ -37,7 +35,7 @@ if __name__ == '__main__':
         stop_loss_pct=2.0,
         take_profit_pct=3.5,
         max_trades=3,
-        dry_run=True,
+        dry_run=True, #Set to false for real time trading
         enable_telegram=True,
         telegram_bot_token=TELEGRAM_BOT_TOKEN,
         telegram_chat_id=TELEGRAM_CHAT_ID
