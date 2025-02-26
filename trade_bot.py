@@ -1,5 +1,6 @@
-from datetime import datetime
-
+from datetime import datetime, timedelta, timezone
+import time
+from config import logger
 from chatgpt_analyser import chatgpt_analyze_trade
 from data_fetcher import DataFetcher
 from indicator_calculator import IndicatorCalculator
@@ -106,7 +107,7 @@ class TradingBot:
         while True:
             try:
                 self.run()
-                sleep_seconds = self.calculate_sleep_time()
+                sleep_seconds = 20 #self.calculate_sleep_time()
                 if sleep_seconds > 0:
                     logger.info(f"Sleeping for {sleep_seconds:.2f} seconds")
                     time.sleep(sleep_seconds)

@@ -1,5 +1,6 @@
-from main import FIB_LEVELS
 import pandas as pd
+
+from config import FIB_LEVELS
 
 class SignalGenerator:
     def generate_signals(self, df):

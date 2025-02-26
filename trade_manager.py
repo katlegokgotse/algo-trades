@@ -1,6 +1,6 @@
 from datetime import datetime
-
-
+from config import logger
+from trade_executor import TradeExecutor
 class TradeManager:
     def update_trades(self, current_price, symbol, active_trades, trade_history, dry_run):
         trades_to_close = []

@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class Trade:
     """Class to track individual trades"""
     def __init__(self, trade_id, symbol, side, entry_price, quantity, 

@@ -1,6 +1,9 @@
-from main import FIB_LEVELS
+from config import FIB_LEVELS
 import ta
+from config import logger
 class IndicatorCalculator:
+    def __init__(self):
+        pass
     def apply_indicators(self, df):
         try:
             # Trend indicators

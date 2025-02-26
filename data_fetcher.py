@@ -1,5 +1,6 @@
 from datetime import datetime
 import pandas as pd
+from config import logger
 class DataFetcher:
     def __init__(self, exchange):
         self.exchange = exchange

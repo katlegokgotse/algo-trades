@@ -303,3 +303,28 @@
 2025-02-26 10:00:32,204 - trading_bot - INFO - Current price: 88641.0
 2025-02-26 10:00:32,204 - trading_bot - INFO - RSI: 28.82, ADX: 44.68, MACD: -2183.330931
 2025-02-26 10:00:32,208 - trading_bot - INFO - Sleeping for 14427.79 seconds until 2025-02-26 12:01:00+00:00
+2025-02-26 10:38:18,110 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-26 10:38:18,111 - trading_bot - INFO - Running backtest...
+2025-02-26 10:38:18,112 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 10:38:24,037 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-26 10:38:24,037 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 10:38:26,362 - trading_bot - INFO - No trade signal at 2025-02-26 10:38:26.362276
+2025-02-26 10:38:26,363 - trading_bot - INFO - Sleeping for 12153.64 seconds
+2025-02-26 10:38:26,364 - trading_bot - ERROR - Error in main loop: type object 'datetime.time' has no attribute 'sleep'
+2025-02-26 10:39:11,531 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-26 10:39:11,532 - trading_bot - INFO - Running backtest...
+2025-02-26 10:39:11,532 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 10:39:17,883 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-26 10:39:17,883 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 10:39:19,768 - trading_bot - INFO - No trade signal at 2025-02-26 10:39:19.768429
+2025-02-26 10:39:19,770 - trading_bot - INFO - Sleeping for 12100.23 seconds
+2025-02-26 10:40:31,953 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-26 10:40:31,954 - trading_bot - INFO - Running backtest...
+2025-02-26 10:40:31,955 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 10:40:38,920 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-26 10:40:38,921 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 10:40:42,651 - trading_bot - INFO - No trade signal at 2025-02-26 10:40:42.651402
+2025-02-26 10:40:42,653 - trading_bot - INFO - Sleeping for 20.00 seconds
+2025-02-26 10:41:02,654 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 10:41:05,062 - trading_bot - INFO - No trade signal at 2025-02-26 10:41:05.061640
+2025-02-26 10:41:05,063 - trading_bot - INFO - Sleeping for 20.00 seconds

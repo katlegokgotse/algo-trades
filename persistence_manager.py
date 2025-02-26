@@ -1,9 +1,7 @@
 import json
 import os
-
 from trade import Trade
-
-
+from config import logger
 class PersistenceManager:
     def save_trade_data(self, active_trades, trade_history):
         try:

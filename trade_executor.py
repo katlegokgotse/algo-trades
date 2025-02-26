@@ -1,8 +1,6 @@
 from datetime import datetime
-
 from trade import Trade
-
-
+from config import logger
 class TradeExecutor:
     def __init__(self, exchange, dry_run, max_trades):
         self.exchange = exchange

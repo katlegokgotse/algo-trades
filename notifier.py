@@ -1,6 +1,6 @@
 import threading
 import requests
-
+from config import logger
 class Notifier:
     def __init__(self, enabled, bot_token, chat_id):
         self.enabled = enabled
