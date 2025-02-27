@@ -12,6 +12,7 @@ from signal_generator import SignalGenerator
 from trade_executor import TradeExecutor
 from trade_manager import TradeManager
 import pandas as pd
+
 class TradingBot:
     def __init__(self, 
                  exchange, 
@@ -45,7 +46,7 @@ class TradingBot:
         self.signal_generator = SignalGenerator()
         self.risk_manager = RiskManager()
         self.trade_executor = TradeExecutor(exchange, dry_run, max_trades)
-        self.trade_manager = TradeManager(exchange = exchange)
+        self.trade_manager = TradeManager(exchange=exchange)
         self.notifier = Notifier(enable_telegram, telegram_bot_token, telegram_chat_id)
         self.persistence_manager = PersistenceManager()
         self.persistence_manager.load_trade_data(self.active_trades, self.trade_history)
@@ -101,7 +102,6 @@ class TradingBot:
                 if self.trade_executor.execute_trade_order('buy', self.symbol, current_price, 
                                                           latest['stop_loss_buy'], latest['take_profit_buy'], 
                                                           trade_details, self.active_trades, self.position_size):
-                    # Notify and persist trade
                     last_trade = self.active_trades[list(self.active_trades.keys())[-1]]
                     self.notifier.notify_trade(last_trade, trade_details)
                     self.persistence_manager.save_trade_data(self.active_trades, self.trade_history)
@@ -156,11 +156,97 @@ class TradingBot:
 
     def run_backtest(self, data_frame: pd.DataFrame):
         """
-        Backtest logic (to be implemented). Returns a dictionary with backtest results.
+        Backtest logic to simulate trades based on signals, including loss rate.
+
+        Args:
+            data_frame: DataFrame with price data, indicators, and signals.
+
+        Returns:
+            Dictionary with backtest results (total trades, win rate, loss rate, profit factor, etc.).
         """
-        # (Insert your original backtesting logic here.)
-        # For now, we'll return a dummy result.
-        return {"total_trades": 0, "win_rate": 0, "profit_factor": 0}
+        total_trades = 0
+        wins = 0
+        losses = 0  # Explicitly track losing trades
+        total_profit = 0
+        total_loss = 0
+
+        for i in range(1, len(data_frame)):
+            prev = data_frame.iloc[i - 1]
+            current = data_frame.iloc[i]
+            current_price = current['close']
+
+            # Simulate BUY trade
+            if prev['buy_signal'] and prev['signal_strength'] >= 2:
+                total_trades += 1
+                entry_price = current_price
+                stop_loss = prev['stop_loss_buy']
+                take_profit = prev['take_profit_buy']
+
+                # Check future prices to determine trade outcome
+                trade_closed = False
+                for j in range(i + 1, len(data_frame)):
+                    future_price = data_frame.iloc[j]['close']
+                    if future_price <= stop_loss:
+                        loss = (entry_price - stop_loss) * self.position_size
+                        total_loss += loss
+                        losses += 1
+                        trade_closed = True
+                        break
+                    elif future_price >= take_profit:
+                        profit = (take_profit - entry_price) * self.position_size
+                        total_profit += profit
+                        wins += 1
+                        trade_closed = True
+                        break
+                # If trade didn’t hit TP or SL, assume it’s a neutral outcome (no profit/loss)
+                if not trade_closed:
+                    logger.debug(f"Buy trade at index {i} did not reach TP or SL within data.")
+
+            # Simulate SELL trade
+            elif prev['sell_signal'] and prev['signal_strength'] >= 2:
+                total_trades += 1
+                entry_price = current_price
+                stop_loss = prev['stop_loss_sell']
+                take_profit = prev['take_profit_sell']
+
+                # Check future prices to determine trade outcome
+                trade_closed = False
+                for j in range(i + 1, len(data_frame)):
+                    future_price = data_frame.iloc[j]['close']
+                    if future_price >= stop_loss:
+                        loss = (stop_loss - entry_price) * self.position_size
+                        total_loss += loss
+                        losses += 1
+                        trade_closed = True
+                        break
+                    elif future_price <= take_profit:
+                        profit = (entry_price - take_profit) * self.position_size
+                        total_profit += profit
+                        wins += 1
+                        trade_closed = True
+                        break
+                if not trade_closed:
+                    logger.debug(f"Sell trade at index {i} did not reach TP or SL within data.")
+
+        # Calculate metrics
+        win_rate = (wins / total_trades * 100) if total_trades > 0 else 0
+        loss_rate = (losses / total_trades * 100) if total_trades > 0 else 0
+        profit_factor = (total_profit / total_loss) if total_loss > 0 else float('inf') if total_profit > 0 else 0
+        total_pnl = total_profit - total_loss
+        avg_profit_per_win = (total_profit / wins) if wins > 0 else 0
+        avg_loss_per_loss = (total_loss / losses) if losses > 0 else 0
+
+        return {
+            "total_trades": int(total_trades),
+            "wins": int(wins),
+            "losses": int(losses),
+            "win_rate": float(win_rate),
+            "loss_rate": loss_rate,
+            "profit_factor": float(profit_factor),
+            "total_profit": float(total_pnl),
+            "avg_profit_per_win": float(avg_profit_per_win),
+            "avg_loss_per_loss": float(avg_loss_per_loss)
+        }
 
     def start(self) -> None:
         """
@@ -201,13 +287,13 @@ class TradingBot:
     @staticmethod
     def check_market_hours() -> bool:
         """
-        Check if the market is open (weekdays).
+        Check if the market is open (crypto markets are 24/7, so always True for Luno).
         
         Returns:
-            True if market is open, False otherwise.
+            True for crypto markets.
         """
-        now = datetime.now()
-        return now.weekday() < 5
+        # Since Luno is a crypto exchange, markets are always open
+        return True
 
     def shutdown(self) -> None:
         """
