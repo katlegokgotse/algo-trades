@@ -631,3 +631,96 @@
 2025-02-26 16:21:32,497 - trading_bot - INFO - downtrend
 2025-02-26 16:21:32,497 - trading_bot - INFO - BTCUSD_PERP
 2025-02-26 16:21:32,498 - trading_bot - INFO - Sleeping for 5967.50 seconds until next candle
+2025-02-26 16:27:42,328 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-26 16:27:42,334 - trading_bot - INFO - Running backtest...
+2025-02-26 16:27:42,335 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 16:27:48,317 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250226_162748.csv
+2025-02-26 16:27:51,838 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-26 16:27:51,838 - trading_bot - INFO - Starting trading bot loop...
+2025-02-26 16:27:51,839 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 16:27:52,377 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250226_162752.csv
+2025-02-26 16:27:55,986 - trading_bot - INFO - Latest candle close: 85476.0 at 2025-02-26 12:00:00
+2025-02-26 16:27:55,986 - trading_bot - INFO - Update: $85476.0
+2025-02-26 16:27:55,987 - trading_bot - INFO - Uncertain Market Conditions: No trade signal at 2025-02-26 16:27:55.987399
+2025-02-26 16:27:55,988 - trading_bot - INFO - downtrend
+2025-02-26 16:27:55,988 - trading_bot - INFO - BTCUSD_PERP
+2025-02-26 16:27:55,989 - trading_bot - INFO - Sleeping for 5584.01 seconds until next candle
+2025-02-26 19:25:29,071 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-26 19:25:29,071 - trading_bot - INFO - Running backtest...
+2025-02-26 19:25:29,080 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 19:25:43,322 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250226_192543.csv
+2025-02-26 19:25:50,784 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-26 19:25:50,784 - trading_bot - INFO - Starting trading bot loop...
+2025-02-26 19:25:50,784 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 19:25:52,079 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250226_192552.csv
+2025-02-26 19:26:00,909 - trading_bot - INFO - Latest candle close: 86771.4 at 2025-02-26 16:00:00
+2025-02-26 19:26:00,914 - trading_bot - INFO - Update: $86771.4
+2025-02-26 19:26:00,914 - trading_bot - INFO - Uncertain Market Conditions: No trade signal at 2025-02-26 19:26:00.914450
+2025-02-26 19:26:00,914 - trading_bot - INFO - downtrend
+2025-02-26 19:26:00,914 - trading_bot - INFO - BTCUSD_PERP
+2025-02-26 19:26:00,914 - trading_bot - INFO - Sleeping for 9299.09 seconds until next candle
+2025-02-26 20:42:44,305 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-26 20:42:44,305 - trading_bot - INFO - Running backtest...
+2025-02-26 20:42:44,309 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 20:42:53,995 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250226_204253.csv
+2025-02-26 20:42:58,410 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-26 20:42:58,410 - trading_bot - INFO - Starting trading bot loop...
+2025-02-26 20:42:58,410 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 20:43:00,496 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250226_204259.csv
+2025-02-26 20:43:05,214 - trading_bot - INFO - Latest candle close: 84186.0 at 2025-02-26 16:00:00
+2025-02-26 20:43:05,214 - trading_bot - INFO - Update: $84186.0
+2025-02-26 20:43:05,219 - trading_bot - INFO - Uncertain Market Conditions: No trade signal at 2025-02-26 20:43:05.219772
+2025-02-26 20:43:05,219 - trading_bot - INFO - downtrend
+2025-02-26 20:43:05,219 - trading_bot - INFO - BTCUSD_PERP
+2025-02-26 20:43:09,474 - trading_bot - INFO - Sleeping for 4670.53 seconds until next candle
+2025-02-26 22:01:00,008 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 22:01:02,190 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250226_220102.csv
+2025-02-26 22:01:06,224 - trading_bot - INFO - Latest candle close: 83737.8 at 2025-02-26 16:00:00
+2025-02-26 22:01:06,225 - trading_bot - INFO - Update: $83737.8
+2025-02-26 22:01:06,226 - trading_bot - INFO - Uncertain Market Conditions: No trade signal at 2025-02-26 22:01:06.226686
+2025-02-26 22:01:06,226 - trading_bot - INFO - downtrend
+2025-02-26 22:01:06,227 - trading_bot - INFO - BTCUSD_PERP
+2025-02-26 22:01:06,231 - trading_bot - INFO - Sleeping for 14393.77 seconds until next candle
+2025-02-26 23:43:19,786 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-26 23:43:19,787 - trading_bot - INFO - Running backtest...
+2025-02-26 23:43:19,788 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 23:43:25,976 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250226_234325.csv
+2025-02-26 23:43:30,370 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-26 23:43:30,371 - trading_bot - INFO - Starting trading bot loop...
+2025-02-26 23:43:30,372 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-26 23:43:30,831 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250226_234330.csv
+2025-02-26 23:43:34,857 - trading_bot - INFO - Latest candle close: 84102.0 at 2025-02-26 20:00:00
+2025-02-26 23:43:34,858 - trading_bot - INFO - Update: $84102.0
+2025-02-26 23:43:34,859 - trading_bot - INFO - Uncertain Market Conditions: No trade signal at 2025-02-26 23:43:34.859279
+2025-02-26 23:43:34,859 - trading_bot - INFO - downtrend
+2025-02-26 23:43:34,860 - trading_bot - INFO - BTCUSD_PERP
+2025-02-26 23:43:34,861 - trading_bot - INFO - Sleeping for 8245.14 seconds until next candle
+2025-02-27 10:38:04,280 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-27 10:38:04,338 - trading_bot - INFO - Running backtest...
+2025-02-27 10:38:04,353 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-27 10:38:10,894 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250227_103810.csv
+2025-02-27 10:38:14,930 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-27 10:38:14,931 - trading_bot - INFO - Starting trading bot loop...
+2025-02-27 10:38:14,932 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-27 10:38:15,378 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250227_103815.csv
+2025-02-27 10:38:19,007 - trading_bot - INFO - Latest candle close: 86050.0 at 2025-02-27 08:00:00
+2025-02-27 10:38:19,008 - trading_bot - INFO - Update: $86050.0
+2025-02-27 10:38:19,009 - trading_bot - INFO - Uncertain Market Conditions: No trade signal at 2025-02-27 10:38:19.009140
+2025-02-27 10:38:19,009 - trading_bot - INFO - downtrend
+2025-02-27 10:38:19,010 - trading_bot - INFO - BTCUSD_PERP
+2025-02-27 10:38:19,011 - trading_bot - INFO - Sleeping for 12160.99 seconds until next candle
+2025-02-27 10:41:55,972 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-27 10:41:55,974 - trading_bot - INFO - Running backtest...
+2025-02-27 10:41:55,975 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-27 10:41:55,986 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-27 10:42:00,813 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250227_104200.csv
+2025-02-27 10:42:05,284 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-27 10:42:05,285 - trading_bot - INFO - Starting trading bot loop...
+2025-02-27 10:42:05,285 - trading_bot - INFO - Fetching 500 4h candles for BTCUSD_PERP
+2025-02-27 10:42:05,721 - trading_bot - INFO - Data saved to data\BTCUSD_PERP_4h_20250227_104205.csv
+2025-02-27 10:42:10,483 - trading_bot - INFO - Latest candle close: 85914.0 at 2025-02-27 08:00:00
+2025-02-27 10:42:10,485 - trading_bot - INFO - Update: $85914.0
+2025-02-27 10:42:10,486 - trading_bot - INFO - Uncertain Market Conditions: No trade signal at 2025-02-27 10:42:10.485656
+2025-02-27 10:42:10,487 - trading_bot - INFO - downtrend
+2025-02-27 10:42:10,487 - trading_bot - INFO - BTCUSD_PERP
+2025-02-27 10:42:10,488 - trading_bot - INFO - Sleeping for 11929.51 seconds until next candle
