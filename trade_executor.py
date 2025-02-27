@@ -1,4 +1,5 @@
 from datetime import datetime
+import random
 from typing import Dict, Any, Literal, Optional, Tuple
 from trade import Trade
 from config import logger
@@ -101,20 +102,22 @@ class TradeExecutor:
 
     def _execute_order_with_retry(self, signal: str, symbol: str, price: float, 
                                   stop_loss: Optional[float], take_profit: Optional[float], 
-                                  position_size: float) -> bool:
+                                  position_size: float, retry_attempts: int = 3) -> bool:
         """Execute order with capped retry delays."""
-        for attempt in range(1, self.retry_attempts + 1):
+        for attempt in range(1, retry_attempts + 1):
             try:
-                self._place_orders(signal, symbol, position_size, stop_loss, take_profit)
+                self._place_orders(signal, symbol, price, position_size, stop_loss, take_profit)
+                logger.info(f"Order executed successfully for {symbol}")
                 return True
             except Exception as e:
                 if attempt < self.retry_attempts:
-                    wait_time = min(2 ** attempt, 60)  # Cap at 60s
-                    logger.warning(f"Attempt {attempt} failed: {e}. Retrying in {wait_time}s...")
+                    base_wait = min(2 ** attempt, 60)  # Cap at 60s
+                    wait_time = base_wait + random.uniform(0, base_wait * 0.5) 
+                    logger.warning(f"Attempt {attempt} failed: {e}. Retrying in {wait_time:.2f}s...")
                     time.sleep(wait_time)
                 else:
                     logger.error(f"Order failed after {attempt} attempts: {e}")
-        return False
+                    return False
 
     def _place_orders(self, signal: str, symbol: str, position_size: float, 
                       stop_loss: Optional[float], take_profit: Optional[float]) -> None:
@@ -177,7 +180,7 @@ Respond with "REWARD" (good outcome) or "PUNISH" (bad outcome).
         """
         try:
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": "You are a trading performance evaluator."},
                     {"role": "user", "content": prompt}

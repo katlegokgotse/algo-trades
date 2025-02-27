@@ -74,8 +74,8 @@ class TradingBot:
         try:
             # Fetch market data
             data_frame = self.data_fetcher.fetch_data(self.symbol, self.timeframe)
-            if data_frame is None or len(data_frame) < 200:
-                logger.warning(f"Insufficient data for {self.symbol}, minimum 200 candles required")
+            if data_frame is None or len(data_frame) < 50:
+                logger.warning(f"Insufficient data for {self.symbol}, minimum 50 candles required")
                 return
             
             # Apply indicators and generate signals
@@ -635,6 +635,7 @@ class TradingBot:
             timeframe_seconds = self.exchange.parse_timeframe(self.timeframe)
             seconds_since_epoch = current_time.timestamp()
             next_candle_seconds = ((seconds_since_epoch // timeframe_seconds) + 1) * timeframe_seconds
+            next_candle_seconds = ((seconds_since_epoch // timeframe_seconds) + 1) * timeframe_seconds
             next_candle_time = datetime.fromtimestamp(next_candle_seconds, timezone.utc)
             # Add a 1-minute buffer for processing delay
             sleep_until = next_candle_time + timedelta(minutes=1)
@@ -680,8 +681,9 @@ class TradingBot:
             open_trades_str = "\n".join(open_trades_info)
             shutdown_message = f"Trading bot shutting down with {len(self.active_trades)} open positions:\n{open_trades_str}"
             logger.warning(shutdown_message)
-            self.notifier.send_notification(shutdown_message)
+            self.notifier.send_message(shutdown_message)
         else:
+            self.notifier.send_message("Trading bot shutting down with no open positions.")
             logger.info("Trading bot shutting down with no open positions.")
             
         logger.info("Shutdown complete.")
