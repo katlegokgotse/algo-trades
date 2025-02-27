@@ -49,7 +49,7 @@ if __name__ == '__main__':
     try:
         markets = exchange.load_markets()
         available_pairs = list(markets.keys())
-        logger.info(f"Available trading pairs on Luno via ccxt: {available_pairs}")
+        #logger.info(f"Available trading pairs on Luno via ccxt: {available_pairs}")
     except Exception as e:
         logger.error(f"Failed to load markets from Luno via ccxt: {e}")
         sys.exit(1)
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     # Fetch ticker data to verify connection
     try:
         ticker = exchange.fetch_ticker(trading_pair)
-        logger.info(f"Ticker data for {trading_pair}: {ticker}")
+        #logger.info(f"Ticker data for {trading_pair}: {ticker}")
     except Exception as e:
         logger.error(f"Failed to fetch ticker from Luno via ccxt for {trading_pair}: {e}")
         sys.exit(1)
@@ -71,13 +71,13 @@ if __name__ == '__main__':
     # Initialize TradingBot with the ccxt exchange object
     bot = TradingBot(
         exchange=exchange,  # Pass the ccxt exchange object directly
-        symbol=trading_pair,
+        symbol='XBTUSDT',
         timeframe='4h',
-        position_size=0.01,
+        position_size=0.001,
         stop_loss_pct=2.0,
         take_profit_pct=3.5,
         max_trades=3,
-        dry_run=True,  # Set to False for real-time trading
+        dry_run=False,  # Set to False for real-time trading
         enable_telegram=True,
         telegram_bot_token=TELEGRAM_BOT_TOKEN,
         telegram_chat_id=TELEGRAM_CHAT_ID
@@ -88,6 +88,6 @@ if __name__ == '__main__':
     else:
         logger.info("Running backtest...")
         backtest_results = bot.backtest()
-        logger.info(f"Backtest results: {backtest_results}")
+        #logger.info(f"Backtest results: {backtest_results}")
         logger.info("Backtest completed. Starting live trading...")
         bot.start()

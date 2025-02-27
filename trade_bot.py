@@ -229,35 +229,54 @@ class TradingBot:
         except Exception as e:
             logger.error(f"Error in fallback analysis: {str(e)}")
             return False  # If even the fallback fails, don't trade
-            
-    def check_sufficient_balance(self):
-        """
-        Check if there's sufficient balance to execute a trade.
-        
-        Returns:
-            Boolean indicating whether there's enough balance
-        """
+    def check_sufficient_balance(self) -> bool:
         try:
             # Get account balance
             balance = self.exchange.fetch_balance()
+        
+            # Handle different symbol formats
+            if '/' in self.symbol:
+                # Format like "BTC/USD"
+                symbol_parts = self.symbol.split('/')
+                base_currency = symbol_parts[0]
+                quote_currency = symbol_parts[1]
+            else:
+                # Format like "XBTUSDT" - need to extract base and quote currencies
+                # Common quote currencies to check for at the end of the symbol
+                common_quote_currencies = ["USDT", "USD", "BTC", "ETH", "EUR", "GBP", "JPY", "AUD", "ZAR"]
             
-            # Extract currency from the symbol (e.g., 'BTC/USD' -> 'USD')
-            base_currency = self.symbol.split('/')[0]
-            quote_currency = self.symbol.split('/')[1]
+                # Try to find the quote currency in the symbol
+                found_quote = False
+                for quote in common_quote_currencies:
+                    if self.symbol.endswith(quote):
+                        quote_currency = quote
+                        base_currency = self.symbol[:-len(quote)]
+                        found_quote = True
+                        break
             
-            # Check if we have enough balance
+                if not found_quote:
+                    logger.error(f"Could not parse symbol format: {self.symbol}")
+                    return False
+            
+                logger.info(f"Parsed symbol {self.symbol} as {base_currency}/{quote_currency}")
+        
+        # Check if we have enough balance
             if self.position_size > 0:
-                # For buy orders, check quote currency
-                if quote_currency in balance and balance[quote_currency]['free'] >= self.position_size:
+                # For buy orders, calculate cost in quote currency
+                ticker = self.exchange.fetch_ticker(self.symbol)
+                current_price = ticker['last']
+                cost = self.position_size * current_price
+            
+            # Add a check to ensure balance doesn't go below $1
+                if quote_currency in balance and balance[quote_currency]['free'] >= cost and (balance[quote_currency]['free'] - cost) >= 1:
                     return True
                 else:
-                    logger.warning(f"Insufficient {quote_currency} balance for trade")
+                    logger.warning(f"Insufficient {quote_currency} balance for trade or would reduce balance below $1")
                     return False
             return True  # If position size is 0 (e.g., in dry run)
         except Exception as e:
             logger.error(f"Error checking balance: {str(e)}")
-            return False  # If we can't check balance, don't trade
-            
+            return False  # If we can't check balance, don't trade     
     def backtest(self):
         """
         Run a backtest using historical data and return results.
@@ -587,7 +606,7 @@ class TradingBot:
                 try:
                     # Calculate time until next candle
                     sleep_seconds = self.calculate_sleep_time()
-                
+                    self.run()
                     if sleep_seconds <= 0:
                         # Next candle is due or overdue, run immediately
                         logger.info("Next candle is due or overdue, running trading logic now...")
