@@ -246,7 +246,7 @@ class TradingBot:
             "total_loss": round(float(total_loss), 2),            # Gross loss from losses (added explicitly)
             "total_profit_net": round(float(total_pnl), 2),       # Net profit (profit - loss)
             "avg_profit_per_win": round(float(avg_profit_per_win), 2),
-            "avg_loss_per_loss": round(float(avg_loss_per_loss), 2))
+            "avg_loss_per_loss": round(float(avg_loss_per_loss), 2)
         }
 
     def start(self) -> None:
