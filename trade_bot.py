@@ -156,17 +156,17 @@ class TradingBot:
 
     def run_backtest(self, data_frame: pd.DataFrame):
         """
-        Backtest logic to simulate trades based on signals, including loss rate.
+        Backtest logic to simulate trades based on signals, including total loss.
 
         Args:
             data_frame: DataFrame with price data, indicators, and signals.
 
         Returns:
-            Dictionary with backtest results (total trades, win rate, loss rate, profit factor, etc.).
+            Dictionary with backtest results (total trades, win rate, loss rate, total loss, etc.).
         """
         total_trades = 0
         wins = 0
-        losses = 0  # Explicitly track losing trades
+        losses = 0
         total_profit = 0
         total_loss = 0
 
@@ -198,7 +198,6 @@ class TradingBot:
                         wins += 1
                         trade_closed = True
                         break
-                # If trade didn’t hit TP or SL, assume it’s a neutral outcome (no profit/loss)
                 if not trade_closed:
                     logger.debug(f"Buy trade at index {i} did not reach TP or SL within data.")
 
@@ -240,12 +239,14 @@ class TradingBot:
             "total_trades": int(total_trades),
             "wins": int(wins),
             "losses": int(losses),
-            "win_rate": float(win_rate),
-            "loss_rate": loss_rate,
-            "profit_factor": float(profit_factor),
-            "total_profit": float(total_pnl),
-            "avg_profit_per_win": float(avg_profit_per_win),
-            "avg_loss_per_loss": float(avg_loss_per_loss)
+            "win_rate": round(float(win_rate), 2),
+            "loss_rate": round(float(loss_rate), 2),
+            "profit_factor": round(float(profit_factor), 2),
+            "total_profit_gross": round(float(total_profit), 2),  # Gross profit from wins
+            "total_loss": round(float(total_loss), 2),            # Gross loss from losses (added explicitly)
+            "total_profit_net": round(float(total_pnl), 2),       # Net profit (profit - loss)
+            "avg_profit_per_win": round(float(avg_profit_per_win), 2),
+            "avg_loss_per_loss": round(float(avg_loss_per_loss), 2))
         }
 
     def start(self) -> None:
@@ -292,7 +293,6 @@ class TradingBot:
         Returns:
             True for crypto markets.
         """
-        # Since Luno is a crypto exchange, markets are always open
         return True
 
     def shutdown(self) -> None:
