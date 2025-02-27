@@ -8343,3 +8343,24 @@
 2025-02-27 23:51:01,869 - trading_bot - INFO - Trade data saved
 2025-02-27 23:51:03,543 - trading_bot - INFO - Trading bot shutting down with no open positions.
 2025-02-27 23:51:03,544 - trading_bot - INFO - Shutdown complete.
+2025-02-27 23:51:13,555 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-27 23:51:15,944 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-27 23:51:15,944 - trading_bot - INFO - Successfully initialized all components for XBTUSDT trading bot
+2025-02-27 23:51:15,945 - trading_bot - INFO - Running backtest...
+2025-02-27 23:51:15,946 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-27 23:51:16,399 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 12:00:00 to 2025-02-27 16:00:00
+2025-02-27 23:51:16,421 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250227_235116.csv
+2025-02-27 23:51:20,876 - trading_bot - INFO - Backtest results saved to backtest_results\XBTUSDT_4h_20250227_235120_summary.txt and backtest_results\XBTUSDT_4h_20250227_235120_trades.csv
+2025-02-27 23:51:20,878 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-27 23:51:20,878 - trading_bot - INFO - Starting trading bot loop...
+2025-02-27 23:51:20,879 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-27 23:51:21,166 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 12:00:00 to 2025-02-27 16:00:00
+2025-02-27 23:51:21,175 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250227_235121.csv
+2025-02-27 23:51:25,259 - trading_bot - INFO - Latest candle close: 84028.0 at 2025-02-27 16:00:00
+2025-02-27 23:51:25,574 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-27 23:51:25,900 - trading_bot - WARNING - Insufficient USDT balance for trade or would reduce balance below $1
+2025-02-27 23:51:25,901 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-27 23:55:33,672 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-27 23:55:33,675 - trading_bot - INFO - Trade data saved
+2025-02-27 23:55:35,268 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-27 23:55:35,276 - trading_bot - INFO - Shutdown complete.

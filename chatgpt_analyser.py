@@ -1,4 +1,5 @@
 import openai
+from config import logger
 def chatgpt_analyze_trade(trade_details):
     prompt = (f"You are a trading analysis assistant. A trade signal has been generated with the following details:\n"
               f"Trade type: {trade_details['trade_type']}\nSymbol: {trade_details['symbol']}\n"
@@ -10,7 +11,7 @@ def chatgpt_analyze_trade(trade_details):
               "Based on these details, do you recommend executing this trade? Respond with 'GO' or 'HOLD'.")
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-40-mini",
             messages=[{"role": "system", "content": "You are a trading analysis assistant."}, 
                       {"role": "user", "content": prompt}],
             temperature=0.2,

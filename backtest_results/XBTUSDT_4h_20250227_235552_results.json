@@ -6,11 +6,11 @@
   "win_rate": 45.59,
   "loss_rate": 54.41,
   "profit_factor": 2.58,
-  "total_profit_gross": 138.58,
-  "total_loss": 53.69,
-  "total_profit_net": 84.9,
-  "avg_profit_per_win": 4.47,
-  "avg_loss_per_loss": 1.45,
+  "total_profit_gross": 13.86,
+  "total_loss": 5.37,
+  "total_profit_net": 8.49,
+  "avg_profit_per_win": 0.45,
+  "avg_loss_per_loss": 0.15,
   "trade_log": [
     {
       "id": 1,
@@ -21,7 +21,7 @@
       "take_profit": 101675.34856094742,
       "exit_date": "2024-12-16 12:00:00",
       "exit_price": 105906.5479651729,
-      "pnl": -0.8118579651728942,
+      "pnl": -0.08118579651728942,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -34,7 +34,7 @@
       "take_profit": 103115.85284127628,
       "exit_date": "2024-12-18 20:00:00",
       "exit_price": 103115.85284127628,
-      "pnl": 2.7729171587237214,
+      "pnl": 0.27729171587237217,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -47,7 +47,7 @@
       "take_profit": 104101.33499999999,
       "exit_date": "2024-12-19 16:00:00",
       "exit_price": 98569.38,
-      "pnl": -2.5141199999999952,
+      "pnl": -0.2514119999999995,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -60,7 +60,7 @@
       "take_profit": 104621.42249999999,
       "exit_date": "2024-12-19 16:00:00",
       "exit_price": 99061.83,
-      "pnl": -2.357759999999995,
+      "pnl": -0.23577599999999949,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -73,7 +73,7 @@
       "take_profit": 98853.59618000001,
       "exit_date": "2024-12-20 08:00:00",
       "exit_price": 95877.35919999999,
-      "pnl": -1.2086408000000084,
+      "pnl": -0.12086408000000083,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -86,7 +86,7 @@
       "take_profit": 93020.5188,
       "exit_date": "2024-12-30 12:00:00",
       "exit_price": 93020.5188,
-      "pnl": 2.719901199999993,
+      "pnl": 0.27199011999999934,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -99,7 +99,7 @@
       "take_profit": 91653.77,
       "exit_date": "2024-12-29 04:00:00",
       "exit_price": 95193.37756,
-      "pnl": 0.00125244000001112,
+      "pnl": 0.000125244000001112,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -112,7 +112,7 @@
       "take_profit": 92049.79725277083,
       "exit_date": "2025-01-02 16:00:00",
       "exit_price": 96991.67728413096,
-      "pnl": -2.0542772841309636,
+      "pnl": -0.20542772841309634,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -125,7 +125,7 @@
       "take_profit": 91968.9675382872,
       "exit_date": "2025-01-02 16:00:00",
       "exit_price": 96633.64712097874,
-      "pnl": -0.5061171209787426,
+      "pnl": -0.05061171209787426,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -138,7 +138,7 @@
       "take_profit": 93147.97905340954,
       "exit_date": "2024-12-30 12:00:00",
       "exit_price": 93147.97905340954,
-      "pnl": 2.9687909465904667,
+      "pnl": 0.2968790946590467,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -151,7 +151,7 @@
       "take_profit": 93156.11099602316,
       "exit_date": "2024-12-30 12:00:00",
       "exit_price": 93156.11099602316,
-      "pnl": 0.959909003976849,
+      "pnl": 0.09599090039768489,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -164,7 +164,7 @@
       "take_profit": 90580.4513881526,
       "exit_date": "2024-12-30 04:00:00",
       "exit_price": 94323.07092,
-      "pnl": -1.1230709199999984,
+      "pnl": -0.11230709199999983,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -177,7 +177,7 @@
       "take_profit": 95208.42771999999,
       "exit_date": "2024-12-31 12:00:00",
       "exit_price": 95208.42771999999,
-      "pnl": 0.8084577199999913,
+      "pnl": 0.08084577199999912,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -190,7 +190,7 @@
       "take_profit": 92250.0326453261,
       "exit_date": "2025-01-03 16:00:00",
       "exit_price": 97462.64563124222,
-      "pnl": -3.3166456312422232,
+      "pnl": -0.3316645631242223,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -203,7 +203,7 @@
       "take_profit": 94218.73999999999,
       "exit_date": "2025-01-06 12:00:00",
       "exit_price": 99588.72,
-      "pnl": -1.5407200000000012,
+      "pnl": -0.15407200000000013,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -216,7 +216,7 @@
       "take_profit": 102674.08034999999,
       "exit_date": "2025-01-07 16:00:00",
       "exit_price": 97217.96979999999,
-      "pnl": -1.8020502000000125,
+      "pnl": -0.18020502000000124,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -229,7 +229,7 @@
       "take_profit": 98217.893,
       "exit_date": "2025-01-07 12:00:00",
       "exit_price": 98217.893,
-      "pnl": 3.900767000000007,
+      "pnl": 0.3900767000000007,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -242,7 +242,7 @@
       "take_profit": 98333.5,
       "exit_date": "2025-01-07 12:00:00",
       "exit_price": 98333.5,
-      "pnl": 3.4195,
+      "pnl": 0.34195000000000003,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -255,7 +255,7 @@
       "take_profit": 99844.3386,
       "exit_date": "2025-01-08 16:00:00",
       "exit_price": 94538.6008,
-      "pnl": -2.395319199999998,
+      "pnl": -0.23953191999999981,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -268,7 +268,7 @@
       "take_profit": 99097.10999999999,
       "exit_date": "2025-01-09 04:00:00",
       "exit_price": 93831.08,
-      "pnl": -1.1289199999999984,
+      "pnl": -0.11289199999999983,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -281,7 +281,7 @@
       "take_profit": 90705.45300878446,
       "exit_date": "2025-01-14 08:00:00",
       "exit_price": 95798.18113783746,
-      "pnl": -1.6005811378374493,
+      "pnl": -0.16005811378374493,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -294,7 +294,7 @@
       "take_profit": 90434.73375,
       "exit_date": "2025-01-14 08:00:00",
       "exit_price": 95589.045,
-      "pnl": -4.385035000000004,
+      "pnl": -0.4385035000000004,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -307,7 +307,7 @@
       "take_profit": 88011.86965,
       "exit_date": "2025-01-13 20:00:00",
       "exit_price": 93686.70651999999,
-      "pnl": -1.3586365199999855,
+      "pnl": -0.13586365199999856,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -320,7 +320,7 @@
       "take_profit": 88971.60075,
       "exit_date": "2025-01-14 00:00:00",
       "exit_price": 92636.19888,
-      "pnl": 1.7533311200000026,
+      "pnl": 0.17533311200000026,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -333,7 +333,7 @@
       "take_profit": 91085.89645,
       "exit_date": "2025-01-14 08:00:00",
       "exit_price": 96277.3206,
-      "pnl": -1.3241906000000017,
+      "pnl": -0.13241906000000017,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -346,7 +346,7 @@
       "take_profit": 91629.77045,
       "exit_date": "2025-01-14 16:00:00",
       "exit_price": 96852.19260000001,
-      "pnl": -1.8330826000000089,
+      "pnl": -0.1833082600000009,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -359,7 +359,7 @@
       "take_profit": 92736.5,
       "exit_date": "2025-01-15 12:00:00",
       "exit_price": 98022.0,
-      "pnl": -1.1221100000000006,
+      "pnl": -0.11221100000000006,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -372,7 +372,7 @@
       "take_profit": 93508.39385,
       "exit_date": "2025-01-15 12:00:00",
       "exit_price": 98837.8878,
-      "pnl": -2.297157800000001,
+      "pnl": -0.2297157800000001,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -385,7 +385,7 @@
       "take_profit": 93685.79944999999,
       "exit_date": "2025-01-15 12:00:00",
       "exit_price": 99025.4046,
-      "pnl": -1.7236345999999902,
+      "pnl": -0.17236345999999905,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -398,7 +398,7 @@
       "take_profit": 97508.63944,
       "exit_date": "2025-01-17 08:00:00",
       "exit_price": 101711.0442,
-      "pnl": -2.292064200000008,
+      "pnl": -0.2292064200000008,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -411,7 +411,7 @@
       "take_profit": 112004.41905,
       "exit_date": "2025-01-20 16:00:00",
       "exit_price": 106052.4934,
-      "pnl": 0.7905134000000108,
+      "pnl": 0.07905134000000108,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -424,7 +424,7 @@
       "take_profit": 109109.66894999999,
       "exit_date": "2025-01-26 20:00:00",
       "exit_price": 103311.5706,
-      "pnl": -2.388799399999989,
+      "pnl": -0.2388799399999989,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -437,7 +437,7 @@
       "take_profit": 102721.66965,
       "exit_date": "2025-01-28 04:00:00",
       "exit_price": 102721.66965,
-      "pnl": 3.7240796499999997,
+      "pnl": 0.372407965,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -450,7 +450,7 @@
       "take_profit": 98869.39962962961,
       "exit_date": "2025-02-02 16:00:00",
       "exit_price": 98869.39962962961,
-      "pnl": 3.39660037037039,
+      "pnl": 0.339660037037039,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -463,7 +463,7 @@
       "take_profit": 105600.13042776834,
       "exit_date": "2025-02-02 00:00:00",
       "exit_price": 100477.06832698952,
-      "pnl": -1.8607516730104836,
+      "pnl": -0.18607516730104837,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -476,7 +476,7 @@
       "take_profit": 97191.87604999999,
       "exit_date": "2025-02-05 20:00:00",
       "exit_price": 97191.87604999999,
-      "pnl": 1.2361139500000136,
+      "pnl": 0.12361139500000136,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -489,7 +489,7 @@
       "take_profit": 94190.93835,
       "exit_date": "2025-02-27 16:00:00",
       "exit_price": 84028.0,
-      "pnl": 14.114009999999995,
+      "pnl": 1.4114009999999995,
       "outcome": "win",
       "reason": "unclosed_position"
     },
@@ -502,7 +502,7 @@
       "take_profit": 93956.35650000001,
       "exit_date": "2025-02-27 16:00:00",
       "exit_price": 84028.0,
-      "pnl": 12.463919999999998,
+      "pnl": 1.246392,
       "outcome": "win",
       "reason": "unclosed_position"
     },
@@ -515,7 +515,7 @@
       "take_profit": 93114.7028,
       "exit_date": "2025-02-06 08:00:00",
       "exit_price": 98421.7584,
-      "pnl": -1.1339284000000043,
+      "pnl": -0.11339284000000044,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -528,7 +528,7 @@
       "take_profit": 93882.75594999999,
       "exit_date": "2025-02-27 16:00:00",
       "exit_price": 84028.0,
-      "pnl": 14.077839999999997,
+      "pnl": 1.4077839999999997,
       "outcome": "win",
       "reason": "unclosed_position"
     },
@@ -541,7 +541,7 @@
       "take_profit": 95645.01,
       "exit_date": "2025-02-11 16:00:00",
       "exit_price": 95645.01,
-      "pnl": 1.4299700000000013,
+      "pnl": 0.14299700000000012,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -554,7 +554,7 @@
       "take_profit": 93677.3557,
       "exit_date": "2025-02-27 16:00:00",
       "exit_price": 84028.0,
-      "pnl": 11.972009999999996,
+      "pnl": 1.1972009999999995,
       "outcome": "win",
       "reason": "unclosed_position"
     },
@@ -567,7 +567,7 @@
       "take_profit": 92640.00964999999,
       "exit_date": "2025-02-07 12:00:00",
       "exit_price": 97920.01019999999,
-      "pnl": -1.526030199999994,
+      "pnl": -0.1526030199999994,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -580,7 +580,7 @@
       "take_profit": 93770.2273,
       "exit_date": "2025-02-27 16:00:00",
       "exit_price": 84028.0,
-      "pnl": 12.704309999999998,
+      "pnl": 1.2704309999999999,
       "outcome": "win",
       "reason": "unclosed_position"
     },
@@ -593,7 +593,7 @@
       "take_profit": 94267.46285,
       "exit_date": "2025-02-27 16:00:00",
       "exit_price": 84028.0,
-      "pnl": 14.053970000000001,
+      "pnl": 1.4053970000000002,
       "outcome": "win",
       "reason": "unclosed_position"
     },
@@ -606,7 +606,7 @@
       "take_profit": 94176.80498836044,
       "exit_date": "2025-02-27 16:00:00",
       "exit_price": 84028.0,
-      "pnl": 13.345910000000003,
+      "pnl": 1.3345910000000003,
       "outcome": "win",
       "reason": "unclosed_position"
     },
@@ -619,7 +619,7 @@
       "take_profit": 94408.04298448536,
       "exit_date": "2025-02-18 16:00:00",
       "exit_price": 94408.04298448536,
-      "pnl": 3.1229670155146305,
+      "pnl": 0.31229670155146305,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -632,7 +632,7 @@
       "take_profit": 95981.96036,
       "exit_date": "2025-02-12 16:00:00",
       "exit_price": 95981.96036,
-      "pnl": 0.4584303599999985,
+      "pnl": 0.04584303599999985,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -645,7 +645,7 @@
       "take_profit": 95981.96036,
       "exit_date": "2025-02-12 16:00:00",
       "exit_price": 95981.96036,
-      "pnl": 0.11054035999999906,
+      "pnl": 0.011054035999999906,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -658,7 +658,7 @@
       "take_profit": 95981.96036,
       "exit_date": "2025-02-12 20:00:00",
       "exit_price": 95981.96036,
-      "pnl": -1.1799696399999957,
+      "pnl": -0.11799696399999958,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -671,7 +671,7 @@
       "take_profit": 100270.73520180819,
       "exit_date": "2025-02-13 04:00:00",
       "exit_price": 96129.9027418239,
-      "pnl": -1.870087258176107,
+      "pnl": -0.1870087258176107,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -684,7 +684,7 @@
       "take_profit": 93630.94557052809,
       "exit_date": "2025-02-14 16:00:00",
       "exit_price": 97554.60538826967,
-      "pnl": -1.8266253882696766,
+      "pnl": -0.18266253882696765,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -697,7 +697,7 @@
       "take_profit": 95691.30877789795,
       "exit_date": "2025-02-17 16:00:00",
       "exit_price": 95691.30877789795,
-      "pnl": 1.7978212221020513,
+      "pnl": 0.17978212221020515,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -710,7 +710,7 @@
       "take_profit": 95456.5997531427,
       "exit_date": "2025-02-18 16:00:00",
       "exit_price": 95456.5997531427,
-      "pnl": 1.6304002468573018,
+      "pnl": 0.16304002468573017,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -723,7 +723,7 @@
       "take_profit": 95971.43127999999,
       "exit_date": "2025-02-18 00:00:00",
       "exit_price": 95971.43127999999,
-      "pnl": 0.12746127999998863,
+      "pnl": 0.012746127999998863,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -736,7 +736,7 @@
       "take_profit": 95971.43127999999,
       "exit_date": "2025-02-18 16:00:00",
       "exit_price": 94956.30906123188,
-      "pnl": -1.3346709387681186,
+      "pnl": -0.13346709387681185,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -749,7 +749,7 @@
       "take_profit": 95971.43127999999,
       "exit_date": "2025-02-18 16:00:00",
       "exit_price": 94733.02811912341,
-      "pnl": -0.9864618808765954,
+      "pnl": -0.09864618808765954,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -762,7 +762,7 @@
       "take_profit": 95971.43127999999,
       "exit_date": "2025-02-18 16:00:00",
       "exit_price": 94840.87253918602,
-      "pnl": -0.6891474608139834,
+      "pnl": -0.06891474608139833,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -775,7 +775,7 @@
       "take_profit": 95971.43127999999,
       "exit_date": "2025-02-19 08:00:00",
       "exit_price": 95971.43127999999,
-      "pnl": 1.84543127999999,
+      "pnl": 0.18454312799999897,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -788,7 +788,7 @@
       "take_profit": 95971.43127999999,
       "exit_date": "2025-02-19 08:00:00",
       "exit_price": 95971.43127999999,
-      "pnl": 0.5036512799999909,
+      "pnl": 0.0503651279999991,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -801,7 +801,7 @@
       "take_profit": 96697.51728,
       "exit_date": "2025-02-20 16:00:00",
       "exit_price": 98275.26739760237,
-      "pnl": -0.9638973976023699,
+      "pnl": -0.096389739760237,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -814,7 +814,7 @@
       "take_profit": 96697.51728,
       "exit_date": "2025-02-20 20:00:00",
       "exit_price": 98270.65321527958,
-      "pnl": 0.14458678472042083,
+      "pnl": 0.014458678472042085,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -827,7 +827,7 @@
       "take_profit": 96697.51728,
       "exit_date": "2025-02-21 16:00:00",
       "exit_price": 96697.51728,
-      "pnl": 1.559502720000004,
+      "pnl": 0.15595027200000042,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -840,7 +840,7 @@
       "take_profit": 93411.01939624874,
       "exit_date": "2025-02-24 20:00:00",
       "exit_price": 93411.01939624874,
-      "pnl": 3.0875206037512544,
+      "pnl": 0.3087520603751254,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -853,7 +853,7 @@
       "take_profit": 93521.81881437382,
       "exit_date": "2025-02-24 20:00:00",
       "exit_price": 93521.81881437382,
-      "pnl": 3.0033811856261745,
+      "pnl": 0.3003381185626175,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -866,7 +866,7 @@
       "take_profit": 93698.25175620426,
       "exit_date": "2025-02-24 20:00:00",
       "exit_price": 93698.25175620426,
-      "pnl": 2.4484382437957395,
+      "pnl": 0.24484382437957394,
       "outcome": "win",
       "reason": "take_profit_hit"
     },
@@ -879,7 +879,7 @@
       "take_profit": 93450.69600576111,
       "exit_date": "2025-02-23 20:00:00",
       "exit_price": 96304.0,
-      "pnl": -0.6780099999999948,
+      "pnl": -0.06780099999999947,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     },
@@ -892,7 +892,7 @@
       "take_profit": 90055.8261,
       "exit_date": "2025-02-26 16:00:00",
       "exit_price": 85270.25080000001,
-      "pnl": -2.420539199999985,
+      "pnl": -0.24205391999999848,
       "outcome": "loss",
       "reason": "stop_loss_hit"
     }
