@@ -920,3 +920,114 @@
 2025-02-27 12:09:19,644 - trading_bot - INFO - downtrend
 2025-02-27 12:09:19,645 - trading_bot - INFO - BTC/USDT
 2025-02-27 12:09:19,646 - trading_bot - INFO - Sleeping for 6700.35 seconds until next candle
+2025-02-27 12:12:58,440 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-27 12:13:00,459 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-27 12:13:00,683 - trading_bot - INFO - Ticker data for BTC/USDT: {'symbol': 'BTC/USDT', 'timestamp': 1740651088460, 'datetime': '2025-02-27T10:11:28.460Z', 'high': None, 'low': None, 'bid': 84000.01, 'bidVolume': None, 'ask': 86476.0, 'askVolume': None, 'vwap': None, 'open': None, 'close': 86185.98, 'last': 86185.98, 'previousClose': None, 'change': None, 'percentage': None, 'average': None, 'baseVolume': 1.3037, 'quoteVolume': None, 'info': {'pair': 'XBTUSDT', 'timestamp': '1740651088460', 'bid': '84000.01', 'ask': '86476.00', 'last_trade': '86185.98', 'rolling_24_hour_volume': '1.3037', 'status': 'ACTIVE'}, 'indexPrice': None, 'markPrice': None}
+2025-02-27 12:13:00,685 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-27 12:13:00,686 - trading_bot - INFO - Running backtest...
+2025-02-27 12:13:00,687 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-27 12:13:01,683 - trading_bot - INFO - Data saved to data\BTC_USDT_4h_20250227_121301.csv
+2025-02-27 12:13:07,617 - trading_bot - INFO - Backtest results: {'total_trades': 67, 'wins': 29, 'losses': 38, 'win_rate': 43.28, 'loss_rate': 56.72, 'profit_factor': 1.11, 'total_profit_gross': 615.24, 'total_loss': 556.04, 'total_profit_net': 59.2, 'avg_profit_per_win': 21.22, 'avg_loss_per_loss': 14.63}
+2025-02-27 12:13:07,618 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-27 12:13:07,619 - trading_bot - INFO - Starting trading bot loop...
+2025-02-27 12:13:07,620 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-27 12:13:07,886 - trading_bot - INFO - Data saved to data\BTC_USDT_4h_20250227_121307.csv
+2025-02-27 12:13:12,086 - trading_bot - INFO - Latest candle close: 86471.0 at 2025-02-27 04:00:00
+2025-02-27 12:13:12,087 - trading_bot - INFO - Update: $86471.0
+2025-02-27 12:13:12,088 - trading_bot - INFO - Uncertain Market Conditions: No trade signal at 2025-02-27 12:13:12.088281
+2025-02-27 12:13:12,088 - trading_bot - INFO - downtrend
+2025-02-27 12:13:12,089 - trading_bot - INFO - BTC/USDT
+2025-02-27 12:13:12,090 - trading_bot - INFO - Sleeping for 6467.91 seconds until next candle
+2025-02-27 12:22:28,255 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-27 12:22:30,474 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-27 12:22:30,769 - trading_bot - INFO - Ticker data for BTC/USDT: {'symbol': 'BTC/USDT', 'timestamp': 1740651657808, 'datetime': '2025-02-27T10:20:57.808Z', 'high': None, 'low': None, 'bid': 84000.01, 'bidVolume': None, 'ask': 86333.99, 'askVolume': None, 'vwap': None, 'open': None, 'close': 86185.98, 'last': 86185.98, 'previousClose': None, 'change': None, 'percentage': None, 'average': None, 'baseVolume': 1.3017, 'quoteVolume': None, 'info': {'pair': 'XBTUSDT', 'timestamp': '1740651657808', 'bid': '84000.01', 'ask': '86333.99', 'last_trade': '86185.98', 'rolling_24_hour_volume': '1.3017', 'status': 'ACTIVE'}, 'indexPrice': None, 'markPrice': None}
+2025-02-27 12:22:30,772 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-27 12:22:30,772 - trading_bot - INFO - Running backtest...
+2025-02-27 12:22:30,773 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-27 12:22:31,027 - trading_bot - INFO - Data saved to data\BTC_USDT_4h_20250227_122231.csv
+2025-02-27 12:22:34,709 - trading_bot - INFO - Backtest results: {'total_trades': 67, 'wins': 29, 'losses': 38, 'win_rate': 43.28, 'loss_rate': 56.72, 'profit_factor': 1.11, 'total_profit_gross': 615.24, 'total_loss': 556.04, 'total_profit_net': 59.2, 'avg_profit_per_win': 21.22, 'avg_loss_per_loss': 14.63}
+2025-02-27 12:22:34,710 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-27 12:22:34,712 - trading_bot - INFO - Starting trading bot loop...
+2025-02-27 12:22:34,712 - trading_bot - INFO - Waiting for next candle: 5905.29 seconds remaining
+2025-02-27 12:22:35,713 - trading_bot - INFO - Waiting for next candle: 5904.29 seconds remaining
+2025-02-27 12:22:36,715 - trading_bot - INFO - Waiting for next candle: 5903.29 seconds remaining
+2025-02-27 12:22:37,716 - trading_bot - INFO - Waiting for next candle: 5902.28 seconds remaining
+2025-02-27 12:22:38,717 - trading_bot - INFO - Waiting for next candle: 5901.28 seconds remaining
+2025-02-27 12:22:39,718 - trading_bot - INFO - Waiting for next candle: 5900.28 seconds remaining
+2025-02-27 12:22:40,719 - trading_bot - INFO - Waiting for next candle: 5899.28 seconds remaining
+2025-02-27 12:22:41,721 - trading_bot - INFO - Waiting for next candle: 5898.28 seconds remaining
+2025-02-27 12:22:42,722 - trading_bot - INFO - Waiting for next candle: 5897.28 seconds remaining
+2025-02-27 12:22:43,723 - trading_bot - INFO - Waiting for next candle: 5896.28 seconds remaining
+2025-02-27 12:22:44,725 - trading_bot - INFO - Waiting for next candle: 5895.27 seconds remaining
+2025-02-27 12:22:45,726 - trading_bot - INFO - Waiting for next candle: 5894.27 seconds remaining
+2025-02-27 12:22:46,728 - trading_bot - INFO - Waiting for next candle: 5893.27 seconds remaining
+2025-02-27 12:22:47,729 - trading_bot - INFO - Waiting for next candle: 5892.27 seconds remaining
+2025-02-27 12:22:48,730 - trading_bot - INFO - Waiting for next candle: 5891.27 seconds remaining
+2025-02-27 12:22:49,732 - trading_bot - INFO - Waiting for next candle: 5890.27 seconds remaining
+2025-02-27 12:22:50,733 - trading_bot - INFO - Waiting for next candle: 5889.27 seconds remaining
+2025-02-27 12:22:51,734 - trading_bot - INFO - Waiting for next candle: 5888.27 seconds remaining
+2025-02-27 12:22:52,735 - trading_bot - INFO - Waiting for next candle: 5887.26 seconds remaining
+2025-02-27 12:22:53,737 - trading_bot - INFO - Waiting for next candle: 5886.26 seconds remaining
+2025-02-27 12:22:54,738 - trading_bot - INFO - Waiting for next candle: 5885.26 seconds remaining
+2025-02-27 12:22:55,739 - trading_bot - INFO - Waiting for next candle: 5884.26 seconds remaining
+2025-02-27 12:22:56,741 - trading_bot - INFO - Waiting for next candle: 5883.26 seconds remaining
+2025-02-27 12:22:57,742 - trading_bot - INFO - Waiting for next candle: 5882.26 seconds remaining
+2025-02-27 12:22:58,743 - trading_bot - INFO - Waiting for next candle: 5881.26 seconds remaining
+2025-02-27 12:22:59,744 - trading_bot - INFO - Waiting for next candle: 5880.26 seconds remaining
+2025-02-27 12:23:00,745 - trading_bot - INFO - Waiting for next candle: 5879.25 seconds remaining
+2025-02-27 12:23:01,747 - trading_bot - INFO - Waiting for next candle: 5878.25 seconds remaining
+2025-02-27 12:23:02,748 - trading_bot - INFO - Waiting for next candle: 5877.25 seconds remaining
+2025-02-27 12:23:03,749 - trading_bot - INFO - Waiting for next candle: 5876.25 seconds remaining
+2025-02-27 12:23:04,751 - trading_bot - INFO - Waiting for next candle: 5875.25 seconds remaining
+2025-02-27 12:23:05,752 - trading_bot - INFO - Waiting for next candle: 5874.25 seconds remaining
+2025-02-27 12:23:06,753 - trading_bot - INFO - Waiting for next candle: 5873.25 seconds remaining
+2025-02-27 12:23:07,754 - trading_bot - INFO - Waiting for next candle: 5872.25 seconds remaining
+2025-02-27 12:23:08,756 - trading_bot - INFO - Waiting for next candle: 5871.24 seconds remaining
+2025-02-27 12:23:09,757 - trading_bot - INFO - Waiting for next candle: 5870.24 seconds remaining
+2025-02-27 12:23:10,758 - trading_bot - INFO - Waiting for next candle: 5869.24 seconds remaining
+2025-02-27 12:23:11,759 - trading_bot - INFO - Waiting for next candle: 5868.24 seconds remaining
+2025-02-27 12:23:12,761 - trading_bot - INFO - Waiting for next candle: 5867.24 seconds remaining
+2025-02-27 12:23:13,762 - trading_bot - INFO - Waiting for next candle: 5866.24 seconds remaining
+2025-02-27 12:23:14,763 - trading_bot - INFO - Waiting for next candle: 5865.24 seconds remaining
+2025-02-27 12:23:15,764 - trading_bot - INFO - Waiting for next candle: 5864.24 seconds remaining
+2025-02-27 12:23:16,767 - trading_bot - INFO - Waiting for next candle: 5863.23 seconds remaining
+2025-02-27 12:23:17,768 - trading_bot - INFO - Waiting for next candle: 5862.23 seconds remaining
+2025-02-27 12:23:18,769 - trading_bot - INFO - Waiting for next candle: 5861.23 seconds remaining
+2025-02-27 12:23:19,771 - trading_bot - INFO - Waiting for next candle: 5860.23 seconds remaining
+2025-02-27 12:23:20,797 - trading_bot - INFO - Waiting for next candle: 5859.20 seconds remaining
+2025-02-27 12:23:21,805 - trading_bot - INFO - Waiting for next candle: 5858.19 seconds remaining
+2025-02-27 12:23:22,810 - trading_bot - INFO - Waiting for next candle: 5857.19 seconds remaining
+2025-02-27 12:23:23,817 - trading_bot - INFO - Waiting for next candle: 5856.18 seconds remaining
+2025-02-27 12:23:24,819 - trading_bot - INFO - Waiting for next candle: 5855.18 seconds remaining
+2025-02-27 12:23:25,821 - trading_bot - INFO - Waiting for next candle: 5854.18 seconds remaining
+2025-02-27 12:23:26,823 - trading_bot - INFO - Waiting for next candle: 5853.18 seconds remaining
+2025-02-27 12:23:33,262 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-27 12:23:35,689 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-27 12:23:36,636 - trading_bot - INFO - Ticker data for BTC/USDT: {'symbol': 'BTC/USDT', 'timestamp': 1740651725397, 'datetime': '2025-02-27T10:22:05.397Z', 'high': None, 'low': None, 'bid': 84000.01, 'bidVolume': None, 'ask': 86406.99, 'askVolume': None, 'vwap': None, 'open': None, 'close': 86185.98, 'last': 86185.98, 'previousClose': None, 'change': None, 'percentage': None, 'average': None, 'baseVolume': 1.3017, 'quoteVolume': None, 'info': {'pair': 'XBTUSDT', 'timestamp': '1740651725397', 'bid': '84000.01', 'ask': '86406.99', 'last_trade': '86185.98', 'rolling_24_hour_volume': '1.3017', 'status': 'ACTIVE'}, 'indexPrice': None, 'markPrice': None}
+2025-02-27 12:23:36,639 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-27 12:23:36,640 - trading_bot - INFO - Running backtest...
+2025-02-27 12:23:36,641 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-27 12:23:36,956 - trading_bot - INFO - Data saved to data\BTC_USDT_4h_20250227_122336.csv
+2025-02-27 12:23:40,693 - trading_bot - INFO - Backtest results: {'total_trades': 67, 'wins': 29, 'losses': 38, 'win_rate': 43.28, 'loss_rate': 56.72, 'profit_factor': 1.11, 'total_profit_gross': 615.24, 'total_loss': 556.04, 'total_profit_net': 59.2, 'avg_profit_per_win': 21.22, 'avg_loss_per_loss': 14.63}
+2025-02-27 12:23:40,695 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-27 12:23:40,695 - trading_bot - INFO - Starting trading bot loop...
+2025-02-27 12:27:13,433 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-27 12:27:15,930 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-27 12:27:16,189 - trading_bot - INFO - Ticker data for BTC/USDT: {'symbol': 'BTC/USDT', 'timestamp': 1740651939381, 'datetime': '2025-02-27T10:25:39.381Z', 'high': None, 'low': None, 'bid': 84000.01, 'bidVolume': None, 'ask': 86415.99, 'askVolume': None, 'vwap': None, 'open': None, 'close': 86406.0, 'last': 86406.0, 'previousClose': None, 'change': None, 'percentage': None, 'average': None, 'baseVolume': 1.3035, 'quoteVolume': None, 'info': {'pair': 'XBTUSDT', 'timestamp': '1740651939381', 'bid': '84000.01', 'ask': '86415.99', 'last_trade': '86406.00', 'rolling_24_hour_volume': '1.3035', 'status': 'ACTIVE'}, 'indexPrice': None, 'markPrice': None}
+2025-02-27 12:27:16,191 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-27 12:27:16,192 - trading_bot - INFO - Running backtest...
+2025-02-27 12:27:16,193 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-27 12:27:16,492 - trading_bot - INFO - Data saved to data\BTC_USDT_4h_20250227_122716.csv
+2025-02-27 12:27:19,619 - trading_bot - INFO - Backtest results: {'total_trades': 67, 'wins': 29, 'losses': 38, 'win_rate': 43.28, 'loss_rate': 56.72, 'profit_factor': 1.11, 'total_profit_gross': 615.24, 'total_loss': 556.04, 'total_profit_net': 59.2, 'avg_profit_per_win': 21.22, 'avg_loss_per_loss': 14.63}
+2025-02-27 12:27:19,620 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-27 12:27:19,621 - trading_bot - INFO - Starting trading bot loop...
+2025-02-27 12:28:01,941 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-27 12:28:04,854 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-27 12:28:05,606 - trading_bot - INFO - Ticker data for BTC/USDT: {'symbol': 'BTC/USDT', 'timestamp': 1740651984356, 'datetime': '2025-02-27T10:26:24.356Z', 'high': None, 'low': None, 'bid': 84000.01, 'bidVolume': None, 'ask': 86415.99, 'askVolume': None, 'vwap': None, 'open': None, 'close': 86406.0, 'last': 86406.0, 'previousClose': None, 'change': None, 'percentage': None, 'average': None, 'baseVolume': 1.3035, 'quoteVolume': None, 'info': {'pair': 'XBTUSDT', 'timestamp': '1740651984356', 'bid': '84000.01', 'ask': '86415.99', 'last_trade': '86406.00', 'rolling_24_hour_volume': '1.3035', 'status': 'ACTIVE'}, 'indexPrice': None, 'markPrice': None}
+2025-02-27 12:28:05,609 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-27 12:28:05,609 - trading_bot - INFO - Running backtest...
+2025-02-27 12:28:05,610 - trading_bot - INFO - Fetching 500 4h candles for BTC/USDT
+2025-02-27 12:28:05,965 - trading_bot - INFO - Data saved to data\BTC_USDT_4h_20250227_122805.csv
+2025-02-27 12:28:09,258 - trading_bot - INFO - Backtest results: {'total_trades': 67, 'wins': 29, 'losses': 38, 'win_rate': 43.28, 'loss_rate': 56.72, 'profit_factor': 1.11, 'total_profit_gross': 615.24, 'total_loss': 556.04, 'total_profit_net': 59.2, 'avg_profit_per_win': 21.22, 'avg_loss_per_loss': 14.63}
+2025-02-27 12:28:09,260 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-27 12:28:09,260 - trading_bot - INFO - Starting trading bot loop...

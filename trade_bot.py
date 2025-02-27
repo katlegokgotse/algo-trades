@@ -248,25 +248,39 @@ class TradingBot:
             "avg_profit_per_win": round(float(avg_profit_per_win), 2),
             "avg_loss_per_loss": round(float(avg_loss_per_loss), 2)
         }
-
     def start(self) -> None:
         """
-        Start the trading bot loop until a shutdown signal is received.
+    Start the trading bot loop with a continuous countdown on a single line until the next candle.
+    Runs the trading logic when the next candle is due or overdue.
         """
         logger.info("Starting trading bot loop...")
         while not self._shutdown:
             try:
-                self.run()
+                # Calculate time until next candle
                 sleep_seconds = self.calculate_sleep_time()
-                if sleep_seconds > 0:
-                    logger.info(f"Sleeping for {sleep_seconds:.2f} seconds until next candle")
-                    time.sleep(sleep_seconds)
+            
+                if sleep_seconds <= 0:
+                    # Next candle is due or overdue, run immediately
+                    logger.info("Next candle is due or overdue, running trading logic now...")
+                    self.run()
                 else:
-                    logger.info("Next candle close is in the past, running immediately")
-            except Exception as e:
-                logger.error(f"Error in main loop: {e}")
-                time.sleep(60)
+                    # Countdown until the next candle on a single line
+                    remaining_seconds = sleep_seconds
+                    while remaining_seconds > 0 and not self._shutdown:
+                    # Use \r to overwrite the line, flush ensures immediate output
+                        print(f"\rWaiting for next candle: {remaining_seconds:.2f} seconds remaining", end="", flush=True)
+                        time.sleep(min(1, remaining_seconds))  # Sleep for 1 second or less
+                        remaining_seconds = self.calculate_sleep_time()  # Recalculate to stay accurate
+                
+                if not self._shutdown:
+                    print("\r" + " " * 50, end="")  # Clear the line
+                    logger.info("Countdown complete, running trading logic...")
+                    self.run()
 
+            except Exception as e:
+                print("\r" + " " * 50, end="")  # Clear the line on error
+                logger.error(f"Error in main loop: {e}")
+                time.sleep(60)  # Brief pause on error before retrying  
     def calculate_sleep_time(self) -> float:
         """
         Calculate the time to sleep until the next candle close plus a buffer.
