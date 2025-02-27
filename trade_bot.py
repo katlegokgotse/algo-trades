@@ -268,7 +268,7 @@ class TradingBot:
                     remaining_seconds = sleep_seconds
                     while remaining_seconds > 0 and not self._shutdown:
                     # Use \r to overwrite the line, flush ensures immediate output
-                        print(f"\rWaiting for next candle: {remaining_seconds:.2f} seconds remaining", end="", flush=True)
+                        logger.info(f"\rWaiting for next candle: {remaining_seconds:.2f} seconds remaining")
                         time.sleep(min(1, remaining_seconds))  # Sleep for 1 second or less
                         remaining_seconds = self.calculate_sleep_time()  # Recalculate to stay accurate
                 
