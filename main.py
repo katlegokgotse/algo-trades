@@ -49,13 +49,13 @@ if __name__ == '__main__':
     try:
         markets = exchange.load_markets()
         available_pairs = list(markets.keys())
-        #logger.info(f"Available trading pairs on Luno via ccxt: {available_pairs}")
+        logger.info(f"Available trading pairs on Luno via ccxt: {available_pairs}")
     except Exception as e:
         logger.error(f"Failed to load markets from Luno via ccxt: {e}")
         sys.exit(1)
 
     # Set the trading pair (replace with a valid pair from the list above)
-    trading_pair = "BTC/USDT"  # ccxt uses '/' instead of Luno's concatenated format
+    trading_pair = "BTC/ZAR"  # ccxt uses '/' instead of Luno's concatenated format
     if trading_pair not in available_pairs:
         logger.error(f"Selected pair {trading_pair} is not available. Choose from: {available_pairs}")
         sys.exit(1)
@@ -71,7 +71,7 @@ if __name__ == '__main__':
     # Initialize TradingBot with the ccxt exchange object
     bot = TradingBot(
         exchange=exchange,  # Pass the ccxt exchange object directly
-        symbol='XBTUSDT',
+        symbol='XBTZAR',
         timeframe='4h',
         position_size=0.0001,
         stop_loss_pct=2.0,

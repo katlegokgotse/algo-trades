@@ -1,5 +1,5 @@
 ===== BACKTEST RESULTS FOR XBTUSDT 4h =====
-Date: 2025-02-27 23:55:52
+Date: 2025-02-28 11:06:18
 Strategy Parameters:
   Position Size: 0.0001
   Stop Loss: 2.0%
@@ -12,17 +12,17 @@ Performance Metrics:
   Open Trades: 7
   Win Rate: 45.59
   Loss Rate: 54.41
-  Profit Factor: 2.58
-  Total Profit Gross: 13.86
+  Profit Factor: 3.24
+  Total Profit Gross: 17.39
   Total Loss: 5.37
-  Total Profit Net: 8.49
-  Avg Profit Per Win: 0.45
+  Total Profit Net: 12.02
+  Avg Profit Per Win: 0.56
   Avg Loss Per Loss: 0.15
 
 Risk Metrics:
-  Average Return Per Trade: 0.12
-  Risk-Reward Ratio: 3.00 (Higher is better)
-  Expectancy (Expected Return Per Trade): 0.12
+  Average Return Per Trade: 0.18
+  Risk-Reward Ratio: 3.73 (Higher is better)
+  Expectancy (Expected Return Per Trade): 0.17
 
 Trade Type Analysis:
   Buy Trades: 22 (Win Rate: 36.36%)

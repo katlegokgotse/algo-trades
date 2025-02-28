@@ -8364,3 +8364,155 @@
 2025-02-27 23:55:33,675 - trading_bot - INFO - Trade data saved
 2025-02-27 23:55:35,268 - trading_bot - INFO - Trading bot shutting down with no open positions.
 2025-02-27 23:55:35,276 - trading_bot - INFO - Shutdown complete.
+2025-02-27 23:55:44,334 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-27 23:55:46,524 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-27 23:55:46,525 - trading_bot - INFO - Successfully initialized all components for XBTUSDT trading bot
+2025-02-27 23:55:46,525 - trading_bot - INFO - Running backtest...
+2025-02-27 23:55:46,526 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-27 23:55:46,769 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 12:00:00 to 2025-02-27 16:00:00
+2025-02-27 23:55:46,790 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250227_235546.csv
+2025-02-27 23:55:52,119 - trading_bot - INFO - Backtest results saved to backtest_results\XBTUSDT_4h_20250227_235552_summary.txt and backtest_results\XBTUSDT_4h_20250227_235552_trades.csv
+2025-02-27 23:55:52,120 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-27 23:55:52,121 - trading_bot - INFO - Starting trading bot loop...
+2025-02-27 23:55:52,122 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-27 23:55:52,357 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 12:00:00 to 2025-02-27 16:00:00
+2025-02-27 23:55:52,367 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250227_235552.csv
+2025-02-27 23:55:56,821 - trading_bot - INFO - Latest candle close: 84028.0 at 2025-02-27 16:00:00
+2025-02-27 23:55:57,025 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-27 23:55:57,223 - trading_bot - WARNING - Insufficient USDT balance for trade or would reduce balance below $1
+2025-02-27 23:55:57,224 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 01:59:56,677 - trading_bot - INFO - Countdown complete, running trading logic...
+2025-02-28 01:59:56,679 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 01:59:57,185 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 12:00:00 to 2025-02-27 16:00:00
+2025-02-28 01:59:57,195 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_015957.csv
+2025-02-28 01:59:59,888 - trading_bot - INFO - Latest candle close: 84028.0 at 2025-02-27 16:00:00
+2025-02-28 02:00:00,091 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-28 02:00:00,281 - trading_bot - WARNING - Insufficient USDT balance for trade or would reduce balance below $1
+2025-02-28 02:00:00,282 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 02:00:00,283 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 02:00:00,522 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 12:00:00 to 2025-02-27 16:00:00
+2025-02-28 02:00:00,535 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_020000.csv
+2025-02-28 02:00:04,013 - trading_bot - INFO - Latest candle close: 84028.0 at 2025-02-27 16:00:00
+2025-02-28 02:00:04,237 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-28 02:00:04,433 - trading_bot - WARNING - Insufficient USDT balance for trade or would reduce balance below $1
+2025-02-28 02:00:04,433 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 09:01:20,617 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 09:01:20,690 - trading_bot - INFO - Trade data saved
+2025-02-28 09:05:05,572 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 09:05:07,828 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 09:05:07,831 - trading_bot - INFO - Successfully initialized all components for XBTUSDT trading bot
+2025-02-28 09:05:07,831 - trading_bot - INFO - Running backtest...
+2025-02-28 09:05:07,832 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 09:05:08,096 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 20:00:00 to 2025-02-28 00:00:00
+2025-02-28 09:05:08,222 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_090508.csv
+2025-02-28 09:05:14,704 - trading_bot - INFO - Backtest results saved to backtest_results\XBTUSDT_4h_20250228_090514_summary.txt and backtest_results\XBTUSDT_4h_20250228_090514_trades.csv
+2025-02-28 09:05:14,705 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 09:05:14,706 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 09:05:14,707 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 09:05:14,963 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 20:00:00 to 2025-02-28 00:00:00
+2025-02-28 09:05:14,974 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_090514.csv
+2025-02-28 09:05:19,857 - trading_bot - INFO - Latest candle close: 80260.0 at 2025-02-28 00:00:00
+2025-02-28 09:05:20,064 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-28 09:05:20,260 - trading_bot - WARNING - Insufficient USDT balance for trade or would reduce balance below $1
+2025-02-28 09:05:20,261 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 09:09:30,739 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 09:09:30,742 - trading_bot - INFO - Trade data saved
+2025-02-28 09:09:32,119 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 09:09:32,120 - trading_bot - INFO - Shutdown complete.
+2025-02-28 09:09:45,933 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 09:09:48,183 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 09:09:48,183 - trading_bot - INFO - Successfully initialized all components for XBTUSDT trading bot
+2025-02-28 09:09:48,184 - trading_bot - INFO - Running backtest...
+2025-02-28 09:09:48,185 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 09:09:48,446 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 20:00:00 to 2025-02-28 00:00:00
+2025-02-28 09:09:48,464 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_090948.csv
+2025-02-28 09:09:54,693 - trading_bot - INFO - Backtest results saved to backtest_results\XBTUSDT_4h_20250228_090954_summary.txt and backtest_results\XBTUSDT_4h_20250228_090954_trades.csv
+2025-02-28 09:09:54,694 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 09:09:54,695 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 09:09:54,696 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 09:09:54,941 - trading_bot - INFO - Fetched 500 candles from 2024-12-06 20:00:00 to 2025-02-28 00:00:00
+2025-02-28 09:09:54,953 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_090954.csv
+2025-02-28 09:09:59,467 - trading_bot - INFO - Latest candle close: 80260.0 at 2025-02-28 00:00:00
+2025-02-28 09:09:59,681 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-28 09:09:59,874 - trading_bot - WARNING - Insufficient USDT balance for trade or would reduce balance below $1
+2025-02-28 09:09:59,874 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 10:01:13,436 - trading_bot - INFO - Countdown complete, running trading logic...
+2025-02-28 10:01:13,437 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 10:01:13,501 - trading_bot - ERROR - Network issue fetching XBTUSDT (4h): luno GET https://api.luno.com/api/exchange/1/candles?duration=14400&pair=XBTUSDT&since=1726329673438
+2025-02-28 10:01:13,502 - trading_bot - WARNING - Insufficient data for XBTUSDT, minimum 50 candles required
+2025-02-28 10:01:13,503 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 10:01:14,182 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 10:01:14,193 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_100114.csv
+2025-02-28 10:01:17,598 - trading_bot - INFO - Latest candle close: 78983.97 at 2025-02-28 04:00:00
+2025-02-28 10:01:17,807 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-28 10:01:18,003 - trading_bot - WARNING - Insufficient USDT balance for trade or would reduce balance below $1
+2025-02-28 10:01:18,004 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:05:57,700 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:05:57,709 - trading_bot - INFO - Trade data saved
+2025-02-28 11:05:59,858 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:05:59,858 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:06:09,751 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:06:12,195 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:06:12,196 - trading_bot - INFO - Successfully initialized all components for XBTUSDT trading bot
+2025-02-28 11:06:12,197 - trading_bot - INFO - Running backtest...
+2025-02-28 11:06:12,197 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 11:06:12,834 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:06:13,074 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_110612.csv
+2025-02-28 11:06:18,995 - trading_bot - INFO - Backtest results saved to backtest_results\XBTUSDT_4h_20250228_110618_summary.txt and backtest_results\XBTUSDT_4h_20250228_110618_trades.csv
+2025-02-28 11:06:18,997 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:06:18,997 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:06:18,998 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 11:06:19,778 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:06:19,790 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_110619.csv
+2025-02-28 11:06:24,166 - trading_bot - INFO - Latest candle close: 78983.97 at 2025-02-28 04:00:00
+2025-02-28 11:06:24,386 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-28 11:06:24,774 - trading_bot - WARNING - Insufficient USDT balance for trade or would reduce balance below $1
+2025-02-28 11:06:24,775 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:07:45,249 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:07:45,252 - trading_bot - INFO - Trade data saved
+2025-02-28 11:07:46,798 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:07:46,799 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:07:53,451 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:07:55,942 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-28 11:07:56,226 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:07:56,227 - trading_bot - INFO - Successfully initialized all components for XBTUSDT trading bot
+2025-02-28 11:07:56,227 - trading_bot - INFO - Running backtest...
+2025-02-28 11:07:56,227 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 11:07:56,779 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:07:56,796 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_110756.csv
+2025-02-28 11:07:59,986 - trading_bot - INFO - Backtest results saved to backtest_results\XBTUSDT_4h_20250228_110759_summary.txt and backtest_results\XBTUSDT_4h_20250228_110759_trades.csv
+2025-02-28 11:07:59,988 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:07:59,988 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:07:59,989 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 11:08:00,356 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:08:00,363 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_110800.csv
+2025-02-28 11:08:02,927 - trading_bot - INFO - Latest candle close: 78983.97 at 2025-02-28 04:00:00
+2025-02-28 11:08:03,179 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-28 11:08:03,399 - trading_bot - WARNING - Insufficient USDT balance for trade or would reduce balance below $1
+2025-02-28 11:08:03,399 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:08:04,604 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:08:04,607 - trading_bot - INFO - Trade data saved
+2025-02-28 11:08:06,253 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:08:06,254 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:08:39,556 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:08:41,759 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-28 11:08:41,963 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:08:41,964 - trading_bot - INFO - Successfully initialized all components for XBTZAR trading bot
+2025-02-28 11:08:41,965 - trading_bot - INFO - Running backtest...
+2025-02-28 11:08:41,965 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:08:42,229 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:08:42,241 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_110842.csv
+2025-02-28 11:08:45,316 - trading_bot - INFO - Backtest results saved to backtest_results\XBTZAR_4h_20250228_110845_summary.txt and backtest_results\XBTZAR_4h_20250228_110845_trades.csv
+2025-02-28 11:08:45,317 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:08:45,318 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:08:45,318 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:08:45,645 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:08:45,655 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_110845.csv
+2025-02-28 11:08:48,140 - trading_bot - INFO - Latest candle close: 1482465.0 at 2025-02-28 04:00:00
+2025-02-28 11:08:48,451 - trading_bot - INFO - Parsed symbol XBTZAR as XBT/ZAR
+2025-02-28 11:08:48,693 - trading_bot - WARNING - Insufficient ZAR balance for trade or would reduce balance below $1
+2025-02-28 11:08:48,693 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:22:01,418 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:22:01,422 - trading_bot - INFO - Trade data saved
+2025-02-28 11:22:03,140 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:22:03,140 - trading_bot - INFO - Shutdown complete.

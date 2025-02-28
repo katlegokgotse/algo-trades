@@ -234,18 +234,15 @@ class TradingBot:
             # Get account balance
             balance = self.exchange.fetch_balance()
         
-            # Handle different symbol formats
+            # Better symbol parsing
             if '/' in self.symbol:
-                # Format like "BTC/USD"
                 symbol_parts = self.symbol.split('/')
                 base_currency = symbol_parts[0]
                 quote_currency = symbol_parts[1]
             else:
-                # Format like "XBTUSDT" - need to extract base and quote currencies
-                # Common quote currencies to check for at the end of the symbol
+                # Improved parsing with better logging
                 common_quote_currencies = ["USDT", "USD", "BTC", "ETH", "EUR", "GBP", "JPY", "AUD", "ZAR"]
             
-                # Try to find the quote currency in the symbol
                 found_quote = False
                 for quote in common_quote_currencies:
                     if self.symbol.endswith(quote):
@@ -260,23 +257,43 @@ class TradingBot:
             
                 logger.info(f"Parsed symbol {self.symbol} as {base_currency}/{quote_currency}")
         
-        # Check if we have enough balance
+            # Check if we have enough balance
             if self.position_size > 0:
-                # For buy orders, calculate cost in quote currency
+                # Fetch ticker and log current price
                 ticker = self.exchange.fetch_ticker(self.symbol)
                 current_price = ticker['last']
                 cost = self.position_size * current_price
             
-            # Add a check to ensure balance doesn't go below $1
-                if quote_currency in balance and balance[quote_currency]['free'] >= cost and (balance[quote_currency]['free'] - cost) >= 1:
+                # Log more details to debug balance issues
+                free_balance = balance[quote_currency]['free'] if quote_currency in balance else 0
+                logger.info(f"Trade details: Position size: {self.position_size}, Current price: {current_price}, Total cost: {cost}")
+                logger.info(f"Available {quote_currency} balance: {free_balance}")
+            
+                # Calculate minimum balance in quote currency (convert from USD if needed)
+                min_balance_usd = 1.0
+                # If quote currency is not USD, you might need to convert min_balance
+                # This is a placeholder - you'd need exchange rate data
+                min_balance_quote = min_balance_usd  # In ZAR, should be converted
+            
+                if quote_currency in balance and free_balance >= cost and (free_balance - cost) >= min_balance_quote:
                     return True
                 else:
-                    logger.warning(f"Insufficient {quote_currency} balance for trade or would reduce balance below $1")
+                    reasons = []
+                    if quote_currency not in balance:
+                        reasons.append(f"No {quote_currency} balance found")
+                    elif free_balance < cost:
+                        reasons.append(f"Cost ({cost} {quote_currency}) exceeds available balance ({free_balance} {quote_currency})")
+                    elif (free_balance - cost) < min_balance_quote:
+                        reasons.append(f"Trade would reduce balance below minimum ({min_balance_quote} {quote_currency})")
+                
+                    logger.warning(f"Insufficient balance for trade: {', '.join(reasons)}")
                     return False
-            return True  # If position size is 0 (e.g., in dry run)
+                
+            return True  # If position size is 0
         except Exception as e:
             logger.error(f"Error checking balance: {str(e)}")
-            return False  # If we can't check balance, don't trade     
+            logger.exception("Full traceback:")
+            return False  # If we can't check balance, don't trade  
     def backtest(self):
         """
         Run a backtest using historical data and return results.
