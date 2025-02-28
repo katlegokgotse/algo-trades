@@ -151,14 +151,15 @@ class TradingBot:
                 }
                 
                 # Try ChatGPT analysis with fallback
-                try:
-                    chatgpt_approval = chatgpt_analyze_trade(trade_details)
-                except Exception as e:
-                    logger.warning(f"ChatGPT analysis failed: {str(e)}. Using fallback approval.")
-                    chatgpt_approval = self.fallback_trade_analysis(trade_details)
+                #try:
+                #    chatgpt_approval = chatgpt_analyze_trade(trade_details)
+                #except Exception as e:
+                #    logger.warning(f"ChatGPT analysis failed: {str(e)}. Using fallback approval.")
+                #    chatgpt_approval =
+                self.fallback_trade_analysis(trade_details)
                 
-                if chatgpt_approval:
-                    if self.trade_executor.execute_trade_order('buy', self.symbol, current_price, 
+                #if chatgpt_approval:
+                if self.trade_executor.execute_trade_order('buy', self.symbol, current_price, 
                                                               latest['stop_loss_buy'], latest['take_profit_buy'], 
                                                               trade_details, self.active_trades, self.position_size):
                         last_trade = self.active_trades[list(self.active_trades.keys())[-1]]
@@ -188,19 +189,18 @@ class TradingBot:
                 }
                 
                 # Try ChatGPT analysis with fallback
-                try:
-                    chatgpt_approval = chatgpt_analyze_trade(trade_details)
-                except Exception as e:
-                    logger.warning(f"ChatGPT analysis failed: {str(e)}. Using fallback approval.")
-                    chatgpt_approval = self.fallback_trade_analysis(trade_details)
+                #except Exception as e:
+                    # logger.warning(f"ChatGPT analysis failed: {str(e)}. Using fallback approval.")
+                #chatgpt_approval = 
+                self.fallback_trade_analysis(trade_details)
                 
-                if chatgpt_approval:
-                    if self.trade_executor.execute_trade_order('sell', self.symbol, current_price, 
+                # if chatgpt_approval:
+                if self.trade_executor.execute_trade_order('sell', self.symbol, current_price, 
                                                               latest['stop_loss_sell'], latest['take_profit_sell'], 
                                                               trade_details, self.active_trades, self.position_size):
-                        last_trade = self.active_trades[list(self.active_trades.keys())[-1]]
-                        self.notifier.notify_trade(last_trade, trade_details)
-                        self.persistence_manager.save_trade_data(self.active_trades, self.trade_history)
+                    last_trade = self.active_trades[list(self.active_trades.keys())[-1]]
+                    self.notifier.notify_trade(last_trade, trade_details)
+                    self.persistence_manager.save_trade_data(self.active_trades, self.trade_history)
                 else:
                     logger.info("Trade analysis did not recommend executing the SELL trade.")
             else:

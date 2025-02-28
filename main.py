@@ -70,8 +70,8 @@ if __name__ == '__main__':
     # Initialize TradingBot with the ccxt exchange object
     bot = TradingBot(
         exchange=exchange,  # Pass the ccxt exchange object directly
-        symbol='SOLZAR',
-        timeframe='15m',
+        symbol='SOL/ZAR',
+        timeframe='4h',
         position_size=0.01,
         stop_loss_pct=2.0,
         take_profit_pct=3.5,
