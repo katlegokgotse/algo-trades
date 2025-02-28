@@ -106,19 +106,33 @@ class TradingBot:
                 self.persistence_manager.save_trade_data(self.active_trades, self.trade_history)
             
             # Define signal strength for logging consistency
-            buy_signal_strength = 0
-            if latest['buy_signal']: buy_signal_strength += 1
-            if prev['buy_signal']: buy_signal_strength += 1
-            if latest['signal_strength'] >= 2: buy_signal_strength += 1
+            buy_signal_strength = (
+                (1 if latest['buy_signal'] else 0) + 
+                (1 if prev['buy_signal'] else 0) +
+                (1 if latest['signal_strength'] >= 2 else 0)
+            )
             
-            sell_signal_strength = 0
-            if latest['sell_signal']: sell_signal_strength += 1
-            if prev['sell_signal']: sell_signal_strength += 1
-            if latest['signal_strength'] >= 2: sell_signal_strength += 1
-            
+            sell_signal_strength = (
+                (1 if latest['sell_signal'] else 0) + 
+                (1 if prev['sell_signal'] else 0) +
+                (1 if latest['signal_strength'] >= 2 else 0)
+            )
+            logger.info(f"SIGNAL DIAGNOSTICS for {self.symbol} at {data_frame.index[-1]}")
+            logger.info(f"Latest price: {current_price}")
+            logger.info(f"Latest buy_signal: {latest['buy_signal']}, Prev buy_signal: {prev['buy_signal']}")
+            logger.info(f"Latest sell_signal: {latest['sell_signal']}, Prev sell_signal: {prev['sell_signal']}")
+            logger.info(f"Latest signal_strength: {latest['signal_strength']}, Prev signal_strength: {prev['signal_strength']}")
+            logger.info(f"Buy strength score: {buy_signal_strength}/3, Sell strength score: {sell_signal_strength}/3")
+            logger.info(f"Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1")
+            logger.info(f"Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0")
+            logger.info(f"Indicator values - RSI: {latest['rsi']:.2f}, ADX: {latest['adx']:.2f}, MACD: {latest['macd']:.2f}")
+            logger.info(f"EMA values - EMA20: {latest['ema_20']:.2f}, EMA50: {latest['ema_50']:.2f}, EMA200: {latest['ema_200']:.2f}")
+            if 'fib_trend' in latest:
+                logger.info(f"Fibonacci trend: {latest['fib_trend']}")
+
             # Check for BUY signals
             if (latest['buy_signal'] and prev['buy_signal'] and 
-                latest['signal_strength'] >= 2 and prev['signal_strength'] >= 2):
+                latest['signal_strength'] >= 1 and prev['signal_strength'] >= 1):
                 logger.info(f"BUY signal detected with strength {buy_signal_strength}/3")
                 trade_details = {
                     "trade_type": "buy", 
@@ -155,7 +169,7 @@ class TradingBot:
             
             # Check for SELL signals
             elif (latest['sell_signal'] and prev['sell_signal'] and 
-                  latest['signal_strength'] >= 2 and prev['signal_strength'] >= 2):
+                  latest['signal_strength'] >= 1 and prev['signal_strength'] >= 1):
                 logger.info(f"SELL signal detected with strength {sell_signal_strength}/3")
                 trade_details = {
                     "trade_type": "sell", 
@@ -276,17 +290,18 @@ class TradingBot:
                 min_balance_quote = min_balance_usd  # In ZAR, should be converted
             
                 if quote_currency in balance and free_balance >= cost and (free_balance - cost) >= min_balance_quote:
+                    logger.info(f"BALANCE CHECK PASSED - Sufficient balance for trade")
                     return True
                 else:
                     reasons = []
                     if quote_currency not in balance:
                         reasons.append(f"No {quote_currency} balance found")
                     elif free_balance < cost:
-                        reasons.append(f"Cost ({cost} {quote_currency}) exceeds available balance ({free_balance} {quote_currency})")
+                        reasons.append(f"Cost ({round(cost,2)} {quote_currency}) exceeds available balance ({round(free_balance, 2)} {quote_currency})")
                     elif (free_balance - cost) < min_balance_quote:
                         reasons.append(f"Trade would reduce balance below minimum ({min_balance_quote} {quote_currency})")
                 
-                    logger.warning(f"Insufficient balance for trade: {', '.join(reasons)}")
+                    logger.warning(f"BALANCE CHECK FAILED - Insufficient balance for trade: {', '.join(reasons)}")
                     return False
                 
             return True  # If position size is 0

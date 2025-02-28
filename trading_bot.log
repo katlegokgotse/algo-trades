@@ -8516,3 +8516,780 @@
 2025-02-28 11:22:01,422 - trading_bot - INFO - Trade data saved
 2025-02-28 11:22:03,140 - trading_bot - INFO - Trading bot shutting down with no open positions.
 2025-02-28 11:22:03,140 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:22:09,712 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:22:12,181 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-28 11:22:12,513 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:22:12,514 - trading_bot - INFO - Successfully initialized all components for XBTZAR trading bot
+2025-02-28 11:22:12,514 - trading_bot - INFO - Running backtest...
+2025-02-28 11:22:12,515 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:22:12,766 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:22:12,779 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_112212.csv
+2025-02-28 11:22:16,161 - trading_bot - INFO - Backtest results saved to backtest_results\XBTZAR_4h_20250228_112215_summary.txt and backtest_results\XBTZAR_4h_20250228_112215_trades.csv
+2025-02-28 11:22:16,162 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:22:16,163 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:22:16,164 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:22:16,424 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:22:16,435 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_112216.csv
+2025-02-28 11:22:19,140 - trading_bot - INFO - Latest candle close: 1482465.0 at 2025-02-28 04:00:00
+2025-02-28 11:22:19,467 - trading_bot - INFO - Parsed symbol XBTZAR as XBT/ZAR
+2025-02-28 11:22:19,884 - trading_bot - INFO - Trade details: Position size: 0.0001, Current price: 1463000.0, Total cost: 146.3
+2025-02-28 11:22:19,884 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:22:19,885 - trading_bot - WARNING - Insufficient balance for trade: Cost (146.3 ZAR) exceeds available balance (98.6 ZAR)
+2025-02-28 11:22:19,886 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:30:18,326 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:30:18,329 - trading_bot - INFO - Trade data saved
+2025-02-28 11:30:20,632 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:30:20,632 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:30:29,248 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:30:31,249 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-28 11:30:31,572 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:30:31,572 - trading_bot - INFO - Successfully initialized all components for XBTUSDT trading bot
+2025-02-28 11:30:31,573 - trading_bot - INFO - Running backtest...
+2025-02-28 11:30:31,573 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 11:30:31,970 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:30:31,983 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_113031.csv
+2025-02-28 11:30:36,613 - trading_bot - INFO - Backtest results saved to backtest_results\XBTUSDT_4h_20250228_113036_summary.txt and backtest_results\XBTUSDT_4h_20250228_113036_trades.csv
+2025-02-28 11:30:36,615 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:30:36,616 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:30:36,616 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 11:30:36,901 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:30:36,909 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_113036.csv
+2025-02-28 11:30:41,255 - trading_bot - INFO - Latest candle close: 78983.97 at 2025-02-28 04:00:00
+2025-02-28 11:30:41,490 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-28 11:30:41,779 - trading_bot - INFO - Trade details: Position size: 0.0001, Current price: 80336.98, Total cost: 8.033698
+2025-02-28 11:30:41,780 - trading_bot - INFO - Available USDT balance: 0
+2025-02-28 11:30:41,781 - trading_bot - WARNING - Insufficient balance for trade: No USDT balance found
+2025-02-28 11:30:41,781 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:34:50,302 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:34:50,305 - trading_bot - INFO - Trade data saved
+2025-02-28 11:34:52,363 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:34:52,364 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:35:00,396 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:35:02,512 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-28 11:35:02,775 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:35:02,776 - trading_bot - INFO - Successfully initialized all components for XBTUSDT trading bot
+2025-02-28 11:35:02,776 - trading_bot - INFO - Running backtest...
+2025-02-28 11:35:02,777 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 11:35:03,306 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:35:03,322 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_113503.csv
+2025-02-28 11:35:08,320 - trading_bot - INFO - Backtest results saved to backtest_results\XBTUSDT_4h_20250228_113508_summary.txt and backtest_results\XBTUSDT_4h_20250228_113508_trades.csv
+2025-02-28 11:35:08,322 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:35:08,322 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:35:08,323 - trading_bot - INFO - Fetching up to 500 4h candles for XBTUSDT
+2025-02-28 11:35:08,662 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:35:08,675 - trading_bot - INFO - Data saved to data\XBTUSDT_4h_20250228_113508.csv
+2025-02-28 11:35:13,049 - trading_bot - INFO - Latest candle close: 78983.97 at 2025-02-28 04:00:00
+2025-02-28 11:35:13,408 - trading_bot - INFO - Parsed symbol XBTUSDT as XBT/USDT
+2025-02-28 11:35:13,618 - trading_bot - INFO - Trade details: Position size: 0.0001, Current price: 80726.0, Total cost: 8.0726
+2025-02-28 11:35:13,619 - trading_bot - INFO - Available USDT balance: 0
+2025-02-28 11:35:13,619 - trading_bot - WARNING - Insufficient balance for trade: No USDT balance found
+2025-02-28 11:35:13,620 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:35:26,985 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:35:26,988 - trading_bot - INFO - Trade data saved
+2025-02-28 11:35:28,392 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:35:28,393 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:35:37,544 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:35:39,766 - trading_bot - INFO - Available trading pairs on Luno via ccxt: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-02-28 11:35:40,059 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:35:40,060 - trading_bot - INFO - Successfully initialized all components for XBTZAR trading bot
+2025-02-28 11:35:40,061 - trading_bot - INFO - Running backtest...
+2025-02-28 11:35:40,062 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:35:40,314 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:35:40,330 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113540.csv
+2025-02-28 11:35:45,454 - trading_bot - INFO - Backtest results saved to backtest_results\XBTZAR_4h_20250228_113545_summary.txt and backtest_results\XBTZAR_4h_20250228_113545_trades.csv
+2025-02-28 11:35:45,455 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:35:45,456 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:35:45,457 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:35:45,721 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:35:45,729 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113545.csv
+2025-02-28 11:35:50,962 - trading_bot - INFO - Latest candle close: 1482465.0 at 2025-02-28 04:00:00
+2025-02-28 11:35:51,212 - trading_bot - INFO - Parsed symbol XBTZAR as XBT/ZAR
+2025-02-28 11:35:51,522 - trading_bot - INFO - Trade details: Position size: 0.0001, Current price: 1504210.0, Total cost: 150.42100000000002
+2025-02-28 11:35:51,528 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:35:51,528 - trading_bot - WARNING - Insufficient balance for trade: Cost (150.42100000000002 ZAR) exceeds available balance (98.6 ZAR)
+2025-02-28 11:35:51,528 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:36:01,254 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:36:01,256 - trading_bot - INFO - Trade data saved
+2025-02-28 11:36:02,806 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:36:02,807 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:36:15,290 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:36:17,867 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:36:17,868 - trading_bot - INFO - Successfully initialized all components for XBTZAR trading bot
+2025-02-28 11:36:17,868 - trading_bot - INFO - Running backtest...
+2025-02-28 11:36:17,868 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:36:18,182 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:36:18,196 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113618.csv
+2025-02-28 11:36:21,432 - trading_bot - INFO - Backtest results saved to backtest_results\XBTZAR_4h_20250228_113621_summary.txt and backtest_results\XBTZAR_4h_20250228_113621_trades.csv
+2025-02-28 11:36:21,433 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:36:21,434 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:36:21,435 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:36:21,664 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:36:21,672 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113621.csv
+2025-02-28 11:36:25,295 - trading_bot - INFO - Latest candle close: 1482465.0 at 2025-02-28 04:00:00
+2025-02-28 11:36:25,750 - trading_bot - INFO - Parsed symbol XBTZAR as XBT/ZAR
+2025-02-28 11:36:26,027 - trading_bot - INFO - Trade details: Position size: 0.0001, Current price: 1496035.0, Total cost: 149.6035
+2025-02-28 11:36:26,027 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:36:26,028 - trading_bot - WARNING - Insufficient balance for trade: Cost (149.6035 ZAR) exceeds available balance (98.6 ZAR)
+2025-02-28 11:36:26,029 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:36:32,074 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:36:32,079 - trading_bot - INFO - Trade data saved
+2025-02-28 11:36:33,505 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:36:33,506 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:36:42,236 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:36:44,749 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:36:44,750 - trading_bot - INFO - Successfully initialized all components for XBTZAR trading bot
+2025-02-28 11:36:44,750 - trading_bot - INFO - Running backtest...
+2025-02-28 11:36:44,751 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:36:45,002 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:36:45,017 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113645.csv
+2025-02-28 11:36:48,539 - trading_bot - INFO - Backtest results saved to backtest_results\XBTZAR_4h_20250228_113648_summary.txt and backtest_results\XBTZAR_4h_20250228_113648_trades.csv
+2025-02-28 11:36:48,540 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:36:48,540 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:36:48,541 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:36:48,787 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:36:48,794 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113648.csv
+2025-02-28 11:36:51,715 - trading_bot - INFO - Latest candle close: 1482465.0 at 2025-02-28 04:00:00
+2025-02-28 11:36:51,937 - trading_bot - INFO - Parsed symbol XBTZAR as XBT/ZAR
+2025-02-28 11:36:52,291 - trading_bot - INFO - Trade details: Position size: 0.0001, Current price: 1511019.0, Total cost: 151.1019
+2025-02-28 11:36:52,292 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:36:52,292 - trading_bot - WARNING - Insufficient balance for trade: Cost (151.1019 ZAR) exceeds available balance (98.6 ZAR)
+2025-02-28 11:36:52,293 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:37:23,977 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:37:23,980 - trading_bot - INFO - Trade data saved
+2025-02-28 11:37:25,426 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:37:25,427 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:37:33,249 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:37:35,664 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:37:35,665 - trading_bot - INFO - Successfully initialized all components for XBTZAR trading bot
+2025-02-28 11:37:35,665 - trading_bot - INFO - Running backtest...
+2025-02-28 11:37:35,666 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:37:36,014 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:37:36,034 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113736.csv
+2025-02-28 11:37:38,993 - trading_bot - INFO - Backtest results saved to backtest_results\XBTZAR_4h_20250228_113738_summary.txt and backtest_results\XBTZAR_4h_20250228_113738_trades.csv
+2025-02-28 11:37:38,995 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:37:38,995 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:37:38,996 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:37:39,377 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:37:39,385 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113739.csv
+2025-02-28 11:37:42,233 - trading_bot - INFO - Latest candle close: 1482465.0 at 2025-02-28 04:00:00
+2025-02-28 11:37:42,476 - trading_bot - INFO - Parsed symbol XBTZAR as XBT/ZAR
+2025-02-28 11:37:42,738 - trading_bot - INFO - Trade details: Position size: 0.0001, Current price: 1504958.0, Total cost: 150.4958
+2025-02-28 11:37:42,739 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:37:42,739 - trading_bot - WARNING - Insufficient balance for trade: Cost (150.4958 ZAR) exceeds available balance (98.6 ZAR)
+2025-02-28 11:37:42,740 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:38:29,237 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:38:29,241 - trading_bot - INFO - Trade data saved
+2025-02-28 11:38:30,459 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:38:30,459 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:38:36,844 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:38:39,146 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:38:39,147 - trading_bot - INFO - Successfully initialized all components for XBTZAR trading bot
+2025-02-28 11:38:39,148 - trading_bot - INFO - Running backtest...
+2025-02-28 11:38:39,148 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:38:39,401 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:38:39,414 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113839.csv
+2025-02-28 11:38:42,256 - trading_bot - INFO - Backtest results saved to backtest_results\XBTZAR_4h_20250228_113842_summary.txt and backtest_results\XBTZAR_4h_20250228_113842_trades.csv
+2025-02-28 11:38:42,257 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:38:42,258 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:38:42,259 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:38:42,560 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:38:42,569 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_113842.csv
+2025-02-28 11:38:45,399 - trading_bot - INFO - Latest candle close: 1482465.0 at 2025-02-28 04:00:00
+2025-02-28 11:38:45,748 - trading_bot - INFO - Parsed symbol XBTZAR as XBT/ZAR
+2025-02-28 11:38:45,973 - trading_bot - INFO - Trade details: Position size: 0.0001, Current price: 1499051.0, Total cost: 149.9051
+2025-02-28 11:38:45,974 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:38:45,975 - trading_bot - WARNING - Insufficient balance for trade: Cost (149.91 ZAR) exceeds available balance (98.6 ZAR)
+2025-02-28 11:38:45,976 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-02-28 11:47:44,396 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:47:44,400 - trading_bot - INFO - Trade data saved
+2025-02-28 11:47:45,885 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:47:45,886 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:47:55,008 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:47:57,254 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:47:57,255 - trading_bot - INFO - Successfully initialized all components for XBTZAR trading bot
+2025-02-28 11:47:57,255 - trading_bot - INFO - Running backtest...
+2025-02-28 11:47:57,256 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:47:57,625 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:47:57,646 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_114757.csv
+2025-02-28 11:48:07,224 - trading_bot - INFO - Backtest results saved to backtest_results\XBTZAR_4h_20250228_114807_summary.txt and backtest_results\XBTZAR_4h_20250228_114807_trades.csv
+2025-02-28 11:48:07,226 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:48:07,227 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:48:07,227 - trading_bot - INFO - Fetching up to 500 4h candles for XBTZAR
+2025-02-28 11:48:07,535 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:48:07,552 - trading_bot - INFO - Data saved to data\XBTZAR_4h_20250228_114807.csv
+2025-02-28 11:48:14,104 - trading_bot - INFO - Latest candle close: 1482465.0 at 2025-02-28 04:00:00
+2025-02-28 11:48:14,317 - trading_bot - INFO - Parsed symbol XBTZAR as XBT/ZAR
+2025-02-28 11:48:14,521 - trading_bot - INFO - Trade details: Position size: 1e-05, Current price: 1500111.0, Total cost: 15.00111
+2025-02-28 11:48:14,523 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:48:14,523 - trading_bot - INFO - Update: $1482465.0
+2025-02-28 11:48:14,524 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 09:48:14.524561+00:00
+2025-02-28 11:48:14,525 - trading_bot - INFO - Trend: downtrend
+2025-02-28 11:48:14,525 - trading_bot - INFO - Symbol: XBTZAR
+2025-02-28 11:50:59,898 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:50:59,902 - trading_bot - INFO - Trade data saved
+2025-02-28 11:51:01,139 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:51:01,140 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:51:08,075 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:51:10,506 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:51:10,507 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 11:51:10,508 - trading_bot - INFO - Running backtest...
+2025-02-28 11:51:10,508 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 11:51:10,840 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:51:10,856 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_115110.csv
+2025-02-28 11:51:15,459 - trading_bot - ERROR - Error saving backtest results: float division by zero
+2025-02-28 11:51:15,460 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:51:15,461 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:51:15,461 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 11:51:15,697 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:51:15,709 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_115115.csv
+2025-02-28 11:51:18,421 - trading_bot - INFO - Latest candle close: 2409.11 at 2025-02-28 04:00:00
+2025-02-28 11:51:18,644 - trading_bot - INFO - Parsed symbol SOLZAR as SOL/ZAR
+2025-02-28 11:51:18,878 - trading_bot - INFO - Trade details: Position size: 1e-05, Current price: 2451.89, Total cost: 0.0245189
+2025-02-28 11:51:18,879 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:51:18,879 - trading_bot - INFO - Update: $2409.11
+2025-02-28 11:51:18,880 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 09:51:18.880673+00:00
+2025-02-28 11:51:18,881 - trading_bot - INFO - Trend: downtrend
+2025-02-28 11:51:18,881 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 11:51:36,849 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:51:36,855 - trading_bot - INFO - Trade data saved
+2025-02-28 11:51:38,149 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:51:38,150 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:51:45,387 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:51:47,607 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:51:47,608 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 11:51:47,609 - trading_bot - INFO - Running backtest...
+2025-02-28 11:51:47,609 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 11:51:48,026 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:51:48,039 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_115148.csv
+2025-02-28 11:51:50,938 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_4h_20250228_115150_summary.txt and backtest_results\SOLZAR_4h_20250228_115150_trades.csv
+2025-02-28 11:51:50,939 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:51:50,940 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:51:50,941 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 11:51:51,260 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:51:51,268 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_115151.csv
+2025-02-28 11:51:53,911 - trading_bot - INFO - Latest candle close: 2409.11 at 2025-02-28 04:00:00
+2025-02-28 11:51:54,209 - trading_bot - INFO - Parsed symbol SOLZAR as SOL/ZAR
+2025-02-28 11:51:54,468 - trading_bot - INFO - Trade details: Position size: 0.001, Current price: 2479.99, Total cost: 2.47999
+2025-02-28 11:51:54,468 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:51:54,469 - trading_bot - INFO - Update: $2409.11
+2025-02-28 11:51:54,470 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 09:51:54.470305+00:00
+2025-02-28 11:51:54,470 - trading_bot - INFO - Trend: downtrend
+2025-02-28 11:51:54,471 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 11:53:14,051 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 11:53:17,145 - trading_bot - INFO - Trade data saved
+2025-02-28 11:53:18,728 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 11:53:18,738 - trading_bot - INFO - Shutdown complete.
+2025-02-28 11:53:30,277 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 11:53:32,593 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 11:53:32,594 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 11:53:32,594 - trading_bot - INFO - Running backtest...
+2025-02-28 11:53:32,595 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 11:53:32,852 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:53:32,886 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_115332.csv
+2025-02-28 11:53:36,290 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_4h_20250228_115336_summary.txt and backtest_results\SOLZAR_4h_20250228_115336_trades.csv
+2025-02-28 11:53:36,291 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 11:53:36,291 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 11:53:36,292 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 11:53:36,522 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 11:53:36,529 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_115336.csv
+2025-02-28 11:53:39,297 - trading_bot - INFO - Latest candle close: 2409.11 at 2025-02-28 04:00:00
+2025-02-28 11:53:39,526 - trading_bot - INFO - Parsed symbol SOLZAR as SOL/ZAR
+2025-02-28 11:53:39,823 - trading_bot - INFO - Trade details: Position size: 0.01, Current price: 2479.99, Total cost: 24.799899999999997
+2025-02-28 11:53:39,823 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 11:53:39,824 - trading_bot - INFO - Update: $2409.11
+2025-02-28 11:53:39,825 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 09:53:39.825211+00:00
+2025-02-28 11:53:39,825 - trading_bot - INFO - Trend: downtrend
+2025-02-28 11:53:39,826 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 12:07:37,009 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 12:07:37,015 - trading_bot - INFO - Trade data saved
+2025-02-28 12:07:38,891 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 12:07:38,892 - trading_bot - INFO - Shutdown complete.
+2025-02-28 12:07:47,543 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 12:07:50,688 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 12:07:50,688 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 12:07:50,689 - trading_bot - INFO - Running backtest...
+2025-02-28 12:07:50,690 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 12:07:50,998 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 12:07:51,015 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_120750.csv
+2025-02-28 12:07:55,618 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_4h_20250228_120755_summary.txt and backtest_results\SOLZAR_4h_20250228_120755_trades.csv
+2025-02-28 12:07:55,620 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 12:07:55,620 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 12:07:55,620 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 12:07:55,912 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 12:07:55,920 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_120755.csv
+2025-02-28 12:08:00,140 - trading_bot - INFO - Latest candle close: 2409.11 at 2025-02-28 04:00:00
+2025-02-28 12:08:00,450 - trading_bot - INFO - Parsed symbol SOLZAR as SOL/ZAR
+2025-02-28 12:08:00,784 - trading_bot - INFO - Trade details: Position size: 0.01, Current price: 2456.63, Total cost: 24.566300000000002
+2025-02-28 12:08:00,785 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 12:08:00,786 - trading_bot - INFO - Update: $2409.11
+2025-02-28 12:08:00,787 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 10:08:00.787199+00:00
+2025-02-28 12:08:00,787 - trading_bot - INFO - Trend: downtrend
+2025-02-28 12:08:00,788 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 12:08:48,285 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 12:08:48,289 - trading_bot - INFO - Trade data saved
+2025-02-28 12:08:50,285 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 12:08:50,286 - trading_bot - INFO - Shutdown complete.
+2025-02-28 12:08:57,079 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 12:08:59,812 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 12:08:59,814 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 12:08:59,815 - trading_bot - INFO - Running backtest...
+2025-02-28 12:08:59,816 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 12:09:00,165 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 12:09:00,198 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_120900.csv
+2025-02-28 12:09:03,058 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_4h_20250228_120903_summary.txt and backtest_results\SOLZAR_4h_20250228_120903_trades.csv
+2025-02-28 12:09:03,060 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 12:09:03,060 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 12:09:03,060 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 12:09:03,393 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 12:09:03,410 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_120903.csv
+2025-02-28 12:09:06,445 - trading_bot - INFO - Latest candle close: 2409.11 at 2025-02-28 04:00:00
+2025-02-28 12:09:06,691 - trading_bot - INFO - Parsed symbol SOLZAR as SOL/ZAR
+2025-02-28 12:09:07,051 - trading_bot - INFO - Trade details: Position size: 0.01, Current price: 2456.63, Total cost: 24.566300000000002
+2025-02-28 12:09:07,053 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 12:09:07,054 - trading_bot - INFO - Update: $2409.11
+2025-02-28 12:09:07,056 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 10:09:07.056443+00:00
+2025-02-28 12:09:07,057 - trading_bot - INFO - Trend: downtrend
+2025-02-28 12:09:07,058 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 12:16:05,108 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 12:16:05,112 - trading_bot - INFO - Trade data saved
+2025-02-28 12:16:06,472 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 12:16:06,473 - trading_bot - INFO - Shutdown complete.
+2025-02-28 12:16:14,528 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 12:16:16,910 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 12:16:16,911 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 12:16:16,911 - trading_bot - INFO - Running backtest...
+2025-02-28 12:16:16,911 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 12:16:17,165 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 12:16:17,186 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_121617.csv
+2025-02-28 12:16:21,623 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_4h_20250228_121621_summary.txt and backtest_results\SOLZAR_4h_20250228_121621_trades.csv
+2025-02-28 12:16:21,625 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 12:16:21,625 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 12:16:21,626 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 12:16:21,880 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 12:16:21,891 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_121621.csv
+2025-02-28 12:16:26,760 - trading_bot - INFO - Latest candle close: 2409.11 at 2025-02-28 04:00:00
+2025-02-28 12:16:26,971 - trading_bot - INFO - Parsed symbol SOLZAR as SOL/ZAR
+2025-02-28 12:16:27,172 - trading_bot - INFO - Trade details: Position size: 0.01, Current price: 2479.99, Total cost: 24.799899999999997
+2025-02-28 12:16:27,172 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-02-28 12:16:27,173 - trading_bot - INFO - BALANCE CHECK PASSED - Sufficient balance for trade
+2025-02-28 12:16:27,174 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 04:00:00
+2025-02-28 12:16:27,175 - trading_bot - INFO - Latest price: 2409.11
+2025-02-28 12:16:27,175 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 12:16:27,176 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 12:16:27,177 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 12:16:27,177 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 12:16:27,178 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 12:16:27,179 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 12:16:27,180 - trading_bot - INFO - Indicator values - RSI: 31.40, ADX: 40.25, MACD: -124.97
+2025-02-28 12:16:27,180 - trading_bot - INFO - EMA values - EMA20: 2622.61, EMA50: 2863.14, EMA200: 3471.92
+2025-02-28 12:16:27,181 - trading_bot - INFO - Fibonacci trend: downtrend
+2025-02-28 12:16:27,182 - trading_bot - INFO - Update: $2409.11
+2025-02-28 12:16:27,183 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 10:16:27.183315+00:00
+2025-02-28 12:16:27,184 - trading_bot - INFO - Trend: downtrend
+2025-02-28 12:16:27,184 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 12:43:01,638 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 12:43:01,643 - trading_bot - INFO - Trade data saved
+2025-02-28 12:43:03,292 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 12:43:03,293 - trading_bot - INFO - Shutdown complete.
+2025-02-28 12:43:14,204 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 12:43:16,405 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 12:43:16,406 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 12:43:16,406 - trading_bot - INFO - Running backtest...
+2025-02-28 12:43:16,407 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 12:43:16,651 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 12:43:16,665 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_124316.csv
+2025-02-28 12:43:21,025 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_4h_20250228_124321_summary.txt and backtest_results\SOLZAR_4h_20250228_124321_trades.csv
+2025-02-28 12:43:21,026 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 12:43:21,026 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 12:43:21,027 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 12:43:21,292 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 12:43:21,306 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_124321.csv
+2025-02-28 12:43:27,351 - trading_bot - INFO - Latest candle close: 2409.11 at 2025-02-28 04:00:00
+2025-02-28 12:43:27,353 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 04:00:00
+2025-02-28 12:43:27,354 - trading_bot - INFO - Latest price: 2409.11
+2025-02-28 12:43:27,354 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 12:43:27,355 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 12:43:27,356 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 12:43:27,356 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 12:43:27,357 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 12:43:27,357 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 12:43:27,358 - trading_bot - INFO - Indicator values - RSI: 31.40, ADX: 40.25, MACD: -124.97
+2025-02-28 12:43:27,359 - trading_bot - INFO - EMA values - EMA20: 2622.61, EMA50: 2863.14, EMA200: 3471.92
+2025-02-28 12:43:27,360 - trading_bot - INFO - Fibonacci trend: downtrend
+2025-02-28 12:43:27,361 - trading_bot - INFO - Update: $2409.11
+2025-02-28 12:43:27,361 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 10:43:27.361814+00:00
+2025-02-28 12:43:27,362 - trading_bot - INFO - Trend: downtrend
+2025-02-28 12:43:27,363 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 12:46:24,196 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 12:46:24,202 - trading_bot - INFO - Trade data saved
+2025-02-28 12:46:25,414 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 12:46:25,415 - trading_bot - INFO - Shutdown complete.
+2025-02-28 12:46:32,155 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 12:46:34,351 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 12:46:34,351 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 12:46:34,353 - trading_bot - INFO - Running backtest...
+2025-02-28 12:46:34,353 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 12:46:34,747 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 05:45:00 to 2025-02-28 10:30:00
+2025-02-28 12:46:34,760 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_124634.csv
+2025-02-28 12:46:38,004 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_15m_20250228_124637_summary.txt and backtest_results\SOLZAR_15m_20250228_124637_trades.csv
+2025-02-28 12:46:38,005 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 12:46:38,006 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 12:46:38,007 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 12:46:38,246 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 05:45:00 to 2025-02-28 10:30:00
+2025-02-28 12:46:38,253 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_124638.csv
+2025-02-28 12:46:41,106 - trading_bot - INFO - Latest candle close: 2450.12 at 2025-02-28 10:30:00
+2025-02-28 12:46:41,107 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:30:00
+2025-02-28 12:46:41,107 - trading_bot - INFO - Latest price: 2450.12
+2025-02-28 12:46:41,108 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 12:46:41,109 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 12:46:41,109 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 12:46:41,109 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 12:46:41,110 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 12:46:41,110 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 12:46:41,112 - trading_bot - INFO - Indicator values - RSI: 52.72, ADX: 35.38, MACD: 6.65
+2025-02-28 12:46:41,112 - trading_bot - INFO - EMA values - EMA20: 2439.48, EMA50: 2460.70, EMA200: 2555.23
+2025-02-28 12:46:41,113 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 12:46:41,114 - trading_bot - INFO - Update: $2450.12
+2025-02-28 12:46:41,114 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 10:46:41.114913+00:00
+2025-02-28 12:46:41,115 - trading_bot - INFO - Trend: uptrend
+2025-02-28 12:46:41,116 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 12:51:59,613 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 12:51:59,617 - trading_bot - INFO - Trade data saved
+2025-02-28 12:52:01,107 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 12:52:01,107 - trading_bot - INFO - Shutdown complete.
+2025-02-28 12:52:09,865 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 12:52:12,054 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 12:52:12,057 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 12:52:12,057 - trading_bot - INFO - Running backtest...
+2025-02-28 12:52:12,058 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 12:52:12,324 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 05:45:00 to 2025-02-28 10:30:00
+2025-02-28 12:52:12,343 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_125212.csv
+2025-02-28 12:52:17,031 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_15m_20250228_125217_summary.txt and backtest_results\SOLZAR_15m_20250228_125217_trades.csv
+2025-02-28 12:52:17,033 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 12:52:17,034 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 12:52:17,035 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 12:52:17,271 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 05:45:00 to 2025-02-28 10:30:00
+2025-02-28 12:52:17,285 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_125217.csv
+2025-02-28 12:52:21,440 - trading_bot - INFO - Latest candle close: 2450.12 at 2025-02-28 10:30:00
+2025-02-28 12:52:21,442 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:30:00
+2025-02-28 12:52:21,442 - trading_bot - INFO - Latest price: 2450.12
+2025-02-28 12:52:21,443 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 12:52:21,443 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 12:52:21,444 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 12:52:21,445 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 12:52:21,445 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 12:52:21,446 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 12:52:21,448 - trading_bot - INFO - Indicator values - RSI: 52.72, ADX: 35.38, MACD: 6.65
+2025-02-28 12:52:21,448 - trading_bot - INFO - EMA values - EMA20: 2439.48, EMA50: 2460.70, EMA200: 2555.23
+2025-02-28 12:52:21,449 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 12:52:21,450 - trading_bot - INFO - Update: $2450.12
+2025-02-28 12:52:21,451 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 10:52:21.451960+00:00
+2025-02-28 12:52:21,454 - trading_bot - INFO - Trend: uptrend
+2025-02-28 12:52:21,454 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 12:54:37,527 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 12:54:37,530 - trading_bot - INFO - Trade data saved
+2025-02-28 12:54:38,727 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 12:54:38,727 - trading_bot - INFO - Shutdown complete.
+2025-02-28 12:55:00,912 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 12:55:03,089 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 12:55:03,090 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 12:55:03,091 - trading_bot - INFO - Running backtest...
+2025-02-28 12:55:03,091 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 12:55:03,340 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 05:45:00 to 2025-02-28 10:30:00
+2025-02-28 12:55:03,355 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_125503.csv
+2025-02-28 12:55:07,483 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_15m_20250228_125507_summary.txt and backtest_results\SOLZAR_15m_20250228_125507_trades.csv
+2025-02-28 12:55:07,485 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 12:55:07,485 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 12:55:07,486 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 12:55:07,743 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 05:45:00 to 2025-02-28 10:30:00
+2025-02-28 12:55:07,756 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_125507.csv
+2025-02-28 12:55:11,225 - trading_bot - INFO - Latest candle close: 2450.12 at 2025-02-28 10:30:00
+2025-02-28 12:55:11,225 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:30:00
+2025-02-28 12:55:11,226 - trading_bot - INFO - Latest price: 2450.12
+2025-02-28 12:55:11,227 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 12:55:11,227 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 12:55:11,227 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 12:55:11,228 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 12:55:11,229 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 12:55:11,229 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 12:55:11,230 - trading_bot - INFO - Indicator values - RSI: 52.72, ADX: 35.38, MACD: 6.65
+2025-02-28 12:55:11,230 - trading_bot - INFO - EMA values - EMA20: 2439.48, EMA50: 2460.70, EMA200: 2555.23
+2025-02-28 12:55:11,231 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 12:55:11,232 - trading_bot - INFO - Update: $2450.12
+2025-02-28 12:55:11,232 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 10:55:11.232688+00:00
+2025-02-28 12:55:11,233 - trading_bot - INFO - Trend: uptrend
+2025-02-28 12:55:11,234 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:01:05,715 - trading_bot - INFO - Countdown complete, running trading logic...
+2025-02-28 13:01:05,719 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:01:05,976 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:01:05,991 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_130105.csv
+2025-02-28 13:01:12,831 - trading_bot - INFO - Latest candle close: 2443.49 at 2025-02-28 10:45:00
+2025-02-28 13:01:12,832 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:45:00
+2025-02-28 13:01:12,834 - trading_bot - INFO - Latest price: 2443.49
+2025-02-28 13:01:12,844 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 13:01:12,847 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 13:01:12,852 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 13:01:12,861 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 13:01:12,862 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 13:01:12,863 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 13:01:12,864 - trading_bot - INFO - Indicator values - RSI: 50.82, ADX: 34.53, MACD: 5.90
+2025-02-28 13:01:12,865 - trading_bot - INFO - EMA values - EMA20: 2439.86, EMA50: 2460.03, EMA200: 2553.96
+2025-02-28 13:01:12,868 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 13:01:12,871 - trading_bot - INFO - Update: $2443.49
+2025-02-28 13:01:12,876 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 11:01:12.876516+00:00
+2025-02-28 13:01:12,877 - trading_bot - INFO - Trend: uptrend
+2025-02-28 13:01:12,879 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:01:12,880 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:01:13,148 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:01:13,159 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_130113.csv
+2025-02-28 13:01:17,692 - trading_bot - INFO - Latest candle close: 2443.49 at 2025-02-28 10:45:00
+2025-02-28 13:01:17,693 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:45:00
+2025-02-28 13:01:17,694 - trading_bot - INFO - Latest price: 2443.49
+2025-02-28 13:01:17,694 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 13:01:17,695 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 13:01:17,696 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 13:01:17,697 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 13:01:17,697 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 13:01:17,699 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 13:01:17,701 - trading_bot - INFO - Indicator values - RSI: 50.82, ADX: 34.53, MACD: 5.90
+2025-02-28 13:01:17,701 - trading_bot - INFO - EMA values - EMA20: 2439.86, EMA50: 2460.03, EMA200: 2553.96
+2025-02-28 13:01:17,703 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 13:01:17,705 - trading_bot - INFO - Update: $2443.49
+2025-02-28 13:01:17,705 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 11:01:17.705912+00:00
+2025-02-28 13:01:17,707 - trading_bot - INFO - Trend: uptrend
+2025-02-28 13:01:17,709 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:02:17,197 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 13:02:17,201 - trading_bot - INFO - Trade data saved
+2025-02-28 13:02:18,712 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 13:02:18,713 - trading_bot - INFO - Shutdown complete.
+2025-02-28 13:02:28,876 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 13:02:31,059 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 13:02:31,061 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 13:02:31,062 - trading_bot - INFO - Running backtest...
+2025-02-28 13:02:31,062 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:02:31,310 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:02:31,330 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_130231.csv
+2025-02-28 13:02:36,119 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_15m_20250228_130236_summary.txt and backtest_results\SOLZAR_15m_20250228_130236_trades.csv
+2025-02-28 13:02:36,121 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 13:02:36,121 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 13:02:36,122 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:02:36,356 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:02:36,364 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_130236.csv
+2025-02-28 13:02:39,772 - trading_bot - INFO - Latest candle close: 2443.49 at 2025-02-28 10:45:00
+2025-02-28 13:02:39,774 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:45:00
+2025-02-28 13:02:39,774 - trading_bot - INFO - Latest price: 2443.49
+2025-02-28 13:02:39,774 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 13:02:39,775 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 13:02:39,776 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 13:02:39,776 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 13:02:39,777 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 13:02:39,777 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 13:02:39,778 - trading_bot - INFO - Indicator values - RSI: 50.82, ADX: 34.53, MACD: 5.90
+2025-02-28 13:02:39,778 - trading_bot - INFO - EMA values - EMA20: 2439.86, EMA50: 2460.03, EMA200: 2553.96
+2025-02-28 13:02:39,779 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 13:02:39,780 - trading_bot - INFO - Update: $2443.49
+2025-02-28 13:02:39,781 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 11:02:39.781194+00:00
+2025-02-28 13:02:39,781 - trading_bot - INFO - Trend: uptrend
+2025-02-28 13:02:39,782 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:06:11,403 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 13:06:11,406 - trading_bot - INFO - Trade data saved
+2025-02-28 13:06:12,913 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 13:06:12,914 - trading_bot - INFO - Shutdown complete.
+2025-02-28 13:06:21,451 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 13:06:23,640 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 13:06:23,641 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 13:06:23,641 - trading_bot - INFO - Running backtest...
+2025-02-28 13:06:23,642 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:06:23,880 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:06:23,899 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_130623.csv
+2025-02-28 13:06:28,827 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_15m_20250228_130628_summary.txt and backtest_results\SOLZAR_15m_20250228_130628_trades.csv
+2025-02-28 13:06:28,828 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 13:06:28,829 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 13:06:28,830 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:06:29,220 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:06:29,228 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_130629.csv
+2025-02-28 13:06:34,221 - trading_bot - INFO - Latest candle close: 2443.49 at 2025-02-28 10:45:00
+2025-02-28 13:06:34,222 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:45:00
+2025-02-28 13:06:34,223 - trading_bot - INFO - Latest price: 2443.49
+2025-02-28 13:06:34,224 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 13:06:34,224 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 13:06:34,225 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 13:06:34,226 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 13:06:34,226 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 13:06:34,227 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 13:06:34,229 - trading_bot - INFO - Indicator values - RSI: 50.82, ADX: 34.53, MACD: 5.90
+2025-02-28 13:06:34,229 - trading_bot - INFO - EMA values - EMA20: 2439.86, EMA50: 2460.03, EMA200: 2553.96
+2025-02-28 13:06:34,231 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 13:06:34,232 - trading_bot - INFO - Update: $2443.49
+2025-02-28 13:06:34,232 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 11:06:34.232818+00:00
+2025-02-28 13:06:34,234 - trading_bot - INFO - Trend: uptrend
+2025-02-28 13:06:34,234 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:07:50,395 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 13:07:50,399 - trading_bot - INFO - Trade data saved
+2025-02-28 13:07:51,704 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 13:07:51,705 - trading_bot - INFO - Shutdown complete.
+2025-02-28 13:07:59,012 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 13:08:01,200 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 13:08:01,201 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 13:08:01,201 - trading_bot - INFO - Running backtest...
+2025-02-28 13:08:01,202 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:08:01,456 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:08:01,474 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_130801.csv
+2025-02-28 13:08:05,643 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_15m_20250228_130805_summary.txt and backtest_results\SOLZAR_15m_20250228_130805_trades.csv
+2025-02-28 13:08:05,645 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 13:08:05,646 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 13:08:05,647 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:08:05,891 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:08:05,902 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_130805.csv
+2025-02-28 13:08:10,038 - trading_bot - INFO - Latest candle close: 2443.49 at 2025-02-28 10:45:00
+2025-02-28 13:08:10,038 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:45:00
+2025-02-28 13:08:10,039 - trading_bot - INFO - Latest price: 2443.49
+2025-02-28 13:08:10,039 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 13:08:10,041 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 13:08:10,041 - trading_bot - INFO - Latest signal_strength: 0, Prev signal_strength: 0
+2025-02-28 13:08:10,042 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 13:08:10,043 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 13:08:10,044 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 13:08:10,045 - trading_bot - INFO - Indicator values - RSI: 50.82, ADX: 34.53, MACD: 5.90
+2025-02-28 13:08:10,046 - trading_bot - INFO - EMA values - EMA20: 2439.86, EMA50: 2460.03, EMA200: 2553.96
+2025-02-28 13:08:10,047 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 13:08:10,048 - trading_bot - INFO - Update: $2443.49
+2025-02-28 13:08:10,049 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 11:08:10.049245+00:00
+2025-02-28 13:08:10,050 - trading_bot - INFO - Trend: uptrend
+2025-02-28 13:08:10,051 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:10:18,027 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 13:10:18,030 - trading_bot - INFO - Trade data saved
+2025-02-28 13:10:19,345 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 13:10:19,345 - trading_bot - INFO - Shutdown complete.
+2025-02-28 13:10:27,020 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 13:10:29,215 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 13:10:29,216 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 13:10:29,216 - trading_bot - INFO - Running backtest...
+2025-02-28 13:10:30,473 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:10:30,713 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:10:30,732 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_131030.csv
+2025-02-28 13:10:38,388 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_15m_20250228_131036_summary.txt and backtest_results\SOLZAR_15m_20250228_131036_trades.csv
+2025-02-28 13:10:38,389 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 13:10:38,390 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 13:10:38,391 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:10:38,633 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:10:38,641 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_131038.csv
+2025-02-28 13:10:43,195 - trading_bot - INFO - Latest candle close: 2443.49 at 2025-02-28 10:45:00
+2025-02-28 13:10:43,196 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:45:00
+2025-02-28 13:10:43,196 - trading_bot - INFO - Latest price: 2443.49
+2025-02-28 13:10:43,197 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-02-28 13:10:43,198 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 13:10:43,199 - trading_bot - INFO - Latest signal_strength: 1, Prev signal_strength: 1
+2025-02-28 13:10:43,199 - trading_bot - INFO - Buy strength score: 0/3, Sell strength score: 0/3
+2025-02-28 13:10:43,200 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 13:10:43,201 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 13:10:43,202 - trading_bot - INFO - Indicator values - RSI: 50.82, ADX: 34.53, MACD: 5.90
+2025-02-28 13:10:43,203 - trading_bot - INFO - EMA values - EMA20: 2439.86, EMA50: 2460.03, EMA200: 2553.96
+2025-02-28 13:10:43,205 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 13:10:43,206 - trading_bot - INFO - Update: $2443.49
+2025-02-28 13:10:43,208 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 11:10:43.208080+00:00
+2025-02-28 13:10:43,209 - trading_bot - INFO - Trend: uptrend
+2025-02-28 13:10:43,210 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:11:34,995 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 13:11:35,109 - trading_bot - INFO - Trade data saved
+2025-02-28 13:11:37,297 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 13:11:37,297 - trading_bot - INFO - Shutdown complete.
+2025-02-28 13:11:49,287 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 13:11:51,486 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 13:11:51,487 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 13:11:51,487 - trading_bot - INFO - Running backtest...
+2025-02-28 13:11:51,488 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:11:51,719 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:11:53,942 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_131151.csv
+2025-02-28 13:11:59,508 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_15m_20250228_131159_summary.txt and backtest_results\SOLZAR_15m_20250228_131159_trades.csv
+2025-02-28 13:11:59,510 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 13:11:59,510 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 13:11:59,511 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:11:59,760 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:00:00 to 2025-02-28 10:45:00
+2025-02-28 13:11:59,788 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_131159.csv
+2025-02-28 13:12:04,776 - trading_bot - INFO - Latest candle close: 2443.49 at 2025-02-28 10:45:00
+2025-02-28 13:12:04,777 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 10:45:00
+2025-02-28 13:12:04,778 - trading_bot - INFO - Latest price: 2443.49
+2025-02-28 13:12:04,779 - trading_bot - INFO - Latest buy_signal: True, Prev buy_signal: False
+2025-02-28 13:12:04,780 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: True
+2025-02-28 13:12:04,780 - trading_bot - INFO - Latest signal_strength: 1, Prev signal_strength: 1
+2025-02-28 13:12:04,781 - trading_bot - INFO - Buy strength score: 1/3, Sell strength score: 1/3
+2025-02-28 13:12:04,782 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 13:12:04,783 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 13:12:04,784 - trading_bot - INFO - Indicator values - RSI: 50.82, ADX: 34.53, MACD: 5.90
+2025-02-28 13:12:04,785 - trading_bot - INFO - EMA values - EMA20: 2439.86, EMA50: 2460.03, EMA200: 2553.96
+2025-02-28 13:12:04,786 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 13:12:04,788 - trading_bot - INFO - Update: $2443.49
+2025-02-28 13:12:04,792 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 11:12:04.792168+00:00
+2025-02-28 13:12:04,792 - trading_bot - INFO - Trend: uptrend
+2025-02-28 13:12:04,793 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:14:55,019 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 13:14:55,022 - trading_bot - INFO - Trade data saved
+2025-02-28 13:14:56,474 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 13:14:56,475 - trading_bot - INFO - Shutdown complete.
+2025-02-28 13:15:04,229 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 13:15:06,421 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 13:15:06,421 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 13:15:06,422 - trading_bot - INFO - Running backtest...
+2025-02-28 13:15:06,423 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:15:06,658 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:15:00 to 2025-02-28 11:00:00
+2025-02-28 13:15:06,672 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_131506.csv
+2025-02-28 13:15:10,456 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_15m_20250228_131510_summary.txt and backtest_results\SOLZAR_15m_20250228_131510_trades.csv
+2025-02-28 13:15:10,457 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 13:15:10,457 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 13:15:10,458 - trading_bot - INFO - Fetching up to 500 15m candles for SOLZAR
+2025-02-28 13:15:10,692 - trading_bot - INFO - Fetched 500 candles from 2025-02-23 06:15:00 to 2025-02-28 11:00:00
+2025-02-28 13:15:10,700 - trading_bot - INFO - Data saved to data\SOLZAR_15m_20250228_131510.csv
+2025-02-28 13:15:13,304 - trading_bot - INFO - Latest candle close: 2445.51 at 2025-02-28 11:00:00
+2025-02-28 13:15:13,304 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 11:00:00
+2025-02-28 13:15:13,305 - trading_bot - INFO - Latest price: 2445.51
+2025-02-28 13:15:13,306 - trading_bot - INFO - Latest buy_signal: True, Prev buy_signal: True
+2025-02-28 13:15:13,306 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: False
+2025-02-28 13:15:13,306 - trading_bot - INFO - Latest signal_strength: 1, Prev signal_strength: 1
+2025-02-28 13:15:13,307 - trading_bot - INFO - Buy strength score: 2/3, Sell strength score: 0/3
+2025-02-28 13:15:13,307 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 13:15:13,308 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 13:15:13,309 - trading_bot - INFO - Indicator values - RSI: 51.39, ADX: 33.74, MACD: 5.41
+2025-02-28 13:15:13,309 - trading_bot - INFO - EMA values - EMA20: 2440.40, EMA50: 2459.46, EMA200: 2552.92
+2025-02-28 13:15:13,310 - trading_bot - INFO - Fibonacci trend: uptrend
+2025-02-28 13:15:13,311 - trading_bot - INFO - Update: $2445.51
+2025-02-28 13:15:13,312 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 11:15:13.312264+00:00
+2025-02-28 13:15:13,313 - trading_bot - INFO - Trend: uptrend
+2025-02-28 13:15:13,313 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:16:15,484 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 13:16:15,488 - trading_bot - INFO - Trade data saved
+2025-02-28 13:16:17,121 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 13:16:17,122 - trading_bot - INFO - Shutdown complete.
+2025-02-28 13:16:27,036 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-02-28 13:16:29,286 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-02-28 13:16:29,287 - trading_bot - INFO - Successfully initialized all components for SOLZAR trading bot
+2025-02-28 13:16:29,288 - trading_bot - INFO - Running backtest...
+2025-02-28 13:16:29,288 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 13:16:29,558 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 13:16:29,575 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_131629.csv
+2025-02-28 13:16:34,147 - trading_bot - INFO - Backtest results saved to backtest_results\SOLZAR_4h_20250228_131634_summary.txt and backtest_results\SOLZAR_4h_20250228_131634_trades.csv
+2025-02-28 13:16:34,149 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-02-28 13:16:34,149 - trading_bot - INFO - Starting trading bot loop...
+2025-02-28 13:16:34,150 - trading_bot - INFO - Fetching up to 500 4h candles for SOLZAR
+2025-02-28 13:16:34,582 - trading_bot - INFO - Fetched 500 candles from 2024-12-07 00:00:00 to 2025-02-28 04:00:00
+2025-02-28 13:16:34,595 - trading_bot - INFO - Data saved to data\SOLZAR_4h_20250228_131634.csv
+2025-02-28 13:16:38,992 - trading_bot - INFO - Latest candle close: 2409.11 at 2025-02-28 04:00:00
+2025-02-28 13:16:38,993 - trading_bot - INFO - SIGNAL DIAGNOSTICS for SOLZAR at 2025-02-28 04:00:00
+2025-02-28 13:16:38,993 - trading_bot - INFO - Latest price: 2409.11
+2025-02-28 13:16:38,994 - trading_bot - INFO - Latest buy_signal: True, Prev buy_signal: False
+2025-02-28 13:16:38,995 - trading_bot - INFO - Latest sell_signal: False, Prev sell_signal: True
+2025-02-28 13:16:38,995 - trading_bot - INFO - Latest signal_strength: 1, Prev signal_strength: 1
+2025-02-28 13:16:38,996 - trading_bot - INFO - Buy strength score: 1/3, Sell strength score: 1/3
+2025-02-28 13:16:38,997 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-02-28 13:16:38,997 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-02-28 13:16:38,999 - trading_bot - INFO - Indicator values - RSI: 31.40, ADX: 40.25, MACD: -124.97
+2025-02-28 13:16:38,999 - trading_bot - INFO - EMA values - EMA20: 2622.61, EMA50: 2863.14, EMA200: 3471.92
+2025-02-28 13:16:39,000 - trading_bot - INFO - Fibonacci trend: downtrend
+2025-02-28 13:16:39,001 - trading_bot - INFO - Update: $2409.11
+2025-02-28 13:16:39,001 - trading_bot - INFO - Market Conditions: No valid trade signal at 2025-02-28 11:16:39.001773+00:00
+2025-02-28 13:16:39,002 - trading_bot - INFO - Trend: downtrend
+2025-02-28 13:16:39,002 - trading_bot - INFO - Symbol: SOLZAR
+2025-02-28 13:22:51,536 - trading_bot - INFO - Performing graceful shutdown...
+2025-02-28 13:22:51,539 - trading_bot - INFO - Trade data saved
+2025-02-28 13:22:52,797 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-02-28 13:22:52,798 - trading_bot - INFO - Shutdown complete.
