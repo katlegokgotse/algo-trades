@@ -5,7 +5,7 @@ from trade import Trade
 from config import logger
 from concurrent.futures import ThreadPoolExecutor
 import time
-import openai
+from config import client
 from cachetools import TTLCache
 
 class TradeExecutor:
@@ -50,7 +50,15 @@ class TradeExecutor:
         if len(active_trades) >= self.max_trades:
             logger.warning(f"Max concurrent trades ({self.max_trades}) reached.")
             return False
-
+        try:
+            market = self.exchange.market(symbol)
+            min_amount = market['limits']['amount']['min']
+            if position_size < min_amount: 
+                logger.error(f"Position size {position_size} is below the minimum allowed ({min_amount}) for {symbol}")
+                return False
+        except Exception as e:
+            logger.error(f"Error checking minimum order size: {e}")
+            return False
         timestamp = datetime.now()
         trade_id = f"{symbol}_{signal}_{timestamp.strftime('%Y%m%d%H%M%S')}"
         cache_key = f"{symbol}_{signal}_{price:.2f}"
@@ -106,7 +114,7 @@ class TradeExecutor:
         """Execute order with capped retry delays."""
         for attempt in range(1, retry_attempts + 1):
             try:
-                self._place_orders(signal, symbol, price, position_size, stop_loss, take_profit)
+                self._place_orders(signal, symbol, position_size, stop_loss, take_profit)
                 logger.info(f"Order executed successfully for {symbol}")
                 return True
             except Exception as e:
@@ -179,7 +187,7 @@ Indicators: {trade.indicators}
 Respond with "REWARD" (good outcome) or "PUNISH" (bad outcome).
         """
         try:
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": "You are a trading performance evaluator."},
@@ -222,14 +230,24 @@ Respond with "REWARD" (good outcome) or "PUNISH" (bad outcome).
             available = balance['free'].get(quote, 0)
             ticker = self.exchange.fetch_ticker(symbol)
             usd_value = available * (account_percentage / 100)
+            # Calculate position size based on available USD value and ticker's last price
             position_size = usd_value / ticker['last']
-            position_size = self.exchange.amount_to_precision(symbol, position_size)
+            # Convert to the exchange's precision format
+            position_size = float(self.exchange.amount_to_precision(symbol, position_size))
+            
+            # Get minimum allowed volume and cost from the market limits
             min_amount = market['limits']['amount']['min']
             min_cost = market['limits'].get('cost', {}).get('min', 0)
-            if position_size < min_amount or (usd_value < min_cost and min_cost > 0):
-                logger.warning(f"Position size {position_size} or cost {usd_value} below minimum.")
-                return (0, 0)
-            return (float(position_size), usd_value)
+            
+            # Check if the calculated position size is below the exchange's minimum
+            if position_size < min_amount:
+                logger.warning(f"Calculated position size {position_size} is below the minimum allowed ({min_amount}) for {symbol}.")
+                return (0, usd_value)
+            # Also check if the total cost is below the minimum required cost
+            if usd_value < min_cost and min_cost > 0:
+                logger.warning(f"Calculated order cost {usd_value} is below the minimum required ({min_cost}) for {symbol}.")
+                return (0, usd_value)
+            return (position_size, usd_value)
         except Exception as e:
             logger.error(f"Error calculating order size for {symbol}: {e}")
             return (0, 0)

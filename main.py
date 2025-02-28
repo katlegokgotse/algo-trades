@@ -72,7 +72,7 @@ if __name__ == '__main__':
         exchange=exchange,  # Pass the ccxt exchange object directly
         symbol='SOL/ZAR',
         timeframe='4h',
-        position_size=0.01,
+        position_size=0.02,
         stop_loss_pct=2.0,
         take_profit_pct=3.5,
         max_trades=3,

@@ -10,7 +10,7 @@ def chatgpt_analyze_trade(trade_details):
               f"EMA 200: {trade_details['ema_200']}\nFibonacci Trend: {trade_details.get('fib_trend', 'N/A')}\n"
               "Based on these details, do you recommend executing this trade? Respond with 'GO' or 'HOLD'.")
     try:
-        response = openai.chat.completions.create(
+        response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "system", "content": "You are a trading analysis assistant."}, 
                       {"role": "user", "content": prompt}],
