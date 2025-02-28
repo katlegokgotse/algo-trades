@@ -12,7 +12,6 @@ import threading
 load_dotenv()
 
 # Set your OpenAI API key
-openai.api_key = os.getenv("CHAT_API")
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
@@ -72,7 +71,7 @@ if __name__ == '__main__':
     bot = TradingBot(
         exchange=exchange,  # Pass the ccxt exchange object directly
         symbol='SOLZAR',
-        timeframe='4h',
+        timeframe='15m',
         position_size=0.01,
         stop_loss_pct=2.0,
         take_profit_pct=3.5,

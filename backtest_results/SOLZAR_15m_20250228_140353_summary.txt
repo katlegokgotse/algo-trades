@@ -1,0 +1,29 @@
+===== BACKTEST RESULTS FOR SOLZAR 15m =====
+Date: 2025-02-28 14:03:53
+Strategy Parameters:
+  Position Size: 0.01
+  Stop Loss: 2.0%
+  Take Profit: 3.5%
+
+Performance Metrics:
+  Total Trades: 71
+  Wins: 19
+  Losses: 52
+  Open Trades: 3
+  Win Rate: 26.76
+  Loss Rate: 73.24
+  Profit Factor: 0.62
+  Total Profit Gross: 8.89
+  Total Loss: 14.35
+  Total Profit Net: -5.47
+  Avg Profit Per Win: 0.47
+  Avg Loss Per Loss: 0.28
+
+Risk Metrics:
+  Average Return Per Trade: -0.08
+  Risk-Reward Ratio: 1.68 (Higher is better)
+  Expectancy (Expected Return Per Trade): -0.08
+
+Trade Type Analysis:
+  Buy Trades: 28 (Win Rate: 14.29%)
+  Sell Trades: 43 (Win Rate: 34.88%)
