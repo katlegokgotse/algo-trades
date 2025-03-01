@@ -1,0 +1,29 @@
+===== BACKTEST RESULTS FOR BTC/ZAR 4h =====
+Date: 2025-03-01 13:07:25
+Strategy Parameters:
+  Position Size: 0.0001
+  Stop Loss: 2.0%
+  Take Profit: 3.5%
+
+Performance Metrics:
+  Total Trades: 66
+  Wins: 27
+  Losses: 39
+  Open Trades: 1
+  Win Rate: 40.91
+  Loss Rate: 59.09
+  Profit Factor: 1.14
+  Total Profit Gross: 112.85
+  Total Loss: 99.13
+  Total Profit Net: 13.72
+  Avg Profit Per Win: 4.18
+  Avg Loss Per Loss: 2.54
+
+Risk Metrics:
+  Average Return Per Trade: 0.21
+  Risk-Reward Ratio: 1.65 (Higher is better)
+  Expectancy (Expected Return Per Trade): 0.21
+
+Trade Type Analysis:
+  Buy Trades: 25 (Win Rate: 16.00%)
+  Sell Trades: 41 (Win Rate: 56.10%)

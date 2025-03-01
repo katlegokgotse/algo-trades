@@ -10929,3 +10929,87 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-02-28 16:58:47,516 - trading_bot - INFO - Trade data saved
 2025-02-28 16:58:55,254 - trading_bot - INFO - Performing graceful shutdown...
 2025-02-28 16:58:55,257 - trading_bot - INFO - Trade data saved
+2025-03-01 13:05:48,335 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-03-01 13:05:54,827 - trading_bot - ERROR - Selected pair XBT/ZAR is not available. Choose from: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-03-01 13:06:15,846 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-03-01 13:06:21,662 - trading_bot - ERROR - Selected pair XBT/ZAR is not available. Choose from: ['DOGE/BTC', 'DOGE/NGN', 'DOGE/ZAR', 'SAND/BTC', 'SAND/NGN', 'SAND/ZAR', 'GRT/BTC', 'GRT/NGN', 'GRT/ZAR', 'SNX/BTC', 'SNX/MYR', 'SNX/NGN', 'SNX/ZAR', 'TRX/BTC', 'TRX/NGN', 'TRX/ZAR', 'NEAR/BTC', 'NEAR/NGN', 'NEAR/ZAR', 'FTM/BTC', 'FTM/NGN', 'FTM/ZAR', 'XLM/BTC', 'XLM/MYR', 'XLM/NGN', 'XLM/ZAR', 'ALGO/BTC', 'ALGO/NGN', 'ALGO/ZAR', 'USDT/IDR', 'USDT/KES', 'USDT/NGN', 'USDT/ZAR', 'USDC/USDT', 'USDC/KES', 'USDC/NGN', 'USDC/ZAR', 'BCH/BTC', 'BCH/MYR', 'BCH/ZAR', 'LTC/BTC', 'LTC/MYR', 'LTC/NGN', 'LTC/ZAR', 'UNI/MYR', 'UNI/NGN', 'UNI/ZAR', 'LINK/MYR', 'LINK/NGN', 'LINK/ZAR', 'ADA/BTC', 'ADA/AUD', 'ADA/IDR', 'ADA/MYR', 'ADA/NGN', 'ADA/UGX', 'ADA/ZAR', 'AVAX/BTC', 'AVAX/AUD', 'AVAX/IDR', 'AVAX/MYR', 'AVAX/NGN', 'AVAX/UGX', 'AVAX/ZAR', 'MATIC/BTC', 'MATIC/AUD', 'MATIC/IDR', 'MATIC/MYR', 'MATIC/NGN', 'MATIC/UGX', 'MATIC/ZAR', 'DOT/BTC', 'DOT/IDR', 'DOT/MYR', 'DOT/NGN', 'DOT/ZAR', 'ATOM/BTC', 'ATOM/MYR', 'ATOM/NGN', 'ATOM/ZAR', 'CRV/BTC', 'CRV/MYR', 'CRV/NGN', 'CRV/ZAR', 'AAVE/BTC', 'AAVE/MYR', 'AAVE/NGN', 'AAVE/ZAR', 'MKR/BTC', 'MKR/MYR', 'MKR/NGN', 'MKR/ZAR', 'SOL/USDT', 'SOL/ADA', 'SOL/XRP', 'SOL/BTC', 'SOL/AUD', 'SOL/IDR', 'SOL/MYR', 'SOL/NGN', 'SOL/UGX', 'SOL/ZAR', 'XRP/USDT', 'XRP/BTC', 'XRP/MYR', 'XRP/NGN', 'XRP/ZAR', 'ETH/USDT', 'ETH/USDC', 'ETH/BTC', 'ETH/GBP', 'ETH/AUD', 'ETH/IDR', 'ETH/KES', 'ETH/MYR', 'ETH/NGN', 'ETH/ZAR', 'BTC/USDT', 'BTC/USDC', 'BTC/GBP', 'BTC/AUD', 'BTC/IDR', 'BTC/KES', 'BTC/MYR', 'BTC/NGN', 'BTC/UGX', 'BTC/ZAR']
+2025-03-01 13:07:16,102 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-03-01 13:07:20,175 - trading_bot - ERROR - Error loading trade data: Trade.__init__() got an unexpected keyword argument 'entry_time'
+2025-03-01 13:07:20,176 - trading_bot - INFO - Successfully initialized all components for BTC/ZAR trading bot
+2025-03-01 13:07:20,177 - trading_bot - INFO - Running backtest...
+2025-03-01 13:07:20,178 - trading_bot - INFO - Fetching up to 500 4h candles for BTC/ZAR
+2025-03-01 13:07:21,358 - trading_bot - INFO - Fetched 500 candles from 2024-12-08 00:00:00 to 2025-03-01 04:00:00
+2025-03-01 13:07:21,376 - trading_bot - INFO - Data saved to data\BTC_ZAR_4h_20250301_130721.csv
+2025-03-01 13:07:25,424 - trading_bot - INFO - Backtest results saved to backtest_results\BTC_ZAR_4h_20250301_130725_summary.txt and backtest_results\BTC_ZAR_4h_20250301_130725_trades.csv
+2025-03-01 13:07:25,426 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-03-01 13:07:25,427 - trading_bot - INFO - Starting trading bot loop...
+2025-03-01 13:07:25,428 - trading_bot - INFO - Fetching up to 500 4h candles for BTC/ZAR
+2025-03-01 13:07:26,221 - trading_bot - INFO - Fetched 500 candles from 2024-12-08 00:00:00 to 2025-03-01 04:00:00
+2025-03-01 13:07:26,234 - trading_bot - INFO - Data saved to data\BTC_ZAR_4h_20250301_130726.csv
+2025-03-01 13:07:30,955 - trading_bot - INFO - Latest candle close: 1610580.0 at 2025-03-01 04:00:00
+2025-03-01 13:07:31,681 - trading_bot - INFO - Trade details: Position size: 0.0001, Current price: 1609000.0, Total cost: 160.9
+2025-03-01 13:07:31,682 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-03-01 13:07:31,683 - trading_bot - WARNING - BALANCE CHECK FAILED - Insufficient balance for trade: Cost (160.9 ZAR) exceeds available balance (98.6 ZAR)
+2025-03-01 13:07:31,684 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-03-01 13:07:38,233 - trading_bot - INFO - Performing graceful shutdown...
+2025-03-01 13:07:38,236 - trading_bot - INFO - Trade data saved
+2025-03-01 13:07:41,819 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-03-01 13:07:41,821 - trading_bot - INFO - Shutdown complete.
+2025-03-01 13:07:53,883 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-03-01 13:07:59,382 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-03-01 13:07:59,383 - trading_bot - INFO - Successfully initialized all components for BTC/ZAR trading bot
+2025-03-01 13:07:59,384 - trading_bot - INFO - Running backtest...
+2025-03-01 13:07:59,384 - trading_bot - INFO - Fetching up to 500 4h candles for BTC/ZAR
+2025-03-01 13:08:00,638 - trading_bot - INFO - Fetched 500 candles from 2024-12-08 00:00:00 to 2025-03-01 04:00:00
+2025-03-01 13:08:00,656 - trading_bot - INFO - Data saved to data\BTC_ZAR_4h_20250301_130800.csv
+2025-03-01 13:08:04,698 - trading_bot - INFO - Backtest results saved to backtest_results\BTC_ZAR_4h_20250301_130804_summary.txt and backtest_results\BTC_ZAR_4h_20250301_130804_trades.csv
+2025-03-01 13:08:04,700 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-03-01 13:08:04,701 - trading_bot - INFO - Starting trading bot loop...
+2025-03-01 13:08:04,702 - trading_bot - INFO - Fetching up to 500 4h candles for BTC/ZAR
+2025-03-01 13:08:05,998 - trading_bot - INFO - Fetched 500 candles from 2024-12-08 00:00:00 to 2025-03-01 04:00:00
+2025-03-01 13:08:06,010 - trading_bot - INFO - Data saved to data\BTC_ZAR_4h_20250301_130805.csv
+2025-03-01 13:08:09,745 - trading_bot - INFO - Latest candle close: 1610580.0 at 2025-03-01 04:00:00
+2025-03-01 13:08:11,942 - trading_bot - INFO - Trade details: Position size: 1e-05, Current price: 1608998.0, Total cost: 16.08998
+2025-03-01 13:08:11,943 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-03-01 13:08:11,943 - trading_bot - INFO - BALANCE CHECK PASSED - Sufficient balance for trade
+2025-03-01 13:08:11,944 - trading_bot - INFO - SIGNAL DIAGNOSTICS for BTC/ZAR at 2025-03-01 04:00:00
+2025-03-01 13:08:11,945 - trading_bot - INFO - Latest price: 1610580.0
+2025-03-01 13:08:11,946 - trading_bot - INFO - Latest buy_signal: False, Prev buy_signal: False
+2025-03-01 13:08:11,946 - trading_bot - INFO - Latest sell_signal: True, Prev sell_signal: True
+2025-03-01 13:08:11,947 - trading_bot - INFO - Latest signal_strength: 2, Prev signal_strength: 1
+2025-03-01 13:08:11,947 - trading_bot - INFO - Buy strength score: 1/3, Sell strength score: 3/3
+2025-03-01 13:08:11,948 - trading_bot - INFO - Required buy strength: Latest & prev buy_signal=True, Latest & prev signal_strength>=1
+2025-03-01 13:08:11,949 - trading_bot - INFO - Required sell strength: Latest & prev sell_signal=True, Latest & prev signal_strength>=0
+2025-03-01 13:08:11,950 - trading_bot - INFO - Indicator values - RSI: 48.05, ADX: 50.52, MACD: -30430.45
+2025-03-01 13:08:11,951 - trading_bot - INFO - EMA values - EMA20: 1604162.22, EMA50: 1670245.32, EMA200: 1787380.25
+2025-03-01 13:08:11,951 - trading_bot - INFO - Fibonacci trend: downtrend
+2025-03-01 13:08:11,952 - trading_bot - INFO - SELL signal detected with strength 3/3
+2025-03-01 13:08:14,866 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-01 13:08:14,876 - trading_bot - INFO - ChatGPT response: GO
+2025-03-01 13:08:14,876 - trading_bot - ERROR - Position size 1e-05 is below the minimum allowed (0.0002) for BTC/ZAR
+2025-03-01 13:08:23,150 - trading_bot - INFO - Performing graceful shutdown...
+2025-03-01 13:08:23,153 - trading_bot - INFO - Trade data saved
+2025-03-01 13:08:25,562 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-03-01 13:08:25,564 - trading_bot - INFO - Shutdown complete.
+2025-03-01 13:08:43,717 - trading_bot - INFO - Starting HTTP server on port 8080
+2025-03-01 13:08:48,237 - trading_bot - INFO - Loaded 0 historical trades, 0 active trades
+2025-03-01 13:08:48,238 - trading_bot - INFO - Successfully initialized all components for BTC/ZAR trading bot
+2025-03-01 13:08:48,239 - trading_bot - INFO - Running backtest...
+2025-03-01 13:08:48,240 - trading_bot - INFO - Fetching up to 500 4h candles for BTC/ZAR
+2025-03-01 13:08:48,820 - trading_bot - INFO - Fetched 500 candles from 2024-12-08 00:00:00 to 2025-03-01 04:00:00
+2025-03-01 13:08:48,833 - trading_bot - INFO - Data saved to data\BTC_ZAR_4h_20250301_130848.csv
+2025-03-01 13:08:52,671 - trading_bot - INFO - Backtest results saved to backtest_results\BTC_ZAR_4h_20250301_130852_summary.txt and backtest_results\BTC_ZAR_4h_20250301_130852_trades.csv
+2025-03-01 13:08:52,672 - trading_bot - INFO - Backtest completed. Starting live trading...
+2025-03-01 13:08:52,672 - trading_bot - INFO - Starting trading bot loop...
+2025-03-01 13:08:52,674 - trading_bot - INFO - Fetching up to 500 4h candles for BTC/ZAR
+2025-03-01 13:08:53,245 - trading_bot - INFO - Fetched 500 candles from 2024-12-08 00:00:00 to 2025-03-01 04:00:00
+2025-03-01 13:08:53,257 - trading_bot - INFO - Data saved to data\BTC_ZAR_4h_20250301_130853.csv
+2025-03-01 13:08:57,109 - trading_bot - INFO - Latest candle close: 1610580.0 at 2025-03-01 04:00:00
+2025-03-01 13:08:57,818 - trading_bot - INFO - Trade details: Position size: 0.0002, Current price: 1609000.0, Total cost: 321.8
+2025-03-01 13:08:57,819 - trading_bot - INFO - Available ZAR balance: 98.6
+2025-03-01 13:08:57,820 - trading_bot - WARNING - BALANCE CHECK FAILED - Insufficient balance for trade: Cost (321.8 ZAR) exceeds available balance (98.6 ZAR)
+2025-03-01 13:08:57,820 - trading_bot - WARNING - Insufficient balance to execute trades
+2025-03-01 13:15:24,895 - trading_bot - INFO - Performing graceful shutdown...
+2025-03-01 13:15:24,899 - trading_bot - INFO - Trade data saved
+2025-03-01 13:15:31,178 - trading_bot - INFO - Trading bot shutting down with no open positions.
+2025-03-01 13:15:31,179 - trading_bot - INFO - Shutdown complete.
