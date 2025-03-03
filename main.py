@@ -71,7 +71,7 @@ if __name__ == '__main__':
     bot = TradingBot(
         exchange=exchange,  # Pass the ccxt exchange object directly
         symbol='BTC/ZAR',
-        timeframe='4h',
+        timeframe='1m',
         position_size=0.0002,
         stop_loss_pct=2.0,
         take_profit_pct=3.5,
